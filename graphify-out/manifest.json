@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "pyproject.toml": {
-    "mtime": 1785999268.2293055,
-    "ast_hash": "c9e4f5e9952ed540868daf099b3ec00c",
+    "mtime": 1786001405.7153292,
+    "ast_hash": "8f1f10be37c81fa3ae2b2f03cd8d90fd",
     "semantic_hash": ""
   },
   "tests/test_main.py": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1785999239.3028417,
-    "ast_hash": "70c99f08a7e573268773ba5a9e4c5008",
+    "mtime": 1786002549.1545818,
+    "ast_hash": "57d82cfef0d64941d4911ebece2b9045",
     "semantic_hash": ""
   },
   "SPEC.md": {
@@ -1485,8 +1485,8 @@
     "semantic_hash": ""
   },
   "dungeon_master/rules.py": {
-    "mtime": 1786001286.6711044,
-    "ast_hash": "3a076d9fe9e727cde90536a653087788",
+    "mtime": 1786010328.5013132,
+    "ast_hash": "495e423603c79b47b65c21b45c3da390",
     "semantic_hash": ""
   },
   "tests/test_combat.py": {
@@ -1500,8 +1500,8 @@
     "semantic_hash": ""
   },
   "tests/test_rules.py": {
-    "mtime": 1786001295.4411914,
-    "ast_hash": "c6597011eed972bc89131f1286268b91",
+    "mtime": 1786010342.2969944,
+    "ast_hash": "6709e0eea1ea3c48f02af3f88e638893",
     "semantic_hash": ""
   },
   ".hermes/skills/gstack/SKILL.md": {
@@ -1760,8 +1760,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1786001342.0616624,
-    "ast_hash": "9f744de054a3cab09b2aa9e45bf71797",
+    "mtime": 1786001380.967067,
+    "ast_hash": "c3c01137f20d366a7a7300292afe9e0a",
     "semantic_hash": ""
   },
   "BRD.md": {
@@ -1785,8 +1785,88 @@
     "semantic_hash": ""
   },
   "Scripts/LevelingEngine.cs": {
-    "mtime": 1786001273.7639775,
-    "ast_hash": "44d65020244f78e68dc2af0a76f2ff2a",
+    "mtime": 1786010323.4447153,
+    "ast_hash": "e57d7f3a1e3e3d3292d325d4b23947c6",
+    "semantic_hash": ""
+  },
+  "Scripts/BuilderController.cs": {
+    "mtime": 1786001763.4054477,
+    "ast_hash": "ba6a3166332b859e13c34198a83eb088",
+    "semantic_hash": ""
+  },
+  "Scripts/CrawlController.cs": {
+    "mtime": 1786001649.9250853,
+    "ast_hash": "a2ab87d153d9a865aa252ca9cc2f7417",
+    "semantic_hash": ""
+  },
+  "tests/test_grid.py": {
+    "mtime": 1786001664.422257,
+    "ast_hash": "8795a2f99263fda869279b2ab8e57783",
+    "semantic_hash": ""
+  },
+  "tests/test_progression.py": {
+    "mtime": 1786010352.5328357,
+    "ast_hash": "4746caf0f41b6aabf97c717a8aa088e3",
+    "semantic_hash": ""
+  },
+  "Scripts/DungeonResetCycle.cs": {
+    "mtime": 1786003920.6602855,
+    "ast_hash": "dcb06adcd8db89ec83bc85f85af5759a",
+    "semantic_hash": ""
+  },
+  "Scripts/InvaderAI.cs": {
+    "mtime": 1786003748.3145266,
+    "ast_hash": "579c9c016baebc37583fc01a5cf27365",
+    "semantic_hash": ""
+  },
+  "Scripts/PossessionManager.cs": {
+    "mtime": 1786003806.008792,
+    "ast_hash": "2c3bba08e74a7ec70b95b242c3e99855",
+    "semantic_hash": ""
+  },
+  "Scripts/GameManager.cs": {
+    "mtime": 1786012343.555981,
+    "ast_hash": "69a28fa28d74453f1685c936deca1bca",
+    "semantic_hash": ""
+  },
+  "Scripts/UI/BuilderHUD.cs": {
+    "mtime": 1786009391.1212049,
+    "ast_hash": "bd557e39653fd3fcda2b019fbbb23bb7",
+    "semantic_hash": ""
+  },
+  "Scripts/UI/CrawlHUD.cs": {
+    "mtime": 1786009538.8392684,
+    "ast_hash": "1c8f8efccd045647b998fbbac8b79c41",
+    "semantic_hash": ""
+  },
+  "Scripts/ItemDatabase.cs": {
+    "mtime": 1786012568.6001384,
+    "ast_hash": "392bb33553641dd35be4a55798a0a651",
+    "semantic_hash": ""
+  },
+  "data/items.json": {
+    "mtime": 1786012498.9217286,
+    "ast_hash": "244c76992dac7e134a520091c96cdda2",
+    "semantic_hash": ""
+  },
+  "Scripts/CrafterNPC.cs": {
+    "mtime": 1786011883.1307797,
+    "ast_hash": "9d2dae9efb65087d7d90aec71beb37b4",
+    "semantic_hash": ""
+  },
+  "Scripts/CraftingManager.cs": {
+    "mtime": 1786011887.4214344,
+    "ast_hash": "c8cbe23f583a7df3dd846c8f671fb979",
+    "semantic_hash": ""
+  },
+  "Scripts/MarketManager.cs": {
+    "mtime": 1786012184.9776206,
+    "ast_hash": "2b09dd89746b859e8e7c23c01c24e7dd",
+    "semantic_hash": ""
+  },
+  "Scripts/MonsterProductionManager.cs": {
+    "mtime": 1786011933.399773,
+    "ast_hash": "5908f9c745411413468a987d4cea9472",
     "semantic_hash": ""
   }
 }

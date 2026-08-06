@@ -1,16 +1,16 @@
 # Graph Report - dungeon_master  (2026-08-06)
 
 ## Corpus Check
-- 330 files · ~2,647,647 words
+- 350 files · ~2,667,595 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2351 nodes · 4534 edges · 206 communities (125 shown, 81 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.55)
+- 2814 nodes · 5385 edges · 231 communities (147 shown, 84 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 63 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `04621962`
+- Built from commit: `d56591e6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -82,6 +82,7 @@
 - xvfb.ts
 - security-audit-r2.test.ts
 - auth.ts
+- .handoff
 - resolveClaudeCommand
 - security-bunnative.ts
 - terminal-agent-control.ts
@@ -134,9 +135,11 @@
 - gstack-gbrain-mcp-verify
 - gstack-gbrain-supabase-verify
 - gstack-relink
+- CrawlHUD
 - cli-setsid-daemonize.test.ts
 - dual-listener.test.ts
 - learnings-injection.test.ts
+- security-classifier-download-cleanup.test.ts
 - security-sidepanel-dom.test.ts
 - server-auth.test.ts
 - sidepanel-restart-dispose.test.ts
@@ -211,20 +214,40 @@
 - server-tmp-state-path.test.ts
 - sidebar-ux.test.ts
 - state-ttl.test.ts
+- calculate_attribute
+- meta-commands.ts
+- cdp-bridge.ts
+- pty-session-lease.ts
+- main
+- AINarrator
+- server-embedder-terminal-port.test.ts
+- media-extract.ts
+- DungeonLord.csproj
+- sanitize.ts
+- tab-session.ts
+- dungeon-lord-tools
+- DungeonLord.Scripts
+- requireApiKey
+- memory.ts
+- tab-guardrail.test.ts
+- serve.ts
+- redactProxyUrl
 
 ## God Nodes (most connected - your core abstractions)
 1. `BrowserManager` - 98 edges
 2. `buildFetchHandler()` - 64 edges
-3. `handleWriteCommand()` - 40 edges
-4. `handleMetaCommand()` - 36 edges
-5. `handleReadCommand()` - 30 edges
-6. `handleCommandInternalImpl()` - 30 edges
-7. `mkdirSecure()` - 29 edges
-8. `TabSession` - 26 edges
-9. `BrowseClient` - 23 edges
-10. `LazyBrowseClient` - 22 edges
+3. `GameManager` - 60 edges
+4. `handleWriteCommand()` - 40 edges
+5. `BuilderController` - 40 edges
+6. `CrawlHUD` - 39 edges
+7. `handleMetaCommand()` - 36 edges
+8. `CrawlController` - 31 edges
+9. `handleReadCommand()` - 30 edges
+10. `handleCommandInternalImpl()` - 30 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `test_dungeon_lord_hp_scaling()` --calls--> `DungeonLord`  [EXTRACTED]
+  tests/test_rules.py → dungeon_master/models.py
 - `socks5NoAuthConnect()` --indirect_call--> `req()`  [INFERRED]
   .hermes/skills/gstack/browse/test/socks-bridge.test.ts → .hermes/skills/gstack/design/test/daemon-tests-fixtures.ts
 - `test_advantage_roll()` --calls--> `DiceEngine`  [EXTRACTED]
@@ -233,33 +256,35 @@
   tests/test_dice.py → dungeon_master/dice.py
 - `test_disadvantage_roll()` --calls--> `DiceEngine`  [EXTRACTED]
   tests/test_dice.py → dungeon_master/dice.py
-- `test_keep_highest_roll()` --calls--> `DiceEngine`  [EXTRACTED]
-  tests/test_dice.py → dungeon_master/dice.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (206 total, 81 thin omitted)
+## Communities (231 total, 84 thin omitted)
 
 ### Community 0 - "SPEC: Dungeon Master — AI-Powered TTRPG Assistant"
-Cohesion: 0.08
-Nodes (25): 0. Rules Foundation (Non-Negotiable), 1. Character System (Player-Facing), 2. Combat Engine (Turn-Based, Deterministic), 3. Spell System (Complete), 4. Exploration & Social (Structured), 5. Equipment & Economy, 6. Monster & Encounter Design, 7. World State (Persistence) (+17 more)
+Cohesion: 0.07
+Nodes (28): 10. Shared Growth Formula (Core Math), 11. Session Structure (v1 Scope), 1. Dual-Mode Architecture, 2. Dungeon Grid System (Single Source of Truth), 3. Essence Economy, 4. Dungeon Rank & Progression, 5. Monsters & Garrisons, 6. Invader Simulation (AI Parties) (+20 more)
 
 ### Community 1 - "main.py"
-Cohesion: 0.06
-Nodes (53): CombatManager, Turn-based Combat Manager enforcing turn structure and logging events., Starts combat, rolls initiative for all participants, orders turn queue., Executes an attack action for the entity whose turn it currently is., Advances combat turn pointer to next participant., DiceEngine, BaseModel, Deterministic Dice Engine for D&D 5e SRD rules.  Supports expressions like: - "1 (+45 more)
+Cohesion: 0.18
+Nodes (11): Turn-based Combat Manager enforcing turn structure and logging events., DiceEngine, BaseModel, Deterministic Dice Engine for D&D 5e SRD rules.  Supports expressions like: - "1, Roll dice according to standard notation or special modifiers., RollResult, test_advantage_roll(), test_deterministic_seed_replay() (+3 more)
 
 ### Community 2 - "Functional Requirements"
 Cohesion: 0.05
-Nodes (81): Board, boardExpiredHtml(), boardMutex, boards, BoardState, daemonStatus(), defaultDaemonScript(), ensureDaemon() (+73 more)
+Nodes (84): openBrowser(), publishToDaemon(), Board, boardExpiredHtml(), boardMutex, boards, BoardState, daemonStatus() (+76 more)
 
 ### Community 3 - "Dungeon Master"
-Cohesion: 0.50
-Nodes (3): Dungeon Master, Features, Setup
+Cohesion: 0.12
+Nodes (15): Architecture, Core Systems (Implemented in C#), Development Workflow, Dungeon Lord, Game Concept, Graphify (Knowledge Graph), Growth Formula (Config-Driven), Next Steps (+7 more)
+
+### Community 5 - "dungeon-master"
+Cohesion: 0.08
+Nodes (19): growth_multiplier(), Compounding growth formula tests for Dungeon Lord progression system. Formula: -, Higher tier monsters/rooms should cost more Essence., Calculate compounding growth multiplier for a given level., Test the shared compounding growth formula for Lord level and Dungeon rank., Level 1: base multiplier 1.0., Level 2: 1.0 * 1.01 = 1.01., Level 10: 8 levels at +1% (1.01^8), level 10 at +11% -> 120.19709%. (+11 more)
 
 ### Community 6 - "cookie-import-browser.ts"
 Cohesion: 0.06
-Nodes (56): BROWSER_REGISTRY, BrowserInfo, BrowserMatch, BrowserPlatform, CdpCookie, cdpSameSite(), CHROME_PATHS_WIN, chromiumEpochToUnix() (+48 more)
+Nodes (62): BROWSER_REGISTRY, BrowserInfo, BrowserMatch, BrowserPlatform, CdpCookie, cdpSameSite(), CHROME_PATHS_WIN, chromiumEpochToUnix() (+54 more)
 
 ### Community 7 - "BrowseClient"
 Cohesion: 0.06
@@ -274,56 +299,56 @@ Cohesion: 0.08
 Nodes (50): acquireDreamMarker(), acquireLock(), classifyDreamOutcome(), CliArgs, CodeStageDetail, constrainSourceId(), decideResume(), deriveCodeSourceId() (+42 more)
 
 ### Community 10 - "browser-skill-commands.ts"
-Cohesion: 0.08
-Nodes (45): BuildEnvOptions, buildSpawnEnv(), CappedRead, formatUsage(), handleList(), handleRm(), handleRun(), handleShow() (+37 more)
+Cohesion: 0.15
+Nodes (24): BuildEnvOptions, buildSpawnEnv(), CappedRead, formatUsage(), handleList(), handleRm(), handleRun(), handleShow() (+16 more)
 
 ### Community 12 - "Core QA Patterns"
 Cohesion: 0.04
 Nodes (48): 10. Compare environments, 11. Show screenshots to the user, 12. Render local HTML (no HTTP server needed), 13. Retina screenshots (deviceScaleFactor), 14. Offline render mode (rasterize your own HTML/JSON, zero network), 1. Verify a page loads correctly, 2. Test a user flow, 3. Verify an action worked (+40 more)
 
 ### Community 13 - "token-registry.ts"
-Cohesion: 0.09
-Nodes (41): readCapped(), spawnSkill(), DEFAULT_SKILL_SCOPES, generateSpawnId(), mintSkillToken(), MintSkillTokenOptions, revokeSkillToken(), skillClientId() (+33 more)
+Cohesion: 0.10
+Nodes (31): checkConnectRateLimit(), checkDomain(), checkRate(), checkRateLimit(), connectAttempts, createSetupKey(), createToken(), CreateTokenOptions (+23 more)
 
 ### Community 14 - "meta-commands.ts"
 Cohesion: 0.10
-Nodes (35): ALL_COMMANDS, allCmds, buildUnknownCommandError(), canonicalizeCommand(), COMMAND_ALIASES, COMMAND_DESCRIPTIONS, descKeys, DOM_CONTENT_COMMANDS (+27 more)
+Nodes (17): Func, IEnumerable, Node, RandomNumberGenerator, Dictionary, float, int, IReadOnlyList (+9 more)
 
 ### Community 15 - "server.ts"
-Cohesion: 0.07
-Nodes (39): AuditEntry, initAuditLog(), writeAuditEntry(), toUpstreamConfig(), BROWSE_PARENT_PID, BROWSE_PORT, browserManager, buildCommandResponse() (+31 more)
+Cohesion: 0.05
+Nodes (45): AuditEntry, initAuditLog(), writeAuditEntry(), BROWSE_PARENT_PID, BROWSE_PORT, browserManager, buildCommandResponse(), canDispatchOverTunnel() (+37 more)
 
 ### Community 16 - "domain-skill-commands.ts"
 Cohesion: 0.13
 Nodes (38): formatSavedOk(), formatSkillListing(), handleDomainSkillCommand(), handleEdit(), handleList(), handlePromoteToGlobal(), handleRm(), handleRollback() (+30 more)
 
 ### Community 17 - "write-commands.ts"
-Cohesion: 0.09
-Nodes (25): getModificationHistory(), chromiumNow(), hasV20Cookies(), importCookies(), listDomains(), openDb(), resolveBrowser(), generatePickerCode() (+17 more)
+Cohesion: 0.08
+Nodes (19): IReadOnlyCollection, Queue, Action, Dictionary, Vector3I, CrafterConfig, CrafterData, CrafterNPC (+11 more)
 
 ### Community 18 - "cli.ts"
-Cohesion: 0.14
-Nodes (29): acquireServerLock(), buildRestartEnv(), cleanChromiumProfileLocks(), cleanupLegacyState(), config, ensureServer(), extractTabId(), generateInstructionBlock() (+21 more)
+Cohesion: 0.13
+Nodes (32): acquireServerLock(), buildRestartEnv(), cleanChromiumProfileLocks(), cleanupLegacyState(), config, ensureServer(), extractTabId(), generateInstructionBlock() (+24 more)
 
 ### Community 19 - "security.ts"
 Cohesion: 0.10
-Nodes (32): AttemptRecord, ATTEMPTS_LOG, buildTelemetrySpawnCommand(), clearDecision(), CombineVerdictOpts, decisionFileForTab(), DecisionRecord, DECISIONS_DIR (+24 more)
+Nodes (31): AttemptRecord, ATTEMPTS_LOG, buildTelemetrySpawnCommand(), clearDecision(), CombineVerdictOpts, decisionFileForTab(), DecisionRecord, DECISIONS_DIR (+23 more)
 
 ### Community 20 - "cdp-bridge.ts"
 Cohesion: 0.10
-Nodes (25): CDP_ALLOWLIST, CDP_ALLOWLIST_INDEX, CdpAllowEntry, CdpOutput, CdpScope, isCdpMethodAllowed(), lookupCdpMethod(), NOTE: Tracing.start can capture cross-tab data depending on categories. (+17 more)
+Nodes (13): GarrisonState, LootState, bool, Dictionary, float, int, List, Vector3I (+5 more)
 
 ### Community 21 - "TabSession"
-Cohesion: 0.10
-Nodes (12): handleSnapshot(), INTERACTIVE_ROLES, ParsedNode, parseLine(), parseSnapshotArgs(), SNAPSHOT_FLAGS, SnapshotOptions, RefEntry (+4 more)
+Cohesion: 0.07
+Nodes (16): guardScreenshotBuffer(), guardScreenshotPath(), SCREENSHOT_MAX_DIMENSION_PX, SizeGuardResult, handleSnapshot(), INTERACTIVE_ROLES, ParsedNode, parseLine() (+8 more)
 
 ### Community 22 - "content-security.ts"
-Cohesion: 0.11
-Nodes (28): ARIA_INJECTION_PATTERNS, BLOCKLIST_DOMAINS, cleanupHiddenMarkers(), clearContentFilters(), ContentFilter, ContentFilterResult, datamarkContent(), ensureMarker() (+20 more)
+Cohesion: 0.19
+Nodes (16): build_tile(), BuildTileRequest, defeat_invader(), InvaderDefeatRequest, BaseModel, FastAPI REST API for Dungeon Lord Hybrid Management & Grid-Crawler Engine., DungeonLord, DungeonRank (+8 more)
 
 ### Community 23 - "server-embedder-terminal-port.test.ts"
-Cohesion: 0.08
-Nodes (18): resolveConfig(), MetaCommandOpts, canDispatchOverTunnel(), __resetShuttingDown(), ServerConfig, ServerHandle, Surface, __testInternals__ (+10 more)
+Cohesion: 0.16
+Nodes (10): Action, Dictionary, int, List, Vector3I, MonsterProductionManager, ProductionJob, ProductionRecipe (+2 more)
 
 ### Community 24 - "security-classifier.ts"
 Cohesion: 0.12
@@ -331,43 +356,43 @@ Nodes (25): ClassifierStatus, DEBERTA_DIR, DEBERTA_FILES, downloadFile(), ensure
 
 ### Community 25 - "terminal-agent.ts"
 Cohesion: 0.10
-Nodes (23): appendToRingBuffer(), BROWSE_SERVER_PORT, buildReplayPayload(), buildServer(), buildTabAwarenessHint(), checkInternalAuth(), CURRENT_GEN, DETACH_WINDOW_MS (+15 more)
+Nodes (25): appendToRingBuffer(), BROWSE_SERVER_PORT, buildReplayPayload(), buildServer(), buildTabAwarenessHint(), checkInternalAuth(), CURRENT_GEN, DETACH_WINDOW_MS (+17 more)
 
 ### Community 26 - "BRD: Dungeon Master — AI-Powered TTRPG Game Engine"
-Cohesion: 0.08
-Nodes (25): 0. Rules Foundation (Non-Negotiable), 1. Character System (Player-Facing), 2. Combat Engine (Turn-Based, Deterministic), 3. Spell System (Complete), 4. Exploration & Social (Structured), 5. Equipment & Economy, 6. Monster & Encounter Design, 7. World State (Persistence) (+17 more)
+Cohesion: 0.14
+Nodes (13): 1. Executive Summary, 2. Core Pillars & Design Influences, 3.1 Dungeon Lord (Player Character), 3.2 Builder Mode (Top-Down / Isometric), 3.3 Crawl Mode (First-Person Grid Crawler), 3.4 Possession Mode (Secondary Ability), 3. Player Roles & Modes, 4.1 Shared Growth Formula (+5 more)
 
 ### Community 27 - "SKILL.md"
 Cohesion: 0.08
 Nodes (25): 1. Initialize Analysis Context, 2. Load Artifacts (Progressive Disclosure), 3. Build Semantic Models, 4. Detection Passes (Token-Efficient Analysis), 5. Severity Assignment, 6. Produce Compact Analysis Report, 7. Provide Next Actions, 8. Offer Remediation (+17 more)
 
 ### Community 28 - "buildFetchHandler"
-Cohesion: 0.13
-Nodes (23): Lease, LEASE_TTL_MS, leaseCount(), leases, mintLease(), pruneExpired(), refreshLease(), __resetLeases() (+15 more)
+Cohesion: 0.29
+Nodes (10): Lease, LEASE_TTL_MS, leaseCount(), leases, mintLease(), pruneExpired(), refreshLease(), __resetLeases() (+2 more)
 
 ### Community 29 - "mkdirSecure"
-Cohesion: 0.17
-Nodes (19): appendSecureFile(), mkdirSecure(), __resetWarnedForTests(), restrictDirectoryPermissions(), restrictFilePermissions(), warnIcaclsFailure(), writeSecureFile(), getDeviceSalt() (+11 more)
+Cohesion: 0.18
+Nodes (17): appendSecureFile(), mkdirSecure(), __resetWarnedForTests(), restrictDirectoryPermissions(), restrictFilePermissions(), warnIcaclsFailure(), writeSecureFile(), getDeviceSalt() (+9 more)
 
 ### Community 30 - "buffers.ts"
-Cohesion: 0.11
-Nodes (10): addConsoleEntry(), addDialogEntry(), addNetworkEntry(), CircularBuffer, DialogEntry, LogEntry, networkBuffer, NetworkEntry (+2 more)
+Cohesion: 0.16
+Nodes (11): monsterId, position, bool, Dictionary, Direction, float, List, string (+3 more)
 
 ### Community 31 - "read-commands.ts"
-Cohesion: 0.13
-Nodes (19): consoleBuffer, dialogBuffer, formatInspectorResult(), AudioInfo, BackgroundImageInfo, ImageInfo, MediaResult, VideoInfo (+11 more)
+Cohesion: 0.38
+Nodes (3): compare(), CompareOptions, generateCompareHtml()
 
 ### Community 32 - "cdp-inspector.ts"
-Cohesion: 0.15
-Nodes (18): getOrCreateCdpSession(), cdpSessions, compareSpecificity(), computeSpecificity(), detachSession(), getOrCreateSession(), initializedPages, inspectElement() (+10 more)
+Cohesion: 0.14
+Nodes (15): cdpSessions, compareSpecificity(), computeSpecificity(), detachSession(), getOrCreateSession(), initializedPages, inspectElement(), InspectorResult (+7 more)
 
 ### Community 33 - "socks-bridge.ts"
-Cohesion: 0.14
-Nodes (13): RFC-1929, BridgeHandle, buildUpstream(), parseConnectRequest(), startSocksBridge(), testUpstream(), UpstreamConfig, UpstreamTestOpts (+5 more)
+Cohesion: 0.16
+Nodes (11): RFC-1929, buildUpstream(), parseConnectRequest(), startSocksBridge(), testUpstream(), UpstreamTestOpts, writeReply(), MockUpstream (+3 more)
 
 ### Community 34 - "browser-manager.ts"
-Cohesion: 0.17
-Nodes (13): BrowserState, handleChromiumDisconnect(), isCustomChromium(), resolveDisconnectCause(), shouldEnableChromiumSandbox(), withCdpSession(), MemoryProcess, MemorySnapshot (+5 more)
+Cohesion: 0.16
+Nodes (13): handleChromiumDisconnect(), isCustomChromium(), resolveDisconnectCause(), shouldEnableChromiumSandbox(), addConsoleEntry(), addDialogEntry(), addNetworkEntry(), DialogEntry (+5 more)
 
 ### Community 35 - "Coordinated Workflow — How Skills Complement Each Other"
 Cohesion: 0.11
@@ -378,8 +403,8 @@ Cohesion: 0.23
 Nodes (18): capBody(), CliArgs, defaultManifest(), dispatchFilesystem(), dispatchList(), dispatchVector(), gbrainAvailable(), HOME (+10 more)
 
 ### Community 37 - "activity.ts"
-Cohesion: 0.16
-Nodes (13): activityBuffer, ActivityEntry, ActivitySubscriber, emitActivity(), filterArgs(), getActivityAfter(), getActivityHistory(), SENSITIVE_COMMANDS (+5 more)
+Cohesion: 0.22
+Nodes (10): activityBuffer, ActivityEntry, ActivitySubscriber, emitActivity(), filterArgs(), getActivityAfter(), getActivityHistory(), SENSITIVE_COMMANDS (+2 more)
 
 ### Community 38 - "network-capture.ts"
 Cohesion: 0.13
@@ -387,15 +412,15 @@ Nodes (7): captureBuffer, CapturedResponse, clearCapture(), createResponseListen
 
 ### Community 39 - "security-bench-ensemble.test.ts"
 Cohesion: 0.15
-Nodes (14): checkCanaryInStructure(), classifyTranscript(), combineVerdict(), generateCanary(), LayerSignal, THRESHOLDS, REPO_ROOT, Fixture (+6 more)
+Nodes (13): checkCanaryInStructure(), classifyTranscript(), combineVerdict(), LayerSignal, THRESHOLDS, REPO_ROOT, Fixture, FIXTURE_PATH (+5 more)
 
 ### Community 40 - "gstack-gbrain-supabase-provision"
 Cohesion: 0.39
 Nodes (17): gstack-gbrain-supabase-provision script, api_call(), cmd_create(), cmd_delete_project(), cmd_list_orgs(), cmd_list_orphans(), cmd_pooler_url(), cmd_wait() (+9 more)
 
 ### Community 41 - "cli.ts"
-Cohesion: 0.22
-Nodes (14): main(), openBrowser(), parseArgs(), printUsage(), publishToDaemon(), resolveImagePaths(), COMMANDS, publishBoard() (+6 more)
+Cohesion: 0.25
+Nodes (12): checkCommand(), main(), parseArgs(), printUsage(), resolveImagePaths(), COMMANDS, diffMockups(), DiffResult (+4 more)
 
 ### Community 42 - "variants.ts"
 Cohesion: 0.17
@@ -414,8 +439,8 @@ Cohesion: 0.27
 Nodes (10): applyStealth(), buildGStackLaunchArgs(), buildStealthScript(), extendedModeEnabled(), HostProfile, isExtendedStealthEnabled(), readHostProfile(), STEALTH_IGNORE_DEFAULT_ARGS (+2 more)
 
 ### Community 46 - "compare-board.test.ts"
-Cohesion: 0.17
-Nodes (5): handleReadCommand(), handleWriteCommand(), compare(), CompareOptions, generateCompareHtml()
+Cohesion: 0.24
+Nodes (12): collectArgsList(), collectStringList(), detectBundledRoot(), detectProjectRoot(), findNextNonBlank(), parseFrontmatterFields(), parseScalar(), RawFrontmatter (+4 more)
 
 ### Community 47 - "cookie-import-browser.test.ts"
 Cohesion: 0.19
@@ -438,8 +463,8 @@ Cohesion: 0.42
 Nodes (12): gstack-gbrain-source-wireup script, check_source_state(), die(), do_probe(), do_uninstall(), do_wireup(), ensure_worktree(), gbrain_version_ok() (+4 more)
 
 ### Community 52 - "config.ts"
-Cohesion: 0.27
-Nodes (12): resolveNodeServerScript(), resolveServerScript(), BrowseConfig, cleanSingletonLocks(), ensureStateDir(), getGitRoot(), getRemoteSlug(), readVersionHash() (+4 more)
+Cohesion: 0.14
+Nodes (15): resolveServerScript(), BrowseConfig, cleanSingletonLocks(), getGitRoot(), getRemoteSlug(), readVersionHash(), resolveChromiumProfile(), resolveConfig() (+7 more)
 
 ### Community 53 - "pty-session-cookie.ts"
 Cohesion: 0.24
@@ -458,20 +483,20 @@ Cohesion: 0.38
 Nodes (12): gstack-developer-profile script, do_check_mismatch(), do_derive(), do_gap(), do_log_session(), do_migrate(), do_narrative(), do_profile() (+4 more)
 
 ### Community 57 - "proxy-config.ts"
-Cohesion: 0.26
-Nodes (8): extractGlobalFlags(), canonicalizeProxyUrl(), computeConfigHash(), ParsedProxyConfig, parseProxyConfig(), ProxyConfigError, redactProxyUrl(), redactUpstream()
+Cohesion: 0.05
+Nodes (17): BuilderHUD, CrawlHUD, GameMode, EssenceManager, bool, Dictionary, Direction, float (+9 more)
 
 ### Community 58 - "sse-session-cookie.ts"
-Cohesion: 0.26
-Nodes (10): buildSseClearCookie(), buildSseSetCookie(), extractSseCookie(), mintSseSessionToken(), pruneExpired(), __resetSseSessions(), Session, sessions (+2 more)
+Cohesion: 0.13
+Nodes (23): buildFetchHandler(), closeTunnel(), emitInspectorEvent(), extractToken(), getTokenInfo(), grantPtyToken(), isRootRequest(), readTerminalInternalToken() (+15 more)
 
 ### Community 59 - "iterate.ts"
-Cohesion: 0.28
-Nodes (11): buildAccumulatedPrompt(), callFresh(), callWithThreading(), iterate(), IterateOptions, createSession(), createSessionId(), DesignSession (+3 more)
+Cohesion: 0.12
+Nodes (20): a_star(), Grid3D, Grid system and pathfinding tests for Dungeon Lord. Grid is 3D: (x, y, floor) wi, Simple 3D grid for testing., Test A* pathfinding on dungeon grid., Path along a straight corridor., Path should go around non-walkable cells., Path between floors via stairs. (+12 more)
 
 ### Community 60 - "url-validation.ts"
-Cohesion: 0.36
-Nodes (9): RFC-3986, BLOCKED_IPV6_PREFIXES, BLOCKED_METADATA_HOSTS, isBlockedIpv6(), isMetadataIp(), normalizeFileUrl(), normalizeHostname(), resolvesToBlockedIp() (+1 more)
+Cohesion: 0.09
+Nodes (31): ARIA_INJECTION_PATTERNS, BLOCKLIST_DOMAINS, cleanupHiddenMarkers(), clearContentFilters(), ContentFilter, ContentFilterResult, datamarkContent(), ensureMarker() (+23 more)
 
 ### Community 61 - "gstack-brain-sync"
 Cohesion: 0.30
@@ -482,20 +507,24 @@ Cohesion: 0.17
 Nodes (11): 1. Auto-enable cursor-interactive scan with `-i` flag, 2. Add popover/portal priority scanning, 3. Remove the `hasRole` skip in cursor-interactive scan, 4. Add dropdown test fixture and tests, Changes, Files Changed, Plan: Snapshot Dropdown/Autocomplete Interactive Element Detection, Problem (+3 more)
 
 ### Community 63 - "sanitize.ts"
-Cohesion: 0.23
-Nodes (6): sanitizeBody(), stripLoneSurrogateEscapes(), createSseEndpoint(), sanitizeReplacer(), SseEndpointConfig, SseSender
+Cohesion: 0.08
+Nodes (20): DateTime, acquire_lock(), child_run(), _git(), log_line(), main(), _now(), Machine-wide advisory lock via fcntl (portable on macOS + Linux). Blocks     unt (+12 more)
 
 ### Community 64 - "xvfb.ts"
-Cohesion: 0.38
-Nodes (10): cleanupXvfb(), isDisplayFree(), isOurXvfb(), pickFreeDisplay(), readPidCmdline(), readPidStartTime(), ShouldSpawnDecision, shouldSpawnXvfb() (+2 more)
+Cohesion: 0.27
+Nodes (14): resolveNgrokAuthtoken(), start(), tmpStatePath(), cleanupXvfb(), isDisplayFree(), isOurXvfb(), pickFreeDisplay(), readPidCmdline() (+6 more)
 
 ### Community 65 - "security-audit-r2.test.ts"
 Cohesion: 0.17
 Nodes (9): AGENT_SRC, BROWSER_MANAGER_SRC, CDP_SRC, EXTENSION_SRC, META_SRC, PATH_SECURITY_SRC, SERVER_SRC, SNAPSHOT_SRC (+1 more)
 
 ### Community 66 - "auth.ts"
-Cohesion: 0.32
-Nodes (10): ApiKeyResolution, ApiKeySource, configPath(), describeApiKeySource(), matchingCwdEnvFile(), readEnvValue(), resolveApiKey(), resolveApiKeyInfo() (+2 more)
+Cohesion: 0.30
+Nodes (9): SkillCommandContext, commitSkill(), CommitSkillOptions, discardStaged(), generateSpawnId(), stageSkill(), StageSkillOptions, validateSkillName() (+1 more)
+
+### Community 67 - ".handoff"
+Cohesion: 0.38
+Nodes (9): getSubscriberCount(), getModificationHistoryStats(), buildMemorySnapshotJson(), collectStructureStats(), formatSnapshotText(), handleMemoryCommand(), formatBytes(), getCaptureBuffer() (+1 more)
 
 ### Community 68 - "resolveClaudeCommand"
 Cohesion: 0.31
@@ -506,24 +535,24 @@ Cohesion: 0.27
 Nodes (10): benchClassify(), classify(), ClassifyResult, encodeWordPiece(), getCachedTokenizer(), HFTokenizerConfig, LatencyReport, loadHFTokenizer() (+2 more)
 
 ### Community 70 - "terminal-agent-control.ts"
-Cohesion: 0.38
-Nodes (8): AgentRecord, agentRecordPath(), clearAgentRecord(), killAgentByRecord(), readAgentRecord(), resolveTerminalAgentScript(), spawnTerminalAgent(), SRC_DIR
+Cohesion: 0.36
+Nodes (9): AgentRecord, agentRecordPath(), clearAgentRecord(), killAgentByRecord(), readAgentRecord(), resolveTerminalAgentScript(), spawnTerminalAgent(), writeAgentRecord() (+1 more)
 
 ### Community 71 - "gstack-gbrain-repo-policy"
 Cohesion: 0.51
 Nodes (9): gstack-gbrain-repo-policy script, cmd_get(), cmd_list(), cmd_normalize(), cmd_set(), die(), ensure_file(), normalize() (+1 more)
 
 ### Community 72 - "memory-command.ts"
-Cohesion: 0.38
-Nodes (9): getSubscriberCount(), getModificationHistoryStats(), buildMemorySnapshotJson(), collectStructureStats(), formatSnapshotText(), handleMemoryCommand(), formatBytes(), getCaptureBuffer() (+1 more)
+Cohesion: 0.29
+Nodes (8): extractGlobalFlags(), canonicalizeProxyUrl(), computeConfigHash(), ParsedProxyConfig, parseProxyConfig(), ProxyConfigError, toUpstreamConfig(), UpstreamConfig
 
 ### Community 73 - "requireApiKey"
-Cohesion: 0.36
-Nodes (8): requireApiKey(), checkCommand(), checkMockup(), CheckResult, callImageGeneration(), generate(), GenerateOptions, GenerateResult
+Cohesion: 0.31
+Nodes (9): buildAccumulatedPrompt(), callFresh(), callWithThreading(), iterate(), IterateOptions, createSessionId(), DesignSession, readSession() (+1 more)
 
 ### Community 74 - "memory.ts"
-Cohesion: 0.29
-Nodes (8): DesignToCodeResult, generateDesignToCodePrompt(), defaultDesign(), extractDesignLanguage(), ExtractedDesign, formatExtractedSection(), readDesignConstraints(), updateDesignMd()
+Cohesion: 0.11
+Nodes (12): BuildTool, InputEvent, InputEventKey, MeshInstance3D, bool, Camera3D, int, string (+4 more)
 
 ### Community 75 - "graphify Setup for Hermes Projects"
 Cohesion: 0.20
@@ -534,8 +563,8 @@ Cohesion: 0.20
 Nodes (9): Common Mistake (Anti-Pattern), Context, gstack Skill Integration, gstack Validation Sprint Pattern, Kill Criteria (any = stop), Pattern, Sprint Artifacts, Sprint Structure (30 days) (+1 more)
 
 ### Community 77 - "gstack-detach"
-Cohesion: 0.50
-Nodes (8): acquire_lock(), child_run(), _git(), log_line(), main(), _now(), Machine-wide advisory lock via fcntl (portable on macOS + Linux). Blocks     unt, run_scoped_log()
+Cohesion: 0.32
+Nodes (10): ApiKeyResolution, ApiKeySource, configPath(), describeApiKeySource(), matchingCwdEnvFile(), readEnvValue(), resolveApiKey(), resolveApiKeyInfo() (+2 more)
 
 ### Community 78 - "pair-agent-tunnel-eval.test.ts"
 Cohesion: 0.28
@@ -638,8 +667,8 @@ Cohesion: 0.40
 Nodes (4): HTML, JS, MANIFEST, TERM_JS
 
 ### Community 108 - "serve.ts"
-Cohesion: 0.50
-Nodes (4): openBrowser(), serve(), ServeOptions, ServerState
+Cohesion: 0.12
+Nodes (25): RFC-3986, BrowserState, withCdpSession(), modifyStyle(), undoModification(), generatePickerCode(), SAFE_DIRECTORIES, TEMP_ONLY (+17 more)
 
 ### Community 109 - "ponytail-audit.md"
 Cohesion: 0.40
@@ -685,9 +714,17 @@ Nodes (3): gstack-gbrain-supabase-verify script, die(), reject_direct()
 Cohesion: 0.83
 Nodes (3): gstack-relink script, _cleanup_skill_entry(), _link_root_skill_alias()
 
+### Community 120 - "CrawlHUD"
+Cohesion: 0.07
+Nodes (19): Button, Control, DungeonLord.Scripts.UI, Label, PanelContainer, ProgressBar, CrawlController, Direction (+11 more)
+
 ### Community 123 - "learnings-injection.test.ts"
 Cohesion: 0.50
 Nodes (3): BIN_DIR, SCRIPT, SCRIPT_PATH
+
+### Community 124 - "security-classifier-download-cleanup.test.ts"
+Cohesion: 0.20
+Nodes (9): Character, CombatState, CombatManager, CombatLogEntry, Starts combat, rolls initiative for all participants, orders turn queue., Executes an attack action for the entity whose turn it currently is., Advances combat turn pointer to next participant., InitiativeEntry (+1 more)
 
 ### Community 132 - "prototype.ts"
 Cohesion: 0.67
@@ -701,25 +738,81 @@ Nodes (3): Boundaries, Output, Scan
 Cohesion: 0.50
 Nodes (3): Outline, Pre-Execution Checks, User Input
 
+### Community 206 - "calculate_attribute"
+Cohesion: 0.21
+Nodes (10): calculate_attribute(), calculate_invader_essence_reward(), Core game rules and compounding leveling formula for Dungeon Lord., Calculates Essence yield upon defeating an invader party., Compounding percentage-based growth formula for Dungeon Lord and Dungeon Rank:, test_dungeon_lord_hp_scaling(), test_invader_essence_reward(), test_level_10_attribute() (+2 more)
+
+### Community 207 - "meta-commands.ts"
+Cohesion: 0.10
+Nodes (32): ALL_COMMANDS, allCmds, buildUnknownCommandError(), canonicalizeCommand(), COMMAND_ALIASES, COMMAND_DESCRIPTIONS, descKeys, DOM_CONTENT_COMMANDS (+24 more)
+
+### Community 208 - "cdp-bridge.ts"
+Cohesion: 0.10
+Nodes (26): CDP_ALLOWLIST, CDP_ALLOWLIST_INDEX, CdpAllowEntry, CdpOutput, CdpScope, isCdpMethodAllowed(), lookupCdpMethod(), NOTE: Tracing.start can capture cross-tab data depending on categories. (+18 more)
+
+### Community 209 - "pty-session-lease.ts"
+Cohesion: 0.15
+Nodes (10): CharacterBody3D, Node3D, bool, Camera3D, Direction, string, Vector3, Vector3I (+2 more)
+
+### Community 210 - "main"
+Cohesion: 0.32
+Nodes (10): readCapped(), spawnSkill(), DEFAULT_SKILL_SCOPES, generateSpawnId(), mintSkillToken(), MintSkillTokenOptions, revokeSkillToken(), skillClientId() (+2 more)
+
+### Community 211 - "AINarrator"
+Cohesion: 0.25
+Nodes (5): AINarrator, CombatLogEntry, AI Narrator Bridge.  Adheres strictly to the prompt contract in SPEC.md: The AI, Constructs strict AI DM prompt contract., Generates immersive narration for a combat log entry.          Provides a clean
+
+### Community 212 - "server-embedder-terminal-port.test.ts"
+Cohesion: 0.29
+Nodes (7): MemoryProcess, MemorySnapshot, MemoryStructureStats, MemoryTabSnapshot, makeFakeBm(), makeSnapshot(), makeStructureStats()
+
+### Community 213 - "media-extract.ts"
+Cohesion: 0.25
+Nodes (6): AudioInfo, BackgroundImageInfo, ImageInfo, MediaResult, VideoInfo, VideoSource
+
+### Community 221 - "sanitize.ts"
+Cohesion: 0.09
+Nodes (27): consoleBuffer, dialogBuffer, formatInspectorResult(), getModificationHistory(), assertJsOriginAllowed(), getCleanText(), handleReadCommand(), hasAwait() (+19 more)
+
+### Community 225 - "DungeonLord.Scripts"
+Cohesion: 0.24
+Nodes (7): DungeonLord.Scripts, BuildTool, Direction, List, DungeonGrid, DungeonTile, TileType
+
+### Community 226 - "requireApiKey"
+Cohesion: 0.35
+Nodes (9): requireApiKey(), checkMockup(), CheckResult, callImageGeneration(), generate(), GenerateOptions, GenerateResult, createSession() (+1 more)
+
+### Community 227 - "memory.ts"
+Cohesion: 0.29
+Nodes (8): DesignToCodeResult, generateDesignToCodePrompt(), defaultDesign(), extractDesignLanguage(), ExtractedDesign, formatExtractedSection(), readDesignConstraints(), updateDesignMd()
+
+### Community 228 - "tab-guardrail.test.ts"
+Cohesion: 0.50
+Nodes (3): subscribe(), CapturedEntry, captureGuardrailEntries()
+
+### Community 229 - "serve.ts"
+Cohesion: 0.50
+Nodes (4): openBrowser(), serve(), ServeOptions, ServerState
+
 ## Knowledge Gaps
-- **663 isolated node(s):** `CliArgs`, `QueryResult`, `HOME`, `gstack-gbrain-lib.sh script`, `Mode` (+658 more)
+- **672 isolated node(s):** `CliArgs`, `QueryResult`, `HOME`, `gstack-gbrain-lib.sh script`, `Mode` (+667 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **81 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **84 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `BrowserManager` connect `BrowserManager` to `cookie-import-browser.ts`, `gstack-gbrain-sync.ts`, `meta-commands.ts`, `server.ts`, `domain-skill-commands.ts`, `write-commands.ts`, `cli.ts`, `cdp-bridge.ts`, `TabSession`, `content-security.ts`, `server-embedder-terminal-port.test.ts`, `mkdirSecure`, `buffers.ts`, `read-commands.ts`, `browser-manager.ts`, `activity.ts`, `compare-board.test.ts`, `.handoff`, `memory-command.ts`, `file-drop.test.ts`, `cdp-mutex.test.ts`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
-- **Why does `buildFetchHandler()` connect `buildFetchHandler` to `Functional Requirements`, `cookie-import-browser.ts`, `token-registry.ts`, `meta-commands.ts`, `server.ts`, `write-commands.ts`, `cli.ts`, `server-embedder-terminal-port.test.ts`, `mkdirSecure`, `buffers.ts`, `cdp-inspector.ts`, `activity.ts`, `security-sidecar-client.ts`, `config.ts`, `pty-session-cookie.ts`, `sse-session-cookie.ts`, `sanitize.ts`, `terminal-agent-control.ts`, `memory-command.ts`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `req()` connect `Functional Requirements` to `security-classifier.ts`, `socks-bridge.ts`, `buildFetchHandler`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `BrowserManager` connect `BrowserManager` to `cookie-import-browser.ts`, `server.ts`, `domain-skill-commands.ts`, `cli.ts`, `TabSession`, `browser-manager.ts`, `activity.ts`, `config.ts`, `url-validation.ts`, `.handoff`, `meta-commands.ts`, `cdp-bridge.ts`, `server-embedder-terminal-port.test.ts`, `security-review-flow.test.ts`, `.getActiveSession`, `cdp-mutex.test.ts`, `.getPage`, `sanitize.ts`, `file-drop.test.ts`, `tab-guardrail.test.ts`, `serve.ts`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `repoRoot()` connect `gstack-gbrain-sync.ts` to `security-review-flow.test.ts`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `buildFetchHandler()` connect `sse-session-cookie.ts` to `Functional Requirements`, `cookie-import-browser.ts`, `token-registry.ts`, `server.ts`, `cli.ts`, `buildFetchHandler`, `mkdirSecure`, `cdp-inspector.ts`, `activity.ts`, `security-sidecar-client.ts`, `config.ts`, `pty-session-cookie.ts`, `xvfb.ts`, `.handoff`, `terminal-agent-control.ts`, `main`, `sanitize.ts`, `tab-session.ts`, `tab-guardrail.test.ts`, `serve.ts`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `buildFetchHandler()` (e.g. with `subscribe()` and `.totalAdded()`) actually correct?**
   _`buildFetchHandler()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `CliArgs`, `QueryResult`, `HOME` to the rest of the system?**
-  _663 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _672 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `SPEC: Dungeon Master — AI-Powered TTRPG Assistant` be split into smaller, more focused modules?**
-  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
-- **Should `main.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.06464883925947693 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
+- **Should `Functional Requirements` be split into smaller, more focused modules?**
+  _Cohesion score 0.05274725274725275 - nodes in this community are weakly interconnected._

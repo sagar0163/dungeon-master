@@ -1,28 +1,26 @@
-"""Core game rules and shared leveling formula for Dungeon Lord."""
-
-def calculate_milestone_bonus(level: int) -> float:
-    """Calculates milestone percentage bonus.
-    - Every 10th level: +10%
-    - Every 25th level: +25% (replaces 10-level milestone on shared levels e.g. 50, 75)
-    """
-    bonus = 0.0
-    for lvl in range(1, level + 1):
-        if lvl % 25 == 0:
-            bonus += 0.25
-        elif lvl % 10 == 0:
-            bonus += 0.10
-    return bonus
-
+"""Core game rules and compounding leveling formula for Dungeon Lord."""
 
 def calculate_attribute(base_value: float, level: int) -> float:
-    """Shared percentage-based growth formula for Dungeon Lord and Dungeon Rank:
-    attribute = base * (1 + 0.01 * (level - 1) + milestone_bonus(level))
+    """Compounding percentage-based growth formula for Dungeon Lord and Dungeon Rank:
+    - Next level's base is the previous level's calculated value.
+    - Standard level-up: +1% growth.
+    - 10th-level milestone: +10% bonus added to the +1% (total +11% on milestone 10, 20, 30, etc.).
+    - 25th-level milestone: +25% bonus added to the +1% (total +26% on milestone 25, 50, 75, etc., replacing 10th bonus).
+    - Milestone bonuses apply only on that specific level step.
     """
     if level <= 1:
         return base_value
-    linear_factor = 0.01 * (level - 1)
-    milestone_bonus = calculate_milestone_bonus(level)
-    return base_value * (1.0 + linear_factor + milestone_bonus)
+
+    current = float(base_value)
+    for lvl in range(2, level + 1):
+        step_pct = 0.01
+        if lvl % 25 == 0:
+            step_pct += 0.25
+        elif lvl % 10 == 0:
+            step_pct += 0.10
+        current *= (1.0 + step_pct)
+
+    return current
 
 
 def calculate_invader_essence_reward(invader_level: int, invader_count: int, settlement_reputation: int) -> int:

@@ -38,3 +38,4 @@ build/
 *.log
 *.sqlite
 *.db
+graphify-out/cache/
