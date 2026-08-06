@@ -1,15 +1,14 @@
 [project]
-name = "dungeon-master"
+name = "dungeon-lord-tools"
 version = "0.1.0"
-description = "AI-powered Dungeon Master for tabletop RPGs"
+description = "Python tooling for Dungeon Lord game (config validation, proc-gen, tests)"
 authors = [{ name = "Sagar Jadhav", email = "sagarjadhav063@gmail.com" }]
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi>=0.100.0",
-    "uvicorn>=0.22.0",
-    "pydantic>=2.0.0",
-    "python-dotenv>=1.0.0",
-    "requests>=2.31.0",
+    "tomli>=2.0.0",
+    "tomli-w>=1.0.0",
+    "jsonschema>=4.20.0",
+    "pytest>=7.0.0",
 ]
 
 [tool.ruff]
@@ -22,3 +21,7 @@ ignore = ["E501", "C901", "F821", "E722", "B904", "B007", "E402"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
+
+[tool.black]
+line-length = 120
+target-version = ['py310']

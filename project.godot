@@ -1,0 +1,20 @@
+config_version=5
+
+[application]
+
+config/name="Dungeon Lord"
+config/features=PackedStringArray("4.2", "C#")
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="DungeonLord"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[rendering]
+
+renderer/rendering_method="forward_plus"

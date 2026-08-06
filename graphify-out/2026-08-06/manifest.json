@@ -1,0 +1,1772 @@
+{
+  "dungeon_master/__init__.py": {
+    "mtime": 1785999277.6484613,
+    "ast_hash": "5185c3878d503ce2d708b83e991b4ab1",
+    "semantic_hash": ""
+  },
+  "dungeon_master/main.py": {
+    "mtime": 1786001035.0988994,
+    "ast_hash": "7801a44d9e4b175de18387b8582136fa",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1785999268.2293055,
+    "ast_hash": "c9e4f5e9952ed540868daf099b3ec00c",
+    "semantic_hash": ""
+  },
+  "tests/test_main.py": {
+    "mtime": 1786001045.693979,
+    "ast_hash": "be7d68d6b7c08d0ff81bfb245dbe4b2a",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1785999239.3028417,
+    "ast_hash": "70c99f08a7e573268773ba5a9e4c5008",
+    "semantic_hash": ""
+  },
+  "SPEC.md": {
+    "mtime": 1786000973.5784647,
+    "ast_hash": "bf50b2b33dc8ac94163874f2f9249cc6",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1785999260.8701854,
+    "ast_hash": "4e74b6d50aea1020427f93cb17bc7521",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/chrome-cdp": {
+    "mtime": 1785999636.1195192,
+    "ast_hash": "77428f6ef3d9a8d0311721be96178806",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/dev-setup": {
+    "mtime": 1785999636.1195192,
+    "ast_hash": "18a00f9faf1342db303f3f88dba8e90a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/dev-teardown": {
+    "mtime": 1785999636.1315196,
+    "ast_hash": "c7553f3be29101bdb54bdc372a77d0ba",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-analytics": {
+    "mtime": 1785999636.115519,
+    "ast_hash": "f4e24cc0af573f5a45d96a0787887602",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-artifacts-init": {
+    "mtime": 1785999636.115519,
+    "ast_hash": "f403ae2a5368c9d4b01a9beb492944ee",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-artifacts-url": {
+    "mtime": 1785999636.1315196,
+    "ast_hash": "b9cf25eaaf63aa6c91426f82b03e433e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-consumer": {
+    "mtime": 1785999636.1165192,
+    "ast_hash": "24e6550897add4e573969a9509366658",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-context-load.ts": {
+    "mtime": 1785999636.1355195,
+    "ast_hash": "77a46a1693b483c0069c687daabac866",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-enqueue": {
+    "mtime": 1785999636.1205192,
+    "ast_hash": "ea833ec75a44cf9c3906fd959c0cdd0d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-reader": {
+    "mtime": 1785999636.1165192,
+    "ast_hash": "24e6550897add4e573969a9509366658",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-restore": {
+    "mtime": 1785999636.1365197,
+    "ast_hash": "e9ee73f0e8105689f8b34c4f8a56582e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-sync": {
+    "mtime": 1785999636.1365197,
+    "ast_hash": "8f8322edcff6ee2627e90250632b1ad9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-brain-uninstall": {
+    "mtime": 1785999636.1365197,
+    "ast_hash": "b6c140c031a407cef31fb83855796afb",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-builder-profile": {
+    "mtime": 1785999636.1365197,
+    "ast_hash": "b4681f6cbdaeb339030ad468311e2000",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-codex-probe": {
+    "mtime": 1785999636.1365197,
+    "ast_hash": "014fca5e4de6b7d6f15a894f171e5aa2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-codex-session-import": {
+    "mtime": 1785999636.1235192,
+    "ast_hash": "d8181a40693888c0ac991a91c1f505d5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-community-dashboard": {
+    "mtime": 1785999636.1235192,
+    "ast_hash": "c5097c3ef9535ca98310f58eeae5543e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-config": {
+    "mtime": 1785999636.1245193,
+    "ast_hash": "1a0553fde5bf1657f1aecd66e72f08b2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-detach": {
+    "mtime": 1785999636.1245193,
+    "ast_hash": "a516b45c65d27b26ae5e31d5230c9c06",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-developer-profile": {
+    "mtime": 1785999636.1245193,
+    "ast_hash": "4002d174c55cc45d987c825a17b3b1f7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-diff-scope": {
+    "mtime": 1785999636.1245193,
+    "ast_hash": "039895babb631ae2c5b3e1d3a7bc68bf",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-distill-apply": {
+    "mtime": 1785999636.1255193,
+    "ast_hash": "501f89245042017386a90c22f40064d6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-distill-free-text": {
+    "mtime": 1785999636.1255193,
+    "ast_hash": "967a6ca65bfc772cdc5536763ec3b3d1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-extension": {
+    "mtime": 1785999636.1255193,
+    "ast_hash": "5f65a3a3eca7c0280460069adf5add61",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-first-task-detect": {
+    "mtime": 1785999636.1265194,
+    "ast_hash": "4ffe3266a13c3968fce958ede6a9aa1f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-install": {
+    "mtime": 1785999636.1275194,
+    "ast_hash": "a7188594dd84e90072b5b419f81540b8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-lib.sh": {
+    "mtime": 1785999636.1275194,
+    "ast_hash": "83fa19278de655df6aa4e82398835a06",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-mcp-verify": {
+    "mtime": 1785999636.1325195,
+    "ast_hash": "648f9e1265318851ad1fa8aaa9f22bed",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-repo-policy": {
+    "mtime": 1785999636.1325195,
+    "ast_hash": "89a8d107271192ae47446efc257c6d9f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-source-wireup": {
+    "mtime": 1785999636.1325195,
+    "ast_hash": "88c01857086446294f11d272853e2a19",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-supabase-provision": {
+    "mtime": 1785999636.1335194,
+    "ast_hash": "6023ce7b607f926673576008d5954c6a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-supabase-verify": {
+    "mtime": 1785999636.1335194,
+    "ast_hash": "993f8e52344e1ab3acb62642fce55b78",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-gbrain-sync.ts": {
+    "mtime": 1785999636.1335194,
+    "ast_hash": "867206f9cbf1151b7534a534a0645d33",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-global-discover.ts": {
+    "mtime": 1785999636.1335194,
+    "ast_hash": "f87e00fd617c6c5a46bdb5b54a15aba7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-ios-qa-daemon": {
+    "mtime": 1785999636.1345196,
+    "ast_hash": "0d7d601351217514b205eddaac6be117",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-ios-qa-mint": {
+    "mtime": 1785999636.115519,
+    "ast_hash": "1465a5b63c1e904c78701bab3b6d498a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-jsonl-merge": {
+    "mtime": 1785999636.1165192,
+    "ast_hash": "983fc154ab5a749b20c157663ae6d7fc",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-learnings-log": {
+    "mtime": 1785999636.1225193,
+    "ast_hash": "5a07a33bdbce62adb9cd02acd0a181c8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-learnings-search": {
+    "mtime": 1785999636.1225193,
+    "ast_hash": "b9a8d2ad4b0fd0894534d5630141d724",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-memory-ingest.ts": {
+    "mtime": 1785999636.1225193,
+    "ast_hash": "879e736761060233f97ee8cd6f235aeb",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-open-url": {
+    "mtime": 1785999636.1215193,
+    "ast_hash": "c2dc36f05d7b2ae9afe207e9a5101632",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-patch-names": {
+    "mtime": 1785999636.1205192,
+    "ast_hash": "26a8de63a20ab40192347b6bc202ac85",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-paths": {
+    "mtime": 1785999636.1205192,
+    "ast_hash": "cad7a7cceb4395087891e884ba82600d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-platform-detect": {
+    "mtime": 1785999636.1215193,
+    "ast_hash": "aa51e26987dd97df9c2414b8d5dd6838",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-pr-title-rewrite.sh": {
+    "mtime": 1785999636.1215193,
+    "ast_hash": "baba7bbcc4f76b9295e87d0da0cb00e1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-question-log": {
+    "mtime": 1785999636.1225193,
+    "ast_hash": "eb6e912dec1c5d0b6f26fd25cab124a2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-question-preference": {
+    "mtime": 1785999636.1275194,
+    "ast_hash": "d6d2babe232fe70c23bd65ac2f075268",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-relink": {
+    "mtime": 1785999636.1285193,
+    "ast_hash": "fedb945486dc1d602358958c5b3a8fd9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-repo-mode": {
+    "mtime": 1785999636.1285193,
+    "ast_hash": "9881ca5fb551cc0673277203949f6807",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-review-log": {
+    "mtime": 1785999636.1295195,
+    "ast_hash": "9a8ee7ed46a02f583ac1b6605a119cd9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-review-read": {
+    "mtime": 1785999636.1295195,
+    "ast_hash": "2846b7ae968dde764c0c45cf924ceb0c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-security-dashboard": {
+    "mtime": 1785999636.1135192,
+    "ast_hash": "74ccc5ded8353f73805f113544ae4bb2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-session-kind": {
+    "mtime": 1785999636.1145191,
+    "ast_hash": "18e02b14301266cd6bcad562f7d0179f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-session-update": {
+    "mtime": 1785999636.1295195,
+    "ast_hash": "99581f63bfb15cae20eecf941300cad6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-settings-hook": {
+    "mtime": 1785999636.1145191,
+    "ast_hash": "1aa3abfd91b784ea8307e133140cf8fb",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-slug": {
+    "mtime": 1785999636.1375196,
+    "ast_hash": "b42523281ad76a8902c0729a7eeafbd9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-specialist-stats": {
+    "mtime": 1785999636.1375196,
+    "ast_hash": "3b116774a61c1346100853e999f4e970",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-team-init": {
+    "mtime": 1785999636.1385195,
+    "ast_hash": "7824e7b0639d30f3f7b321ccee798e6e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-telemetry-log": {
+    "mtime": 1785999636.1395197,
+    "ast_hash": "a48f5e7f77aaf722c1241df254777370",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-telemetry-sync": {
+    "mtime": 1785999636.1165192,
+    "ast_hash": "52b8c5b0bc6cf9f63efbfd6c05d55de9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-timeline-log": {
+    "mtime": 1785999636.1165192,
+    "ast_hash": "1c3e6851ab6764e783237b438205aa8b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-timeline-read": {
+    "mtime": 1785999636.1175191,
+    "ast_hash": "4a10a2b13f58341b0726ad6496447397",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-uninstall": {
+    "mtime": 1785999636.1185193,
+    "ast_hash": "7b1e00225fb854f5389306ec9c511519",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/bin/gstack-update-check": {
+    "mtime": 1785999636.1185193,
+    "ast_hash": "77f2b1b2039360f8d5248db6dacb0fe5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/bin/find-browse": {
+    "mtime": 1785999636.1445198,
+    "ast_hash": "bb148ebf11055830600b71fa43a30c1a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/bin/remote-slug": {
+    "mtime": 1785999636.1435196,
+    "ast_hash": "1ac90cc966bd745adae3da8ee3711572",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/scripts/build-node-server.sh": {
+    "mtime": 1785999636.1425197,
+    "ast_hash": "108157a822b7bf79e6ba5fae5c7b1485",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/activity.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "61e6067613a9eeb57e9e049b6185c375",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/audit.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "05fe2342f16435e80612d7fdbbc15863",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/browse-client.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "37955bba6f5afefb01f6ec3c474b7c32",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/browser-manager.ts": {
+    "mtime": 1785999636.1535199,
+    "ast_hash": "cda53bb6126ae1b8e73649780b9cc457",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/browser-skill-commands.ts": {
+    "mtime": 1785999636.1535199,
+    "ast_hash": "46636ebc5b987305ae659ed0e219ccc8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/browser-skill-write.ts": {
+    "mtime": 1785999636.1455197,
+    "ast_hash": "7513754c45fb5776f4469650bf64e1b3",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/browser-skills.ts": {
+    "mtime": 1785999636.1535199,
+    "ast_hash": "58b8e73d5ff05fda443ebdda1e21e729",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/buffers.ts": {
+    "mtime": 1785999636.15452,
+    "ast_hash": "3447e41b535b98b386c3e6e2da71f3df",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/bun-polyfill.cjs": {
+    "mtime": 1785999636.15452,
+    "ast_hash": "a82b30d9643848a6405536accd02bec8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cdp-allowlist.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "bc45dde4a0dd704b812627b2e7b10171",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cdp-bridge.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "2235df08e023cf8fae19e431ebc29c2c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cdp-commands.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "ff957569639245457a715131ec908212",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cdp-inspector.ts": {
+    "mtime": 1785999636.14652,
+    "ast_hash": "bf6b612c81bd9dbd829151c5bc6c045d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/claude-bin.ts": {
+    "mtime": 1785999636.14652,
+    "ast_hash": "9c7dd51bd1bb4e75deaaa08d6df0cc43",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cli.ts": {
+    "mtime": 1785999636.14652,
+    "ast_hash": "0e949f40d7be5eb2f6c6d5dfd0629718",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/commands.ts": {
+    "mtime": 1785999636.1475198,
+    "ast_hash": "12a16d8364fe119b743231dd24c2d8e2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/config.ts": {
+    "mtime": 1785999636.1475198,
+    "ast_hash": "e9d800f43d8e4ac8129bfcff276e5108",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/content-security.ts": {
+    "mtime": 1785999636.1475198,
+    "ast_hash": "4e1dd303d393ecb9af1ff95d1b0f5c3e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cookie-import-browser.ts": {
+    "mtime": 1785999636.1485198,
+    "ast_hash": "abd94e279d965c290461f2dad4dfca6a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cookie-picker-routes.ts": {
+    "mtime": 1785999636.1485198,
+    "ast_hash": "4cfb4b58e4dd08c4d6c5a5e3c8cf6d0c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/cookie-picker-ui.ts": {
+    "mtime": 1785999636.1485198,
+    "ast_hash": "27c00e8ff4d4a638b1dc12c47de08ab1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/domain-skill-commands.ts": {
+    "mtime": 1785999636.15652,
+    "ast_hash": "e5730a0d8b47976f2d0417fb3515ed6e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/domain-skills.ts": {
+    "mtime": 1785999636.14952,
+    "ast_hash": "20a70236bd9397c54d18f7effb3f60c8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/error-handling.ts": {
+    "mtime": 1785999636.14952,
+    "ast_hash": "dd01d2e98a4d9526088f64907a2842e6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/file-permissions.ts": {
+    "mtime": 1785999636.14952,
+    "ast_hash": "3a90b8cd03f633df191f0f2db6406345",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/find-browse.ts": {
+    "mtime": 1785999636.14952,
+    "ast_hash": "365c6f4feb4b9012a625a7007d9e1df3",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/find-security-sidecar.ts": {
+    "mtime": 1785999636.14952,
+    "ast_hash": "9fcedbe14aa09ca0fe68801f6ed72e45",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/media-extract.ts": {
+    "mtime": 1785999636.1505198,
+    "ast_hash": "7a5e88260e76b0dfe69ddfde9aa54613",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/memory-command.ts": {
+    "mtime": 1785999636.1505198,
+    "ast_hash": "b056be819a5730fa08cd3a49cd1e9ea8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/memory-snapshot.ts": {
+    "mtime": 1785999636.1505198,
+    "ast_hash": "43937c93f3e81254cecdd418e93d942d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/meta-commands.ts": {
+    "mtime": 1785999636.1505198,
+    "ast_hash": "6eb7903ec6f49608b78c8d41cca3bf76",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/network-capture.ts": {
+    "mtime": 1785999636.1505198,
+    "ast_hash": "e0682c2e90a3610ea9b4cfee92dfb02e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/path-security.ts": {
+    "mtime": 1785999636.15152,
+    "ast_hash": "ddef3cc8bb8137b37596f323b2b722e7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/platform.ts": {
+    "mtime": 1785999636.15152,
+    "ast_hash": "1edfc05a8ce4212cc87ff4b79d55f4c4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/project-slug.ts": {
+    "mtime": 1785999636.15152,
+    "ast_hash": "07c86f4e5e2c2da1661bad10b3870bc4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/proxy-config.ts": {
+    "mtime": 1785999636.15152,
+    "ast_hash": "69673d44b5957876f59ced9d8f96b8fd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/proxy-redact.ts": {
+    "mtime": 1785999636.15252,
+    "ast_hash": "a7d212f14ff400b0766535c663f839d1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/pty-session-cookie.ts": {
+    "mtime": 1785999636.1535199,
+    "ast_hash": "e03681b8331e727ce3e3e97b9dce459b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/pty-session-lease.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "1a9941aedbf748b48d7af8bb38aef69f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/read-commands.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "7a5f26448f99da8a7b4b1cbe0c70c3db",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/sanitize.ts": {
+    "mtime": 1785999636.16052,
+    "ast_hash": "4524adab3c07713e319f497a9c890f19",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/screenshot-size-guard.ts": {
+    "mtime": 1785999636.16152,
+    "ast_hash": "16ea829b6b2f1c7c9fd7308d98c42442",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/security-bunnative.ts": {
+    "mtime": 1785999636.1535199,
+    "ast_hash": "629a26e2f7d8c7854ee9a71f9e65ccb8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/security-classifier.ts": {
+    "mtime": 1785999636.1455197,
+    "ast_hash": "8de1587dbf533d6bcdb726b70a7a8d06",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/security-sidecar-client.ts": {
+    "mtime": 1785999636.1455197,
+    "ast_hash": "c2f0df700e4541029fb762fb75a788dd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/security-sidecar-entry.ts": {
+    "mtime": 1785999636.15452,
+    "ast_hash": "e8f4352310315a7e6e234c258d418105",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/security.ts": {
+    "mtime": 1785999636.15452,
+    "ast_hash": "1b88b125460811689c2f58cea02869a7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/server.ts": {
+    "mtime": 1785999636.15552,
+    "ast_hash": "316ffa092fda549f32ab46ff67123982",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/sidebar-utils.ts": {
+    "mtime": 1785999636.15552,
+    "ast_hash": "68d7bec0ca2995d21cb908f67bbd72e5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/skill-token.ts": {
+    "mtime": 1785999636.16152,
+    "ast_hash": "e1ba4d15b9cb56b510fe337bcd62ede7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/snapshot.ts": {
+    "mtime": 1785999636.1455197,
+    "ast_hash": "831c2053ca7062395f21c0a09ceb4a0f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/socks-bridge.ts": {
+    "mtime": 1785999636.16152,
+    "ast_hash": "9efc39e5285320524bbf4f174230f7dd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/sse-helpers.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "2120fdedd5b9a9da5f86ea2cc8857662",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/sse-session-cookie.ts": {
+    "mtime": 1785999636.16152,
+    "ast_hash": "6b022bf8a039d45aa4284bf83a946835",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/stealth.ts": {
+    "mtime": 1785999636.15652,
+    "ast_hash": "7a882b41a01f5c25218600f5a358c81a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/tab-session.ts": {
+    "mtime": 1785999636.15652,
+    "ast_hash": "aca1f12acc0a60626768f621c8c36735",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/telemetry.ts": {
+    "mtime": 1785999636.15652,
+    "ast_hash": "d9e9fd80365f15c9292a9a0657e35b83",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/terminal-agent-control.ts": {
+    "mtime": 1785999636.15752,
+    "ast_hash": "e54bb06f84a35acfdc17fe660321f4ae",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/terminal-agent.ts": {
+    "mtime": 1785999636.15752,
+    "ast_hash": "702b1f3e0c2d068fabc9e720f9538f80",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/token-registry.ts": {
+    "mtime": 1785999636.15752,
+    "ast_hash": "c4b7e7f0eb10e4778cdb2a3b988cb619",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/tunnel-denial-log.ts": {
+    "mtime": 1785999636.15752,
+    "ast_hash": "4bbf17079876eff1cb9e0810c5d62b82",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/url-validation.ts": {
+    "mtime": 1785999636.15752,
+    "ast_hash": "cf631245c5964ba95b789bd690c8a381",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/write-commands.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "2138cb7fcdb5a7901b584507fcc135fb",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/xvfb.ts": {
+    "mtime": 1785999636.1595201,
+    "ast_hash": "ae5ed1066c97d9335f07f4920b57d092",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/activity.test.ts": {
+    "mtime": 1785999636.248522,
+    "ast_hash": "d4c5b2ef257e3ecae8529916b51bae66",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/adversarial-security.test.ts": {
+    "mtime": 1785999636.2215214,
+    "ast_hash": "42c9e94a0d37fce41d8fd62275867648",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/batch.test.ts": {
+    "mtime": 1785999636.2225215,
+    "ast_hash": "d5040082b45dfef7a47097b0dcbdcc24",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/bridge-chromium-e2e.test.ts": {
+    "mtime": 1785999636.2225215,
+    "ast_hash": "4eece634cbb3c484571332c1f47bfadc",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browse-client.test.ts": {
+    "mtime": 1785999636.2235215,
+    "ast_hash": "26a54de880bea2ea295288eafaa3a78a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-manager-custom-chromium.test.ts": {
+    "mtime": 1785999636.248522,
+    "ast_hash": "45b22e8df7be7db97e8cd18add823d6b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-manager-unit.test.ts": {
+    "mtime": 1785999636.248522,
+    "ast_hash": "7667a4aba33c7b8ce692e82029e4c25c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-skill-commands.test.ts": {
+    "mtime": 1785999636.2235215,
+    "ast_hash": "f136d5e47f2ebbdf3697873502d320f9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-skill-write.test.ts": {
+    "mtime": 1785999636.1725204,
+    "ast_hash": "03aa53932a2e51ce9fd3d4c3bdaf8b97",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-skills-e2e.test.ts": {
+    "mtime": 1785999636.1725204,
+    "ast_hash": "e9e6b5093289d7b2a26027c115cd0c60",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/browser-skills-storage.test.ts": {
+    "mtime": 1785999636.1725204,
+    "ast_hash": "24a41113b9da7e4d1aa46e4992e54339",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/build-command-response.test.ts": {
+    "mtime": 1785999636.1725204,
+    "ast_hash": "8a4e45d21f19a74099c165b254131722",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/build.test.ts": {
+    "mtime": 1785999636.1735203,
+    "ast_hash": "464ada17a81f5fadad9829ead56a08af",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/bun-polyfill.test.ts": {
+    "mtime": 1785999636.1735203,
+    "ast_hash": "643f7c481286ede500b3ae4b37e707d7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cdp-allowlist.test.ts": {
+    "mtime": 1785999636.2245214,
+    "ast_hash": "0073a7ea89bb892049a1d4422658f6b6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cdp-e2e.test.ts": {
+    "mtime": 1785999636.2245214,
+    "ast_hash": "a289ee6343253f98cb8c2bfa4f6ddb40",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cdp-inspector-history-cap.test.ts": {
+    "mtime": 1785999636.1735203,
+    "ast_hash": "94bd187f0e638c911d358272475d22e0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cdp-mutex.test.ts": {
+    "mtime": 1785999636.1745205,
+    "ast_hash": "1df4b66f9f0d1f0fbe3a1c644b23192a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cdp-session-cleanup.test.ts": {
+    "mtime": 1785999636.1745205,
+    "ast_hash": "aa501450cfd294b147ac97b2f29b3f66",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/claude-bin.test.ts": {
+    "mtime": 1785999636.1745205,
+    "ast_hash": "c137b6c6c95e7ad7ba74322c67d0f1d8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cli-setsid-daemonize.test.ts": {
+    "mtime": 1785999636.2255216,
+    "ast_hash": "f1b7851ebc43d64f6094e1c4cea457bf",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cli-supervisor.test.ts": {
+    "mtime": 1785999636.2265215,
+    "ast_hash": "23d750a5c818f44813efe862e0dfd0d3",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/commands.test.ts": {
+    "mtime": 1785999636.2265215,
+    "ast_hash": "7a21058666b98e5042b0ee0f5da51484",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/compare-board.test.ts": {
+    "mtime": 1785999636.2265215,
+    "ast_hash": "8988ac5f8088e6d16c7c623ef9b083a8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/config.test.ts": {
+    "mtime": 1785999636.1775205,
+    "ast_hash": "c08d82690f609eb0646785d3df9624c4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/content-security.test.ts": {
+    "mtime": 1785999636.1775205,
+    "ast_hash": "586527bde2de6cb57d0709c4327067cd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cookie-import-browser.test.ts": {
+    "mtime": 1785999636.1775205,
+    "ast_hash": "78df81ad4bb25d7e3da383963a909d9c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/cookie-picker-routes.test.ts": {
+    "mtime": 1785999636.1675203,
+    "ast_hash": "14b1b70f6e3fc5c7ebc448594def70dd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/daemon-mismatch-refuse.test.ts": {
+    "mtime": 1785999636.1775205,
+    "ast_hash": "d41bfa3fb0a0a44d7bf938b655f8fcbf",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/data-platform.test.ts": {
+    "mtime": 1785999636.1775205,
+    "ast_hash": "a622df970e1467072a71faa7d2becfde",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/domain-skills-e2e.test.ts": {
+    "mtime": 1785999636.1785204,
+    "ast_hash": "7584af9833c53bfd9256736883749bd5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/domain-skills-storage.test.ts": {
+    "mtime": 1785999636.1785204,
+    "ast_hash": "30fa406185391577a884deb553d7fd4f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/dual-listener.test.ts": {
+    "mtime": 1785999636.1785204,
+    "ast_hash": "301d85355568d712569b1ce2ea49f7fa",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/dx-polish.test.ts": {
+    "mtime": 1785999636.1785204,
+    "ast_hash": "be8a9092ab6787e1eb3b2b945dfeffd8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/error-handling.test.ts": {
+    "mtime": 1785999636.1785204,
+    "ast_hash": "2b7fc29155b74280f4f7e931b9ae0f6a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/file-drop.test.ts": {
+    "mtime": 1785999636.1795206,
+    "ast_hash": "7bbcb68bdb1ade4713487a5bb20a3c68",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/file-permissions.test.ts": {
+    "mtime": 1785999636.1795206,
+    "ast_hash": "52f9cbaeff3abda946ade396dc06ec8f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/find-browse.test.ts": {
+    "mtime": 1785999636.1795206,
+    "ast_hash": "303d73d075db4a91b765a88eb5fcb8b1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/findport.test.ts": {
+    "mtime": 1785999636.1795206,
+    "ast_hash": "d1350aa9e0a308c84752c7b482b63940",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/security-bench-haiku-responses.json": {
+    "mtime": 1785999636.2185214,
+    "ast_hash": "ba34679ae75970ce206dc43081c14cde",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/from-file-path-validation.test.ts": {
+    "mtime": 1785999636.16652,
+    "ast_hash": "3a915b05fe87c8a6fb4faa0acba37b83",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/gstack-config.test.ts": {
+    "mtime": 1785999636.16652,
+    "ast_hash": "06e78c6f1a9720d6e0145a5103b44947",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/gstack-update-check.test.ts": {
+    "mtime": 1785999636.16652,
+    "ast_hash": "f4109cfab1b290b0927c1bf7e84dc205",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/handoff.test.ts": {
+    "mtime": 1785999636.16652,
+    "ast_hash": "e50840324a23eb187f9f9193120f83f0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/learnings-injection.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "10bcb82aa9a63c1040ba8f5433ce2416",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/memory-command.test.ts": {
+    "mtime": 1785999636.2345216,
+    "ast_hash": "87651a7128f621fe1a9ba1f4fb69e5ef",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/memory-leak-reproducer.test.ts": {
+    "mtime": 1785999636.2355218,
+    "ast_hash": "1a9858cb8dd7af026a008dec24087021",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/pair-agent-e2e.test.ts": {
+    "mtime": 1785999636.2375216,
+    "ast_hash": "f7cb1c9b71c3a8fe22878000c0bf7b94",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/pair-agent-tunnel-eval.test.ts": {
+    "mtime": 1785999636.2385218,
+    "ast_hash": "3dfa306d6865b6057ab5dd7c5231df82",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/path-validation.test.ts": {
+    "mtime": 1785999636.2395217,
+    "ast_hash": "8b06b415c1cca8e314c4433e0c880659",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/pdf-flags.test.ts": {
+    "mtime": 1785999636.240522,
+    "ast_hash": "dcea59a72177a5e72e11d29b810902e7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/platform.test.ts": {
+    "mtime": 1785999636.2415218,
+    "ast_hash": "9965de1bbb2549c3c65f89b9f95f0d94",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/proxy-config.test.ts": {
+    "mtime": 1785999636.2415218,
+    "ast_hash": "4e9f934d353b00ba5b307db613edd950",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/proxy-redact.test.ts": {
+    "mtime": 1785999636.2425218,
+    "ast_hash": "41fe4337ec138171ef3ebcc3e852b81d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/pty-inject-scan.test.ts": {
+    "mtime": 1785999636.243522,
+    "ast_hash": "b35e293976c513f7d0de5dfd4e750741",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/pty-session-lease.test.ts": {
+    "mtime": 1785999636.243522,
+    "ast_hash": "87e92a0195eb2a8ccbc5f2abefc40145",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/regression-pr1169-pdf-from-file-invalid-json.test.ts": {
+    "mtime": 1785999636.2445219,
+    "ast_hash": "756b3b228da9eb2d5d56fbce5845d08b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/restart-env.test.ts": {
+    "mtime": 1785999636.2445219,
+    "ast_hash": "14328cd9a9a4acb3b68f3fbc9f0949ed",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sanitize.test.ts": {
+    "mtime": 1785999636.16352,
+    "ast_hash": "87950a2ffffd4abb8d54b8f9eba51310",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/screenshot-size-guard.test.ts": {
+    "mtime": 1785999636.16352,
+    "ast_hash": "18fd890cc3e0aceb03bb616c6c064f03",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-adversarial-fixes.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "863d270c5f99950778b4ab6dfd4b7d01",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-adversarial.test.ts": {
+    "mtime": 1785999636.1715202,
+    "ast_hash": "f6102488d53be71d4e7aaebf20a5095b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-audit-r2.test.ts": {
+    "mtime": 1785999636.1715202,
+    "ast_hash": "c30c3b19f71f6a3bb2273c99f1e04b04",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-bench-ensemble-live.test.ts": {
+    "mtime": 1785999636.1755204,
+    "ast_hash": "013e6a6f19e470653bcbbbc03428c3d0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-bench-ensemble.test.ts": {
+    "mtime": 1785999636.1755204,
+    "ast_hash": "4e81e96138cca6a5742244f4f9971911",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-bench.test.ts": {
+    "mtime": 1785999636.1755204,
+    "ast_hash": "f39cda075545cd31f3da96af245f5998",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-bunnative.test.ts": {
+    "mtime": 1785999636.1765203,
+    "ast_hash": "63b18f3e04272a951834fc574b1cef67",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-classifier-download-cleanup.test.ts": {
+    "mtime": 1785999636.16352,
+    "ast_hash": "4f78376be4e7cb3d6ee8b64010bc2729",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-classifier-tdz.test.ts": {
+    "mtime": 1785999636.1645203,
+    "ast_hash": "aaf93155e314faa95a32658ab0765109",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-classifier.test.ts": {
+    "mtime": 1785999636.245522,
+    "ast_hash": "687c795113997baefa59c42bb29d6ce7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-integration.test.ts": {
+    "mtime": 1785999636.245522,
+    "ast_hash": "6008cc74efda9c91c1a4c6cc8a46734c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-live-playwright.test.ts": {
+    "mtime": 1785999636.245522,
+    "ast_hash": "5a5335f7936c23edf38488ad6251f3a1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-review-flow.test.ts": {
+    "mtime": 1785999636.245522,
+    "ast_hash": "b947209512ba2de16329c07e9403f3c0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-sidecar-client.test.ts": {
+    "mtime": 1785999636.246522,
+    "ast_hash": "aa5982041db3d6ab25cebbfea6bb941b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-sidepanel-dom.test.ts": {
+    "mtime": 1785999636.2475219,
+    "ast_hash": "dba1cb0038e2f9bd03a1f50ed1d183a5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security-source-contracts.test.ts": {
+    "mtime": 1785999636.2475219,
+    "ast_hash": "6f26278ac18027091b65cbd96bc1eca6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/security.test.ts": {
+    "mtime": 1785999636.2475219,
+    "ast_hash": "b106499f25b01cb1149d8e5d1196c352",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-auth.test.ts": {
+    "mtime": 1785999636.16652,
+    "ast_hash": "5680d4bf43ec53025ef2c9628ecbd8c0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-embedder-terminal-port.test.ts": {
+    "mtime": 1785999636.1765203,
+    "ast_hash": "fa1f2cba33c8370ff8a86ecf4f51054f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-factory.test.ts": {
+    "mtime": 1785999636.1675203,
+    "ast_hash": "157270c1fe848346be960ea08cf7a163",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-flush-trackers.test.ts": {
+    "mtime": 1785999636.1715202,
+    "ast_hash": "6bf771e1b790245a6fcd247cfbafb5f5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-no-import-side-effects.test.ts": {
+    "mtime": 1785999636.1765203,
+    "ast_hash": "6902d6100e69c083539b5537e4b5fcd2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-proxy-fail-fast.test.ts": {
+    "mtime": 1785999636.1765203,
+    "ast_hash": "637f050fcc76333b9283018f33ace645",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-pty-lease-routes.test.ts": {
+    "mtime": 1785999636.2275217,
+    "ast_hash": "43402b39b8692dd7b1a627b78575ef15",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-sanitize-surrogates.test.ts": {
+    "mtime": 1785999636.2275217,
+    "ast_hash": "eab4c415d24479fa644971861b6c2d7f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/server-tmp-state-path.test.ts": {
+    "mtime": 1785999636.2275217,
+    "ast_hash": "f19056f41e025a6ed48f14d132f9c444",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidebar-integration.test.ts": {
+    "mtime": 1785999636.2285216,
+    "ast_hash": "fb3148790ff3a5c0840ad76d82871e92",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidebar-security.test.ts": {
+    "mtime": 1785999636.2285216,
+    "ast_hash": "c3cc63a442a3d37c4fac3912b7117474",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidebar-tabs.test.ts": {
+    "mtime": 1785999636.2285216,
+    "ast_hash": "b6777408d4a69691b9c54dcaeba293d3",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidebar-unit.test.ts": {
+    "mtime": 1785999636.2295215,
+    "ast_hash": "43aefd8d8a0a5111b52915a3a3f554d4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidebar-ux.test.ts": {
+    "mtime": 1785999636.2295215,
+    "ast_hash": "77b1e06c19e83485cb0c6e7dfe2835b6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidepanel-patient-autoconnect.test.ts": {
+    "mtime": 1785999636.2295215,
+    "ast_hash": "4f9ec0f8d28069a407b199c545abb131",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidepanel-reattach.test.ts": {
+    "mtime": 1785999636.2305217,
+    "ast_hash": "1536c56edad92ffe78f9e1bedc8ffc13",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sidepanel-restart-dispose.test.ts": {
+    "mtime": 1785999636.2305217,
+    "ast_hash": "847e2657d5b70b4d16e2e90c11200074",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/skill-token.test.ts": {
+    "mtime": 1785999636.2315216,
+    "ast_hash": "aca3067a5cd8009e12cdf6a7c2998982",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/snapshot.test.ts": {
+    "mtime": 1785999636.2315216,
+    "ast_hash": "bb76a5a219c11468b5624445edb9523a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/socks-bridge.test.ts": {
+    "mtime": 1785999636.2325215,
+    "ast_hash": "4ff1757947fb93784a884ee7e91d731e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sse-helpers.test.ts": {
+    "mtime": 1785999636.2335217,
+    "ast_hash": "5282506f432dca96964d79a5a3b9d1ed",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/sse-session-cookie.test.ts": {
+    "mtime": 1785999636.2335217,
+    "ast_hash": "d455f080a0c3c2c9ce26ef2a428ff38f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/state-ttl.test.ts": {
+    "mtime": 1785999636.1645203,
+    "ast_hash": "8516ac1072af55720aedbb6414a04cc2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/stealth-extended.test.ts": {
+    "mtime": 1785999636.1655202,
+    "ast_hash": "144f1c46c2180ede89e7c6ac4468219b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/stealth-layer-c.test.ts": {
+    "mtime": 1785999636.1685202,
+    "ast_hash": "178381d193a29a9ccdb4201bc7d4f546",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/stealth-webdriver.test.ts": {
+    "mtime": 1785999636.1695204,
+    "ast_hash": "352fd958f860124eef6307fc22938409",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/tab-each.test.ts": {
+    "mtime": 1785999636.1695204,
+    "ast_hash": "7073081bc74cf825355001cfe1d04e5e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/tab-guardrail.test.ts": {
+    "mtime": 1785999636.1695204,
+    "ast_hash": "f12d65a878e88a5e024e47879bed39bb",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/tab-isolation.test.ts": {
+    "mtime": 1785999636.1695204,
+    "ast_hash": "f747701561b0d1ee8994cc2adf108d12",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/tab-session-frame-detach.test.ts": {
+    "mtime": 1785999636.1695204,
+    "ast_hash": "a2f30ff89d5df77feb5aadccfabb71d6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/telemetry.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "932b78b4dc6b43a53fe39bd4f686d742",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-detach-reattach.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "be40ddcbec755b7ac6d4b741a2a5d3d7",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-integration.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "8338ab0307fb22186a92be2345754eda",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-internal-handler.test.ts": {
+    "mtime": 1785999636.1705203,
+    "ast_hash": "7c4909f29b3adf2a34c439f3b36f03e2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-keepalive.test.ts": {
+    "mtime": 1785999636.1655202,
+    "ast_hash": "9e7558e76a9c309129f270df84dde999",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-pid-identity.test.ts": {
+    "mtime": 1785999636.1655202,
+    "ast_hash": "df74f34bf762730476423fc0e32fcbea",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-ring-buffer-runtime.test.ts": {
+    "mtime": 1785999636.1655202,
+    "ast_hash": "c334f4a9509d077e77aca290e0ce2f2d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-session-routing.test.ts": {
+    "mtime": 1785999636.1755204,
+    "ast_hash": "b674f33f91c3e4031a9e4c12a28b5960",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent-watchdog.test.ts": {
+    "mtime": 1785999636.1675203,
+    "ast_hash": "84bfad538c5d3600f9e49ec96eeef87a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/terminal-agent.test.ts": {
+    "mtime": 1785999636.1685202,
+    "ast_hash": "91062a7513423f036b95533e237374c6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/test-server.ts": {
+    "mtime": 1785999636.1685202,
+    "ast_hash": "daaf61c1f15e98deaa5abcc72c028857",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/token-registry.test.ts": {
+    "mtime": 1785999636.16352,
+    "ast_hash": "508a20f6ac0a38527b34fd98810d8ec5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/tunnel-gate-unit.test.ts": {
+    "mtime": 1785999636.2205215,
+    "ast_hash": "a6a3a997d5fd9930e625b075f842c523",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/url-validation.test.ts": {
+    "mtime": 1785999636.2205215,
+    "ast_hash": "a71e425070bbf3d1d2ca3a55d4a8b2c4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/watch.test.ts": {
+    "mtime": 1785999636.2205215,
+    "ast_hash": "9041010997a6f104929a76ce661f2b9c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/watchdog.test.ts": {
+    "mtime": 1785999636.2215214,
+    "ast_hash": "eef3048f189947ba27b6037abe607999",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/welcome-page.test.ts": {
+    "mtime": 1785999636.1675203,
+    "ast_hash": "2606b5909ba04ec74a4a8fb394c840c8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/xvfb.test.ts": {
+    "mtime": 1785999636.1675203,
+    "ast_hash": "34e63b88a0b12bda885a5e0d46757cd4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/prototype.ts": {
+    "mtime": 1785999636.249522,
+    "ast_hash": "cb70dfd36b8e8b2e985e26a610f7d163",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/auth.ts": {
+    "mtime": 1785999636.251522,
+    "ast_hash": "da4808d437eadf8ab17289c414f797a8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/brief.ts": {
+    "mtime": 1785999636.251522,
+    "ast_hash": "85039f5a5041b3cb6c04ca19f92eac3a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/check.ts": {
+    "mtime": 1785999636.254522,
+    "ast_hash": "c827673b6b5e38a643b0e32b9e7b02b9",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/cli.ts": {
+    "mtime": 1785999636.252522,
+    "ast_hash": "d5e3d0024516105d72fc3db12dbcb69a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/commands.ts": {
+    "mtime": 1785999636.254522,
+    "ast_hash": "95da1c82262c2cb35e06981519a0cafa",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/compare.ts": {
+    "mtime": 1785999636.254522,
+    "ast_hash": "8e58358d2c9d6aa84a082ca14d4ae533",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/daemon-client.ts": {
+    "mtime": 1785999636.2555223,
+    "ast_hash": "80ca71b72ab95e5336b43de55b778c5f",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/daemon-state.ts": {
+    "mtime": 1785999636.2555223,
+    "ast_hash": "021d50253e4a5a5d566ada80b2143004",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/daemon.ts": {
+    "mtime": 1785999636.2565222,
+    "ast_hash": "45556eb874de14746a12d6746bd5afc5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/design-to-code.ts": {
+    "mtime": 1785999636.2565222,
+    "ast_hash": "fb4ebc55a7dc0b90259aa59360bf8177",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/diff.ts": {
+    "mtime": 1785999636.257522,
+    "ast_hash": "6eb69531461f2840acad1fc54ed510e3",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/evolve.ts": {
+    "mtime": 1785999636.257522,
+    "ast_hash": "fb0e141caa7f65b920e41f4b08328e39",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/gallery.ts": {
+    "mtime": 1785999636.2585223,
+    "ast_hash": "748009c21da6469a9a607a82de8e8c0a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/generate.ts": {
+    "mtime": 1785999636.2615223,
+    "ast_hash": "f135137b4649a61406d451a3d82d2dcf",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/iterate.ts": {
+    "mtime": 1785999636.2625222,
+    "ast_hash": "e7db5cdcad7266cbdce420a5c1d0ebe5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/memory.ts": {
+    "mtime": 1785999636.2635224,
+    "ast_hash": "0c5408b1759a20128e70e1c53b613a2e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/serve.ts": {
+    "mtime": 1785999636.2565222,
+    "ast_hash": "d9ef1cea327929b0c6197eb88283839c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/session.ts": {
+    "mtime": 1785999636.2645223,
+    "ast_hash": "64d7f054e7dd013894b2c079742d29fd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/src/variants.ts": {
+    "mtime": 1785999636.2645223,
+    "ast_hash": "de23f9897fa1d047f8f8c091e505a343",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/auth.test.ts": {
+    "mtime": 1785999636.2675223,
+    "ast_hash": "a1c3ca9080fd0c913a31bdaacec77136",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/daemon-discovery.test.ts": {
+    "mtime": 1785999636.2685225,
+    "ast_hash": "ecb9706c1fea2d9167706695e3165660",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/daemon-tests-fixtures.ts": {
+    "mtime": 1785999636.2685225,
+    "ast_hash": "9fea84c2c8fc27b44b9979852f9064b8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/daemon.test.ts": {
+    "mtime": 1785999636.2685225,
+    "ast_hash": "02a9c6f3882a9fd52e2514ea51e14ca0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/feedback-roundtrip-daemon.test.ts": {
+    "mtime": 1785999636.2695224,
+    "ast_hash": "63b9b653d68b938957e548067bd7d83b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/feedback-roundtrip.test.ts": {
+    "mtime": 1785999636.2695224,
+    "ast_hash": "02e681a7a104bf965c603c66db2c7883",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/gallery.test.ts": {
+    "mtime": 1785999636.2695224,
+    "ast_hash": "dba2b95a9fe3613205ef3e76936548c6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/serve.test.ts": {
+    "mtime": 1785999636.2665224,
+    "ast_hash": "6bc1e67a5da9696021075668c7a9349e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/design/test/variants-retry-after.test.ts": {
+    "mtime": 1785999636.2675223,
+    "ast_hash": "c7124b58dcbd0683c5d553f150293c98",
+    "semantic_hash": ""
+  },
+  ".specify/feature.json": {
+    "mtime": 1785999731.024593,
+    "ast_hash": "3f1d072a52a1caecf1d25f115e162c12",
+    "semantic_hash": ""
+  },
+  "dungeon_master/combat.py": {
+    "mtime": 1786001028.2658486,
+    "ast_hash": "dd3472fd3840fce2ee472ff53e456b12",
+    "semantic_hash": ""
+  },
+  "dungeon_master/dice.py": {
+    "mtime": 1786001017.3777692,
+    "ast_hash": "0c752ab5a684fdbeeeab0b20d4690c1c",
+    "semantic_hash": ""
+  },
+  "dungeon_master/models.py": {
+    "mtime": 1786001066.2801378,
+    "ast_hash": "ef142cf33e6908f5dda04cde4b46fc1e",
+    "semantic_hash": ""
+  },
+  "dungeon_master/narrator.py": {
+    "mtime": 1786001031.4858725,
+    "ast_hash": "b3f3c438b8249137519e72af7d586cbf",
+    "semantic_hash": ""
+  },
+  "dungeon_master/rules.py": {
+    "mtime": 1786001025.2298265,
+    "ast_hash": "fba516e48bb8862dbec51e51b7d37070",
+    "semantic_hash": ""
+  },
+  "tests/test_combat.py": {
+    "mtime": 1786001043.320961,
+    "ast_hash": "dd58f8c139b52a74c92c4e1ccea7c470",
+    "semantic_hash": ""
+  },
+  "tests/test_dice.py": {
+    "mtime": 1786001038.3249235,
+    "ast_hash": "8dc3b8a89a8f4e5faadf23fcd6e4350c",
+    "semantic_hash": ""
+  },
+  "tests/test_rules.py": {
+    "mtime": 1786001040.7309415,
+    "ast_hash": "41fe02b5102e67a290f285bc5241cb83",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/SKILL.md": {
+    "mtime": 1785999636.2725224,
+    "ast_hash": "a6c0577f81fee13c9a6611065da06d0b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/PLAN-snapshot-dropdown-interactive.md": {
+    "mtime": 1785999636.1425197,
+    "ast_hash": "39c4efb8125199f57ed1458ab9bd984b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/SKILL.md": {
+    "mtime": 1785999636.1425197,
+    "ast_hash": "d2a34ba78c508d8765e18a97c6d29d7c",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/src/welcome.html": {
+    "mtime": 1785999636.15852,
+    "ast_hash": "d3186a67d3a38890974b85c1131019e0",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/basic.html": {
+    "mtime": 1785999636.1855206,
+    "ast_hash": "93df52a2a784136417bbba91ece1d553",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/cursor-interactive.html": {
+    "mtime": 1785999636.1855206,
+    "ast_hash": "74eab5d12143ab5d477d617354c523cc",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/dialog.html": {
+    "mtime": 1785999636.1855206,
+    "ast_hash": "a6a52209ad8a3b8ddf6669a94bc7e349",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/dropdown.html": {
+    "mtime": 1785999636.1855206,
+    "ast_hash": "e3a657c51ced7daa290a89e8350f13aa",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/empty.html": {
+    "mtime": 1785999636.1825206,
+    "ast_hash": "12cbca0ca94ff3e4cf977c00aaec6ee6",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/forms.html": {
+    "mtime": 1785999636.1835206,
+    "ast_hash": "bf4470b5224da94398dd49cfa798bf37",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/iframe.html": {
+    "mtime": 1785999636.1835206,
+    "ast_hash": "4fd10491c86d1f6160dca9e37c433f94",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/injection-combined.html": {
+    "mtime": 1785999636.1805205,
+    "ast_hash": "9a70a2ea841e413c6c63c10461c449c1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/injection-hidden.html": {
+    "mtime": 1785999636.1805205,
+    "ast_hash": "b12f56ccc95c67912b0ca4413b49143e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/injection-social.html": {
+    "mtime": 1785999636.1805205,
+    "ast_hash": "6dbf07de96e89e38ab776f21ae95a352",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/injection-visible.html": {
+    "mtime": 1785999636.1815205,
+    "ast_hash": "0b793a89cfec90712f629f4f49ae2d2e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/media-page.html": {
+    "mtime": 1785999636.1815205,
+    "ast_hash": "419f49343e0b9aaea5c2e088e0238d57",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/network-idle.html": {
+    "mtime": 1785999636.2185214,
+    "ast_hash": "30ec6cc101a2ddacdfb2de13b8c8f5e4",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/qa-eval-checkout.html": {
+    "mtime": 1785999636.2185214,
+    "ast_hash": "0046c59636ccf46b380275de66e03eb8",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/qa-eval-spa.html": {
+    "mtime": 1785999636.2195213,
+    "ast_hash": "c705a3603d87b028170421912d0c601b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/qa-eval.html": {
+    "mtime": 1785999636.2195213,
+    "ast_hash": "a302aaa3cf5333b8be2e3449efb1e3a1",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/responsive.html": {
+    "mtime": 1785999636.1815205,
+    "ast_hash": "7355e335e1ff7410e9a0acc0a2a08414",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/snapshot.html": {
+    "mtime": 1785999636.1845207,
+    "ast_hash": "276d11c3f4103b483a7d37f0a36504ca",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/spa.html": {
+    "mtime": 1785999636.1845207,
+    "ast_hash": "bb20f42959efec29b71f110d24815a1d",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/states.html": {
+    "mtime": 1785999636.1845207,
+    "ast_hash": "8ad9392abb62fbe7cf65eaa2efd81e77",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/browse/test/fixtures/upload.html": {
+    "mtime": 1785999636.1845207,
+    "ast_hash": "addf9b2505cb51e935abb5b3ececd475",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/references/apix-gateway-v2-ai-gateway-session.md": {
+    "mtime": 1785999636.2715225,
+    "ast_hash": "f8644c44dbf6521e57966ca6ab905b7e",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/references/cliq-pivot-go-otel-pattern.md": {
+    "mtime": 1785999636.2715225,
+    "ast_hash": "43ae86a4cc176148ae9eab6611d42af5",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/references/graphify-setup.md": {
+    "mtime": 1785999636.2715225,
+    "ast_hash": "1da3d1d705dd8d1b2738958a4c9447a2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/references/gstack-validation-sprint-pattern.md": {
+    "mtime": 1785999636.2715225,
+    "ast_hash": "79162d2cbeea5fed605e344e3db76f25",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/gstack/references/project-gstack-setup.md": {
+    "mtime": 1785999636.2725224,
+    "ast_hash": "e963b2506afe8d452a9cd40ca264166b",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail-audit.md": {
+    "mtime": 1786000187.762819,
+    "ast_hash": "2a757432defa9d63639a3aca3bbbf23a",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail-debt.md": {
+    "mtime": 1786000188.2148106,
+    "ast_hash": "33f49652fe513cf08082e9bcf8e2ecf2",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail-gain.md": {
+    "mtime": 1786000188.722801,
+    "ast_hash": "e0090358fafc0a4b01716b88399e8405",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail-help.md": {
+    "mtime": 1786000189.2207916,
+    "ast_hash": "a89c89a1fec6a90c3751302574389d47",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail-review.md": {
+    "mtime": 1786000187.240829,
+    "ast_hash": "438e2414888145bc0108fa63f64314fd",
+    "semantic_hash": ""
+  },
+  ".hermes/skills/ponytail/ponytail.md": {
+    "mtime": 1786000186.8578362,
+    "ast_hash": "421e40917db6cc732864011799da3235",
+    "semantic_hash": ""
+  },
+  ".specify/extensions.yml": {
+    "mtime": 1785999719.5703404,
+    "ast_hash": "d7d754c934654f8e4d80b168c75aa8ab",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-analyze/SKILL.md": {
+    "mtime": 1785999681.6325078,
+    "ast_hash": "e7831d3205c64871ac867cdb8563d004",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-checklist/SKILL.md": {
+    "mtime": 1785999681.633508,
+    "ast_hash": "a2aa202b02f88783e8976686a80089e5",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-clarify/SKILL.md": {
+    "mtime": 1785999681.633508,
+    "ast_hash": "c8be286204fed1c4e27dd12b0ed2fd7e",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-constitution/SKILL.md": {
+    "mtime": 1785999681.634508,
+    "ast_hash": "21f2d5adc2c9458ef3c84ff58b0939a6",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-git-commit/SKILL.md": {
+    "mtime": 1785999681.635508,
+    "ast_hash": "b3b5452d7f4a384684f4d134977b7413",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-git-feature/SKILL.md": {
+    "mtime": 1785999681.635508,
+    "ast_hash": "55bdacb0f76877801816a1ad323445ab",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-git-initialize/SKILL.md": {
+    "mtime": 1785999681.636508,
+    "ast_hash": "b54f37da4d0e31993b059cb823d4f59d",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-git-remote/SKILL.md": {
+    "mtime": 1785999681.637508,
+    "ast_hash": "77460848e4cc58010cc09600b956dd47",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-git-validate/SKILL.md": {
+    "mtime": 1785999681.637508,
+    "ast_hash": "18b06e81e0b57363e20fd0a3f14b1f63",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-implement/SKILL.md": {
+    "mtime": 1785999681.638508,
+    "ast_hash": "d2887f8e1a395f84293f98c9e0edebc3",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-plan/SKILL.md": {
+    "mtime": 1785999681.639508,
+    "ast_hash": "84df661e2248b59b1f7bbbb25b84c4ae",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-specify/SKILL.md": {
+    "mtime": 1785999681.639508,
+    "ast_hash": "0715db0318d1b39ef5a8d7349108f9e7",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-tasks/SKILL.md": {
+    "mtime": 1785999681.6405082,
+    "ast_hash": "b15e7a6759fef1a02174e806962d2973",
+    "semantic_hash": ""
+  },
+  ".specify/skills/speckit-taskstoissues/SKILL.md": {
+    "mtime": 1785999681.641508,
+    "ast_hash": "8408142da6dee51e8bc29d43d754b7a3",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1786000986.3395507,
+    "ast_hash": "037f7e23f39702f752bf966b6957a04a",
+    "semantic_hash": ""
+  },
+  "BRD.md": {
+    "mtime": 1786000828.1346562,
+    "ast_hash": "58113385eefc2ff6185083fd67654c2a",
+    "semantic_hash": ""
+  }
+}

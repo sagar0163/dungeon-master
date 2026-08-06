@@ -1,16 +1,26 @@
 # AGENTS.md — Dungeon Master Project
 
 ## Project Overview
-AI-powered Dungeon Master for tabletop RPGs. FastAPI backend with LangGraph pipelines, Supabase PostgreSQL + pgvector, React frontend.
+**Dungeon Lord** — Hybrid dungeon-builder + first-person grid crawler (Dungeon Keeper × Legend of Grimrock).
+- **Builder Mode**: Top-down/isometric grid editor — place rooms, traps, monster spawns, spend Essence
+- **Crawl Mode**: First-person, **discrete tile-based** movement (Dungeon Master / Legend of Grimrock style)
+- **Single dungeon grid** — same data renders both modes
+- **Invader Simulation**: AI parties pathfind through dungeon, trigger traps, fight monsters/Lord
+- **Essence Economy**: Harvested from kills → building, upgrading, summoning
+- **Dual Progression**: Lord level + Dungeon rank share **one growth formula** (additive, milestone-based)
+- **Godot 4 recommended** — native grid rendering, A* pathfinding, single executable
 
 ## Quick Commands
 ```bash
-# Backend
+# Godot 4 (recommended)
 cd /home/sagar-jadhav/Documents/my\ project/dungeon_master
-source .venv/bin/activate
-python -m dungeon_master.main
+godot --path . --editor
 
-# Tests
+# Or run exported build
+./builds/dungeon_lord.x86_64
+
+# Tests (Python tooling for data validation)
+source .venv/bin/activate
 pytest tests/ -v
 
 # Graphify
@@ -59,34 +69,57 @@ Key routing rules:
 ## Project Structure
 ```
 dungeon_master/
-├── SPEC.md                    # Requirements specification
-├── pyproject.toml             # Python project config
-├── requirements.txt           # Dependencies
+├── BRD.md                     # Business Requirements (source of truth)
+├── SPEC.md                    # Technical specification
+├── AGENTS.md                  # This file
+├── pyproject.toml             # Python tooling config (data validation, tests)
+├── requirements.txt           # Python deps
 ├── .gitignore
 ├── README.md
 ├── graphify-out/              # Knowledge graph
 ├── .hermes/skills/gstack/     # Vendored gstack skills
 ├── .hermes/skills/ponytail/   # Ponytail minimalist coding skills
-├── dungeon_master/
-│   ├── __init__.py
-│   └── main.py               # FastAPI app
+├── .specify/                  # Specify/speckit skills
+├── dungeon_lord/              # Godot 4 project (main game)
+│   ├── project.godot
+│   ├── scenes/
+│   │   ├── builder/           # Builder Mode scenes
+│   │   ├── crawl/             # Crawl Mode scenes
+│   │   └── ui/                # Shared UI
+│   ├── scripts/
+│   │   ├── grid/              # Grid system, pathfinding
+│   │   ├── entities/          # Lord, monsters, invaders
+│   │   ├── progression/       # Growth formula, ranks
+│   │   ├── economy/           # Essence, costs
+│   │   ├── ai/                # Behavior trees, invader logic
+│   │   └── config/            # TOML config loading
+│   ├── assets/
+│   └── addons/
+├── tools/                     # Python tooling
+│   ├── validate_config.py     # TOML schema validation
+│   ├── generate_data.py       # Proc-gen helpers
+│   └── test_progression.py    # Growth formula tests
 └── tests/
-    └── test_main.py
+    ├── test_progression.py    # Growth formula unit tests
+    └── test_grid.py           # Grid/pathfinding tests
 ```
 
 ## Architecture Notes
-- Reuses Nebula-Writer patterns: FastAPI + LangGraph, Supabase + pgvector
-- Three-loop architecture planned: Generation → Validation → Continuity
-- LLM fallback: Mistral → Gemini → OpenAI
-- State: PostgreSQL (structured) + pgvector (semantic search)
+- **Engine**: Godot 4 (GDScript or C#) — single codebase, native grid rendering, built-in A*
+- **Grid**: 3D array (x, y, floor) — single source for Builder (orthographic) + Crawl (first-person)
+- **State**: SQLite (local) — dungeon grid, entities, progression, session saves
+- **AI**: Behavior trees + A* pathfinding (no LLM for gameplay mechanics)
+- **Config**: TOML — all balance numbers, growth formulas, unlock tables (tunable without code changes)
+- **Progression**: Shared additive formula with milestone bonuses (config-driven)
+- **LLM**: Optional only for flavor text (logs, descriptions) — NEVER for mechanics
 
 ## Coordinated Workflow — How Skills Complement Each Other
 
 ### Phase 1: Discover & Shape (Strategy → Spec)
 ```
-/office-hours          # Brainstorm campaign features, get clarity
+/office-hours          # Brainstorm dungeon mechanics, get clarity
   ↓
-/plan-ceo-review       # Lock scope: what's in v1, what's not
+/plan-ceo-review       # Lock scope: what's in v1 (single dungeon, no overworld)
   ↓
 /spec                  # Write SPEC.md with FRs/NFRs (speckit-specify)
   ↓
@@ -95,15 +128,15 @@ graphify update .      # Index new spec into knowledge graph
 
 ### Phase 2: Plan & Architect (Design → Tasks)
 ```
-/plan-eng-review       # Architecture review: DB schema, API contracts, pipelines
+/plan-eng-review       # Architecture review: grid system, Godot scenes, progression math
   ↓
-/plan-design-review    # UI/UX for DM screen, dice log, campaign wiki
+/plan-design-review    # UI/UX for Builder Mode (grid editor) + Crawl Mode (first-person HUD)
   ↓
 speckit-plan           # Break spec into implementation plan
   ↓
 speckit-tasks          # Generate atomic, ordered task list
   ↓
-graphify query "show me the auth module"  # Verify context before coding
+graphify query "show me the grid module"  # Verify context before coding
 ```
 
 ### Phase 3: Implement (Code with Ponytail Discipline)
@@ -113,14 +146,14 @@ graphify query "show me the auth module"  # Verify context before coding
 # For each task:
 speckit-implement      # Implement single task (ponytail enforces minimal diff)
   ↓
-graphify query "how does X connect to Y?"  # Check impact before changes
+graphify query "how does grid connect to pathfinding?"  # Check impact before changes
   ↓
 /ponytail-review       # Self-review: did I over-build? delete unused code
 ```
 
 ### Phase 4: Validate & Harden (QA → Review)
 ```
-/qa                    # Test the running app (playwright, API contracts)
+/qa                    # Test the running game (Godot, grid movement, combat, pathfinding)
   ↓
 /investigate           # If bugs: root-cause, not symptom
   ↓
@@ -133,7 +166,7 @@ graphify query "how does X connect to Y?"  # Check impact before changes
 
 ### Phase 5: Ship & Learn
 ```
-/ship                  # Merge, deploy, tag
+/ship                  # Merge, export build, tag
   ↓
 /context-save          # Save session context for next feature
   ↓
