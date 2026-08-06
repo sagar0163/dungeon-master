@@ -49,6 +49,12 @@ Key routing rules:
 - Save progress → invoke /context-save
 - Resume context → invoke /context-restore
 - Author a backlog-ready spec/issue → invoke /spec
+- **Minimal/lazy coding (YAGNI, stdlib-first, delete over add)** → invoke /ponytail [lite|full|ultra]
+- Code review with ponytail lens → invoke /ponytail-review
+- Audit for over-engineering → invoke /ponytail-audit
+- Technical debt analysis → invoke /ponytail-debt
+- What to add back (ponytail gain) → invoke /ponytail-gain
+- Ponytail help/usage → invoke /ponytail-help
 
 ## Project Structure
 ```
@@ -60,6 +66,7 @@ dungeon_master/
 ├── README.md
 ├── graphify-out/              # Knowledge graph
 ├── .hermes/skills/gstack/     # Vendored gstack skills
+├── .hermes/skills/ponytail/   # Ponytail minimalist coding skills
 ├── dungeon_master/
 │   ├── __init__.py
 │   └── main.py               # FastAPI app
