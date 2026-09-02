@@ -119,3 +119,4 @@ milestone_bonus:
 4. Implement tile placement + Essence spending
 5. Add Crawl Mode camera + grid movement
 6. Hook up invader pathfinding (A* on grid)
+<!-- keep -->
