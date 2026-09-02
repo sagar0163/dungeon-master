@@ -47,7 +47,7 @@ dungeon_master/
 
 ### Run the Game
 ```bash
-cd /home/sagar-jadhav/Documents/my\ project/dungeon_master
+cd dungeon_master
 
 # Open in Godot editor
 godot --path . --editor
@@ -58,7 +58,7 @@ godot --path . --editor
 
 ### Run Tests (Python Tooling)
 ```bash
-cd /home/sagar-jadhav/Documents/my\ project/dungeon_master
+cd dungeon_master
 source .venv/bin/activate
 pytest tests/ -v
 ```
