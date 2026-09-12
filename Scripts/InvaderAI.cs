@@ -15,6 +15,7 @@ namespace DungeonLord.Scripts
         [Export] public float PathRecalcInterval { get; set; } = 2.0f;
         [Export] public int MaxPartySize { get; set; } = 6;
         [Export] public float BaseSpawnInterval { get; set; } = 60.0f; // seconds
+        [Export] public int WaveSeed { get; set; } = 1337;
         
         // References
         [Export] public DungeonGrid DungeonGrid { get; private set; }
@@ -35,7 +36,7 @@ namespace DungeonLord.Scripts
         
         public override void _Ready()
         {
-            _rng.Randomize();
+            _rng.Seed = (ulong)WaveSeed;
             GD.Print("InvaderAI initialized");
         }
         
@@ -195,7 +196,16 @@ namespace DungeonLord.Scripts
             SettlementReputation = Math.Max(0.1f, SettlementReputation + delta);
             GD.Print($"Settlement Reputation changed to: {SettlementReputation:F1}");
         }
-        
+
+        /// <summary>
+        /// Spawns one invader wave deterministically from the given seed (visible in Crawl Mode).
+        /// </summary>
+        public void SpawnWave(int seed)
+        {
+            _rng.Seed = (ulong)seed;
+            SpawnParty();
+        }
+
         public IReadOnlyList<InvaderParty> ActiveParties => _activeParties.AsReadOnly();
     }
     

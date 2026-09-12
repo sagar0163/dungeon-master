@@ -11,7 +11,7 @@ Approach mirrors issue #9: extract Godot-free core modules into `Scripts/`, link
 - [x] Add Godot-free `Scripts/InvaderWaveSimulation.cs` (spawn at entrance -> A* -> step path -> trap -> combat -> kill credits Essence -> reach core; deterministic transcript log)
 - [x] Add test project links for the three new core files `DungeonLord.Tests.csproj`
 - [x] Add `DungeonLord.Tests/InvaderWaveTests.cs` covering all acceptance criteria (path to core, trap, combat, Essence credit, determinism)
-- [ ] In-game wiring: `InvaderAI.SpawnWave(seed)` + deterministic RNG seed; `GameManager` builds a starter dungeon + spawns first visible wave
-- [ ] Unify GameManager Essence reward to shared `CalculateInvaderEssenceReward`
+- [x] In-game wiring: `InvaderAI.SpawnWave(seed)` + deterministic RNG seed; `GameManager` builds a starter dungeon + spawns first visible wave
+- [x] Unify GameManager Essence reward to shared `CalculateInvaderEssenceReward`
 - [ ] Run dotnet test + python pytest; fix failures
 - [ ] graphify update . ; cleanup plan file; final commit + push

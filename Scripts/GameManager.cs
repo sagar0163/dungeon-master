@@ -218,6 +218,35 @@ namespace DungeonLord.Scripts
             // Connect EssenceManager events
             EssenceManager.OnEssenceChanged += OnEssenceChanged;
             EssenceManager.OnRankUp += OnRankUp;
+
+            // Starter dungeon + deterministic first wave (visible in Crawl Mode)
+            BuildStarterDungeon();
+            DungeonResetCycle.CaptureInitialState();
+            InvaderAI.SpawnWave(InvaderAI.WaveSeed);
+        }
+
+        /// <summary>
+        /// Builds a small entrance -> corridor -> trap -> garrison -> core layout so an
+        /// invader wave can immediately traverse the grid and be seen in Crawl Mode.
+        /// </summary>
+        private void BuildStarterDungeon()
+        {
+            DungeonGrid.SetTileType(1, 1, TileType.SpawnPoint, 0);
+            for (int y = 2; y <= 8; y++)
+                DungeonGrid.SetTileType(1, y, TileType.Corridor, 0);
+
+            DungeonGrid.SetTileType(1, 4, TileType.Trap, 0);
+            DungeonGrid.GetTile(1, 4, 0).TrapId = "spike_pit";
+
+            DungeonGrid.SetTileType(1, 6, TileType.Room, 0);
+            DungeonGrid.GetTile(1, 6, 0).RoomId = "barracks";
+            DungeonGrid.GetTile(1, 6, 0).GarrisonedMonsters.Add("goblin_1");
+            DungeonGrid.GetTile(1, 6, 0).GarrisonedMonsters.Add("goblin_1");
+
+            DungeonGrid.SetTileType(1, 8, TileType.LordChamber, 0);
+
+            _lordState.Position = new Vector3I(1, 2, 0);
+            CrawlController.Initialize(DungeonGrid, _lordState.Position, _lordState.Facing);
         }
 
         public override void _Process(double delta)
@@ -419,12 +448,13 @@ namespace DungeonLord.Scripts
         /// </summary>
         private long CalculateEssenceReward(InvaderAI.InvaderParty party)
         {
-            long baseReward = 50;
+            long total = 0;
             foreach (var member in party.Members)
             {
-                baseReward += member.Level * 10;
+                total += CombatRules.CalculateInvaderEssenceReward(
+                    member.Level, 1, InvaderAI.SettlementReputation * 10.0);
             }
-            return baseReward * (long)Math.Max(1, InvaderAI.SettlementReputation);
+            return total;
         }
 
         /// <summary>
