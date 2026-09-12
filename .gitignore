@@ -2,6 +2,10 @@
 .godot/
 *.godot
 
+# .NET build output
+**/bin/
+**/obj/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

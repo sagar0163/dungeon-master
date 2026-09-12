@@ -14,16 +14,16 @@ Python suite (41 passing tests). Tests must run via `dotnet test` and be wired i
 
 ## Checklist
 
-- [ ] Extract InvaderAI's A* core into Godot-free `Scripts/Pathfinding.cs` (same numbers/heuristic),
+- [x] Extract InvaderAI's A* core into Godot-free `Scripts/Pathfinding.cs` (same numbers/heuristic),
       and refactor `InvaderAI.FindPath` to delegate to it (also fix its scope-carrying TileType errors).
-- [ ] Add `DungeonLord.Tests/` project (NUnit) that <Compile>-links the four pure C# core files.
-- [ ] Mirrored tests: LevelingEngine growth formula + milestone stacking (Python test_progression/rules values).
-- [ ] Mirrored tests: DungeonGrid coordinates/bounds (Python test_grid TestGrid3D).
-- [ ] Mirrored tests: EssenceManager earn/spend/cap + rank-up capacity growth.
-- [ ] Mirrored tests: A* pathfinding (straight corridor, obstacle, stairs/multi-floor, unreachable -> empty)
+- [x] Add `DungeonLord.Tests/` project (NUnit) that <Compile>-links the four pure C# core files.
+- [x] Mirrored tests: LevelingEngine growth formula + milestone stacking (Python test_progression/rules values).
+- [x] Mirrored tests: DungeonGrid coordinates/bounds (Python test_grid TestGrid3D).
+- [x] Mirrored tests: EssenceManager earn/spend/cap + rank-up capacity growth.
+- [x] Mirrored tests: A* pathfinding (straight corridor, obstacle, stairs/multi-floor, unreachable -> empty)
       (Python test_grid TestAStarPathfinding).
-- [ ] Exclude DungeonLord.Tests from the Godot csproj glob so the game build is not polluted.
-- [ ] `dotnet test` passes (both Debug and, if used, CI path).
+- [x] Exclude DungeonLord.Tests from the Godot csproj glob so the game build is not polluted.
+- [x] `dotnet test` passes (33/33).
 - [ ] Add GitHub Actions CI workflow: pytest (Python 41 suite) + dotnet test.
 - [ ] Run Python suite locally to confirm it still passes (41 tests).
 - [ ] Cleanup: remove WAR_ROOM_PLAN_9.md, final commit, push branch.
