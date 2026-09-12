@@ -47,3 +47,7 @@ build/
 *.sqlite
 *.db
 graphify-out/cache/
+
+# C# build artifacts
+tests_cs/bin/
+tests_cs/obj/
