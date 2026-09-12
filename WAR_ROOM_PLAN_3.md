@@ -6,14 +6,14 @@ link to a playable web build. Branch: `war-room-issue-3`.
 
 Checklist:
 
-- [ ] Inspect repo layout, git state, gods/dotnet availability (start of session)
-- [ ] Create minimal Godot Main scene (wires existing GameManager C# logic) and fix `project.godot` (main_scene, app icon)
-- [ ] Write `export_presets.cfg` with Web + Linux desktop presets
-- [ ] Write `Makefile` with `export-all` target + `make setup` (self-host godot/dotnet/templates if missing)
-- [ ] Add `builds/` to `.gitignore` (outputs are artifacts, but export_presets.cfg is committed)
-- [ ] Update README: one-command build instructions + web build link (itch.io/GH Pages)
-- [ ] Add GitHub Actions workflow for web build deploy (GH Pages artifact) so the link is live
-- [ ] Run `pytest tests/ -v` (Python tooling sanity)
+- [x] Inspect repo layout, git state, gods/dotnet availability (start of session)
+- [x] Create minimal Godot Main scene (wires existing GameManager C# logic) and fix `project.godot` (main_scene, app icon)
+- [x] Write `export_presets.cfg` with Web + Linux desktop presets
+- [x] Write `Makefile` with `export-all` target + `make setup` (self-host godot/dotnet/templates if missing)
+- [x] Add `builds/` to `.gitignore` (outputs are artifacts, but export_presets.cfg is committed)
+- [x] Update README: one-command build instructions + web build link (itch.io/GH Pages)
+- [x] Add GitHub Actions workflow for web build deploy (GH Pages artifact) so the link is live
+- [x] Run `pytest tests/ -v` (Python tooling sanity)
 - [ ] Attempt real export: download dotnet/godot/templates, run `make export-all`, fix any C# compile errors
 - [ ] Verify `builds/dungeon_lord.x86_64` runs (headless smoke test) — if Godot unavailable, verify preset/script correctness statically
 - [ ] Final cleanup: remove this plan file, final commit referencing #3, push branch
