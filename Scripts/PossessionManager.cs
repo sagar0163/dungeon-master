@@ -18,8 +18,8 @@ namespace DungeonLord.Scripts
         [Export] public bool RequireLineOfSight { get; set; } = true;
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public CrawlController CrawlController { get; private set; }
+        [Export] public DungeonGrid DungeonGrid { get; set; }
+        [Export] public CrawlController CrawlController { get; set; }
         
         // State
         private bool _isPossessing = false;

@@ -21,9 +21,9 @@ namespace DungeonLord.Scripts
         [Export] public float GarrisonRespawnDelay { get; set; } = 30.0f; // seconds after reset
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
-        [Export] public InvaderAI InvaderAI { get; private set; }
+        [Export] public DungeonGrid DungeonGrid { get; set; }
+        [Export] public EssenceManager EssenceManager { get; set; }
+        [Export] public InvaderAI InvaderAI { get; set; }
         
         // State
         private float _resetTimer = 0f;

@@ -260,10 +260,15 @@ namespace DungeonLord.Scripts
     public class MonsterProductionManager
     {
         private readonly EssenceManager _essenceManager;
-        private readonly DungeonGrid _dungeonGrid;
+        private DungeonGrid _dungeonGrid;
         private readonly Dictionary<Vector3I, ProductionJob> _activeProductions = new();
         private readonly Dictionary<ProductionRoomType, int> _roomProductionSlots = new();
         private const int BaseSlotsPerRoom = 1;
+
+        public void SetDungeonGrid(DungeonGrid dungeonGrid)
+        {
+            _dungeonGrid = dungeonGrid;
+        }
 
         public event Action<ProductionJob, string> OnProductionStarted;
         public event Action<ProductionJob, string> OnProductionCompleted;

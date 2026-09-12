@@ -22,7 +22,7 @@ Branch: `war-room-issue-6` (base `main`). Repo root is a Godot 4 (C#) project wi
 - [x] 5. C# `Scripts/DungeonGenerator.cs` — mirrors Python algorithm, writes to `DungeonGrid`
 - [x] 6. C# standalone test `tests_cs/` (console, no packages) mirroring Python tests + `--signature <seed>` mode; exclude dir from Godot build
 - [x] 7. Build & run C# test, run full Python suite, fix failures
-- [ ] 8. Wire "Generate" into BuilderHUD (`GenerateDungeonButton`) + GameManager regen
+- [x] 8. Wire "Generate" into BuilderHUD (`%GenerateDungeonButton`) + GameManager `RegenerateDungeon`; re-point all grid consumers; made manager grid setters public; untracked tests_cs build artifacts; added `using DungeonLord.Scripts.UI` (fixes 4 pre-existing CS0246)
 - [ ] 9. Final pass: graphify update, clean up plan file, final commit + push
 
 ## Commands

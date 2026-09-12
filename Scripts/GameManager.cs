@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using DungeonLord.Scripts.Config;
+using DungeonLord.Scripts.UI;
 using Godot;
 
 namespace DungeonLord.Scripts
@@ -36,6 +38,11 @@ namespace DungeonLord.Scripts
 
         // Lord stats (persistent across modes)
         private LordState _lordState;
+
+        // Procedural generation
+        private DungeonGenerator _dungeonGenerator;
+        private DungeonGenerationConfig _dungeonConfig;
+        private int _activeSeed = 1337;
 
         public enum GameMode
         {
@@ -218,6 +225,18 @@ namespace DungeonLord.Scripts
             // Connect EssenceManager events
             EssenceManager.OnEssenceChanged += OnEssenceChanged;
             EssenceManager.OnRankUp += OnRankUp;
+
+            // Connect generate-dungeon request
+            BuilderHUD.OnGenerateRequested += OnGenerateRequested;
+        }
+
+        /// <summary>
+        /// Regenerate the dungeon with the active seed (reproducible).
+        /// </summary>
+        private void OnGenerateRequested()
+        {
+            EnsureDungeonGenerator();
+            RegenerateDungeon(_activeSeed);
         }
 
         public override void _Process(double delta)
@@ -296,6 +315,81 @@ namespace DungeonLord.Scripts
 
             OnModeChanged?.Invoke(_currentMode);
             GD.Print($"Switched to {_currentMode} mode");
+        }
+
+        /// <summary>
+        /// Lazily create the procedural generator from the TOML config.
+        /// </summary>
+        private void EnsureDungeonGenerator()
+        {
+            if (_dungeonGenerator != null) return;
+            string configPath = ProjectSettings.GlobalizePath("res://data/dungeon_generation.toml");
+            _dungeonConfig = DungeonGenerationConfig.Load(configPath);
+            _activeSeed = _dungeonConfig.DefaultSeed;
+            _dungeonGenerator = new DungeonGenerator(_dungeonConfig);
+        }
+
+        /// <summary>
+        /// Regenerate the dungeon layout from a (reproducible) seed.
+        /// </summary>
+        public void RegenerateDungeon(int seed)
+        {
+            EnsureDungeonGenerator();
+
+            DungeonGrid newGrid = _dungeonGenerator.Generate(seed);
+            if (newGrid == null)
+            {
+                GD.PrintErr($"Dungeon generation failed for seed {seed}");
+                return;
+            }
+            _activeSeed = seed;
+
+            // Re-point every consumer of the grid at the new layout
+            DungeonGrid = newGrid;
+            BuilderController.Initialize(newGrid, EssenceManager);
+            BuilderController.ChangeFloor(0);
+
+            Vector3I start = _lordState != null ? _lordState.Position : Vector3I.Zero;
+            if (newGrid.GetTile(start.X, start.Y, start.Z)?.Type == DungeonGrid.TileType.Empty)
+            {
+                start = FindFirstWalkableTile(newGrid);
+            }
+            if (_lordState != null)
+            {
+                _lordState.Position = start;
+                _lordState.Facing = CrawlController.Direction.North;
+            }
+            CrawlController.Initialize(newGrid, start, CrawlController.Direction.North);
+
+            InvaderAI.DungeonGrid = newGrid;
+            PossessionManager.DungeonGrid = newGrid;
+            DungeonResetCycle.DungeonGrid = newGrid;
+            MonsterProductionManager.SetDungeonGrid(newGrid);
+            DungeonResetCycle.CaptureInitialState();
+
+            GD.Print($"Dungeon generated with seed {seed}");
+        }
+
+        /// <summary>
+        /// Find the first walkable tile (room or corridor) on the grid.
+        /// </summary>
+        private static Vector3I FindFirstWalkableTile(DungeonGrid grid)
+        {
+            for (int z = 0; z < grid.Floors; z++)
+            {
+                for (int y = 0; y < grid.Height; y++)
+                {
+                    for (int x = 0; x < grid.Width; x++)
+                    {
+                        var type = grid.GetTile(x, y, z)?.Type;
+                        if (type == DungeonGrid.TileType.Room || type == DungeonGrid.TileType.Corridor)
+                        {
+                            return new Vector3I(x, y, z);
+                        }
+                    }
+                }
+            }
+            return Vector3I.Zero;
         }
 
         /// <summary>
@@ -737,6 +831,11 @@ namespace DungeonLord.Scripts
             {
                 EssenceManager.OnEssenceChanged -= OnEssenceChanged;
                 EssenceManager.OnRankUp -= OnRankUp;
+            }
+
+            if (BuilderHUD != null)
+            {
+                BuilderHUD.OnGenerateRequested -= OnGenerateRequested;
             }
         }
     }

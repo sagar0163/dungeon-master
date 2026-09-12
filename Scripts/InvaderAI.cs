@@ -17,8 +17,8 @@ namespace DungeonLord.Scripts
         [Export] public float BaseSpawnInterval { get; set; } = 60.0f; // seconds
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
+        [Export] public DungeonGrid DungeonGrid { get; set; }
+        [Export] public EssenceManager EssenceManager { get; set; }
         
         // State
         private readonly List<InvaderParty> _activeParties = new();

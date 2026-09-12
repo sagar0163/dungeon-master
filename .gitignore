@@ -39,3 +39,6 @@ build/
 *.sqlite
 *.db
 graphify-out/cache/
+# Godot C# headless test harness build artifacts
+tests_cs/bin/
+tests_cs/obj/

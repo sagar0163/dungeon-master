@@ -23,6 +23,10 @@ namespace DungeonLord.Scripts.UI
         [Export] public Button FloorDownButton { get; private set; }
         [Export] public Button SwitchModeButton { get; private set; }
         [Export] public Button ResetDungeonButton { get; private set; }
+        [Export] public Button GenerateDungeonButton { get; private set; }
+
+        // Events
+        public Action OnGenerateRequested;
 
         // State
         private BuilderController _builderController;
@@ -52,6 +56,7 @@ namespace DungeonLord.Scripts.UI
             FloorDownButton ??= GetNodeOrNull<Button>("%FloorDownButton");
             SwitchModeButton ??= GetNodeOrNull<Button>("%SwitchModeButton");
             ResetDungeonButton ??= GetNodeOrNull<Button>("%ResetDungeonButton");
+            GenerateDungeonButton ??= GetNodeOrNull<Button>("%GenerateDungeonButton");
 
             // Build tool palette if empty
             if (ToolPalette != null && ToolPalette.GetChildCount() == 0)
@@ -82,6 +87,9 @@ namespace DungeonLord.Scripts.UI
 
             // Connect reset button
             ResetDungeonButton?.Pressed += () => _resetCycle?.TriggerManualReset();
+
+            // Connect generate button
+            GenerateDungeonButton?.Pressed += () => OnGenerateRequested?.Invoke();
 
             GD.Print("BuilderHUD initialized");
         }
