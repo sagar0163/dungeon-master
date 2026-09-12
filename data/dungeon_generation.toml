@@ -1,0 +1,31 @@
+# Dungeon generation parameters for Dungeon Lord.
+# Source of truth consumed by the C# `DungeonGenerator` (Godot runtime + headless tests)
+# and the Python `dungeon_master.generator` tooling/tests. Same seed -> identical grid.
+
+[generator]
+default_seed = 1337        # used when no explicit seed is given
+width = 32                 # grid width in tiles (x)
+height = 32                # grid height in tiles (y)
+floors = 3                 # number of floors (z)
+
+[rooms]
+min_width = 3
+max_width = 8
+min_height = 3
+max_height = 8
+target_per_floor = 8       # rooms attempted per floor
+placement_attempts = 200   # retries before giving up on a room
+margin = 2                 # empty border tiles around the grid edge
+spacing = 1                # minimum tile padding between rooms
+
+[corridors]
+width = 1                  # corridor thickness in tiles
+
+[rooms.weights]
+# Weighted pool of room type ids assigned to generated rooms.
+spawn = 3
+treasure = 2
+barracks = 2
+shrine = 1
+trap_room = 1
+boss = 1
