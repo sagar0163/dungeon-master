@@ -1,0 +1,5 @@
+- [ ] Add MIT LICENSE
+- [ ] Make README names/links consistent (one project root, one product name, fix dir references)
+- [ ] Create an install/bootstrap script and update quick start to two commands
+- [ ] Move out-of-spec C# scripts to `research/` directory
+- [ ] Create decision document for name/trademark vs LitRPG series
