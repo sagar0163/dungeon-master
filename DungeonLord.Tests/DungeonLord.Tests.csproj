@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>DungeonLord.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Link the real (Godot-free) engine sources so tests exercise game code.
+         Only core modules used by the test surface are linked, so the tests stay
+         independent of the Godot runtime. See issue #9. -->
+    <Compile Include="../Scripts/LevelingEngine.cs" Link="Core/LevelingEngine.cs" />
+    <Compile Include="../Scripts/DungeonGrid.cs" Link="Core/DungeonGrid.cs" />
+    <Compile Include="../Scripts/EssenceManager.cs" Link="Core/EssenceManager.cs" />
+    <Compile Include="../Scripts/Pathfinding.cs" Link="Core/Pathfinding.cs" />
+  </ItemGroup>
+
+</Project>

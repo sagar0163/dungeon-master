@@ -124,7 +124,7 @@ namespace DungeonLord.Scripts
                 for (int y = 0; y < DungeonGrid.Height; y++)
                 {
                     var tile = DungeonGrid.GetTile(x, y, 0);
-                    if (tile?.Type == DungeonGrid.TileType.SpawnPoint)
+                    if (tile?.Type == TileType.SpawnPoint)
                         return new Vector3I(x, y, 0);
                 }
             }
@@ -140,7 +140,7 @@ namespace DungeonLord.Scripts
                     for (int y = 0; y < DungeonGrid.Height; y++)
                     {
                         var tile = DungeonGrid.GetTile(x, y, z);
-                        if (tile?.Type == DungeonGrid.TileType.LordChamber)
+                        if (tile?.Type == TileType.LordChamber)
                             return new Vector3I(x, y, z);
                     }
                 }
@@ -175,108 +175,19 @@ namespace DungeonLord.Scripts
             return members;
         }
         
-        // A* pathfinding on dungeon grid
+        // A* pathfinding on dungeon grid (shared, Godot-free engine in Pathfinding.cs)
         public List<Vector3I> FindPath(Vector3I start, Vector3I goal)
         {
             if (DungeonGrid == null) return new List<Vector3I>();
-            
-            var openSet = new PriorityQueue<PathNode, float>();
-            var cameFrom = new Dictionary<Vector3I, Vector3I>();
-            var gScore = new Dictionary<Vector3I, float>();
-            var fScore = new Dictionary<Vector3I, float>();
-            
-            openSet.Enqueue(new PathNode(start), Heuristic(start, goal));
-            gScore[start] = 0f;
-            fScore[start] = Heuristic(start, goal);
-            
-            while (openSet.Count > 0)
-            {
-                var current = openSet.Dequeue();
-                
-                if (current.Position == goal)
-                    return ReconstructPath(cameFrom, current.Position);
-                
-                foreach (var neighbor in GetWalkableNeighbors(current.Position))
-                {
-                    float tentativeG = gScore[current.Position] + 1f;
-                    
-                    if (!gScore.ContainsKey(neighbor) || tentativeG < gScore[neighbor])
-                    {
-                        cameFrom[neighbor] = current.Position;
-                        gScore[neighbor] = tentativeG;
-                        fScore[neighbor] = tentativeG + Heuristic(neighbor, goal);
-                        
-                        if (!openSet.Contains(n => n.Position == neighbor))
-                            openSet.Enqueue(new PathNode(neighbor), fScore[neighbor]);
-                    }
-                }
-            }
-            
-            return new List<Vector3I>(); // No path found
-        }
-        
-        private float Heuristic(Vector3I a, Vector3I b)
-        {
-            // Manhattan distance + floor penalty
-            return Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y) + Math.Abs(a.Z - b.Z) * 10f;
-        }
-        
-        private IEnumerable<Vector3I> GetWalkableNeighbors(Vector3I pos)
-        {
-            // 4-directional + floor connections (stairs)
-            var dirs = new[]
-            {
-                new Vector3I(1, 0, 0), new Vector3I(-1, 0, 0),
-                new Vector3I(0, 1, 0), new Vector3I(0, -1, 0)
-            };
-            
-            foreach (var dir in dirs)
-            {
-                var next = pos + dir;
-                var tile = DungeonGrid.GetTile(next.X, next.Y, next.Z);
-                if (tile != null && IsWalkable(tile.Type))
-                    yield return next;
-            }
-            
-            // Floor transitions (stairs/ladders)
-            var tileHere = DungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
-            if (tileHere?.Type == DungeonGrid.TileType.Corridor || tileHere?.Type == DungeonGrid.TileType.Room)
-            {
-                // Check floor above
-                if (pos.Z + 1 < DungeonGrid.Floors)
-                {
-                    var up = DungeonGrid.GetTile(pos.X, pos.Y, pos.Z + 1);
-                    if (up != null && IsWalkable(up.Type))
-                        yield return new Vector3I(pos.X, pos.Y, pos.Z + 1);
-                }
-                // Check floor below
-                if (pos.Z - 1 >= 0)
-                {
-                    var down = DungeonGrid.GetTile(pos.X, pos.Y, pos.Z - 1);
-                    if (down != null && IsWalkable(down.Type))
-                        yield return new Vector3I(pos.X, pos.Y, pos.Z - 1);
-                }
-            }
-        }
-        
-        private bool IsWalkable(DungeonGrid.TileType type)
-        {
-            return type == DungeonGrid.TileType.Corridor 
-                || type == DungeonGrid.TileType.Room 
-                || type == DungeonGrid.TileType.SpawnPoint
-                || type == DungeonGrid.TileType.LordChamber;
-        }
-        
-        private List<Vector3I> ReconstructPath(Dictionary<Vector3I, Vector3I> cameFrom, Vector3I current)
-        {
-            var path = new List<Vector3I> { current };
-            while (cameFrom.ContainsKey(current))
-            {
-                current = cameFrom[current];
-                path.Add(current);
-            }
-            path.Reverse();
-            return path;
+
+            var found = Pathfinding.FindPath(DungeonGrid,
+                new Pathfinding.Cell(start.X, start.Y, start.Z),
+                new Pathfinding.Cell(goal.X, goal.Y, goal.Z));
+
+            var result = new List<Vector3I>(found.Count);
+            foreach (var cell in found)
+                result.Add(new Vector3I(cell.X, cell.Y, cell.Z));
+            return result;
         }
         
         public void ModifyReputation(float delta)
@@ -316,7 +227,7 @@ namespace DungeonLord.Scripts
             var tile = grid.GetTile(targetTile.X, targetTile.Y, targetTile.Z);
             
             // Check for trap
-            if (tile?.Type == DungeonGrid.TileType.Trap)
+            if (tile?.Type == TileType.Trap)
             {
                 TriggerTrap(tile);
             }
@@ -386,37 +297,5 @@ namespace DungeonLord.Scripts
         Combat,
         ReachedTarget,
         Destroyed
-    }
-    
-    internal class PathNode
-    {
-        public Vector3I Position { get; }
-        public PathNode(Vector3I pos) => Position = pos;
-    }
-    
-    // Simple priority queue for A*
-    internal class PriorityQueue<T, TPriority> where TPriority : IComparable<TPriority>
-    {
-        private readonly List<(T item, TPriority priority)> _items = new();
-        
-        public int Count => _items.Count;
-        
-        public void Enqueue(T item, TPriority priority)
-        {
-            _items.Add((item, priority));
-            _items.Sort((a, b) => a.priority.CompareTo(b.priority));
-        }
-        
-        public T Dequeue()
-        {
-            var item = _items[0].item;
-            _items.RemoveAt(0);
-            return item;
-        }
-        
-        public bool Contains(Func<T, bool> predicate)
-        {
-            return _items.Exists(x => predicate(x.item));
-        }
     }
 }
