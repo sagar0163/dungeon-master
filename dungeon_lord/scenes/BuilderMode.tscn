@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GodotScene>
+
+	<root>
+
+		<node3d name="BuilderMode">
+
+			<camera3d name="Camera3D">
+
+				<property name="position" value="0, 30, 0" />
+
+				<property name="rotation" value="-1.5708, 0, 0" />
+
+			</camera3d>
+
+			<!-- 8x8 grid floor visual -->
+			<grid name="DungeonGrid" size="8, 8, 1">
+
+				<!-- Tile instances for the 8x8 grid -->
+				<instance name="Tile" type="MeshInstance3D" count="64">
+
+					<property name="position" value="0, 0.1, 0" />
+
+					<property name="mesh" value="res://assets/GridTile.tscn" />
+
+					<property name="material_override" value="res://assets/StandardMaterial3D_Grid.xml" />
+
+				</instance>
+
+			</grid>
+
+			<!-- Selection indicator shown when hovering over a tile -->
+			<meshinstance3d name="SelectionIndicator">
+
+				<property name="visible" value="false" />
+
+				<property name="position" value="0, 0.1, 0" />
+
+				<property name="mesh" value="res://assets/SelectionCursor.tscn" />
+
+				<property name="material_override" value="res://assets/StandardMaterial3D_Selection.xml" />
+
+			</meshinstance3d>
+
+			<!-- Placement preview shown when can place -->
+			<meshinstance3d name="PlacementPreview">
+
+				<property name="visible" value="false" />
+
+				<property name="position" value="0, 0.2, 0" />
+
+				<property name="mesh" value="res://assets/PlacementPreview.tscn" />
+
+				<property name="material_override" value="res://assets/StandardMaterial3D_Preview.xml" />
+
+			</meshinstance3d>
+
+			<!-- BuilderController script with exported properties -->
+			<script name="BuilderController">
+
+				<property name="Camera" type="Camera3D" export="true" />
+
+				<property name="SelectionIndicator" type="MeshInstance3D" export="true" />
+
+				<property name="PlacementPreview" type="MeshInstance3D" export="true" />
+
+				<property name="DungeonGrid" type="DungeonGrid" export="true" />
+
+				<property name="EssenceManager" type="EssenceManager" export="true" />
+
+				<property name="TileSize" type="float" export="true" value="2.0" />
+
+				<property name="GridWidth" type="int" export="true" value="32" />
+
+				<property name="GridHeight" type="int" export="true" value="32" />
+
+				<property name="MaxFloors" type="int" export="true" value="3" />
+
+			</script>
+
+		</node3d>
+
+	</root>
+
+</GodotScene>
