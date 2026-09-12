@@ -1,16 +1,15 @@
 """FastAPI REST API for Dungeon Lord Hybrid Management & Grid-Crawler Engine."""
 
-import os
-from typing import Dict, List, Optional
+from typing import Dict, Optional
+
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-from dotenv import load_dotenv
+from pydantic import BaseModel
 
-from dungeon_master.dice import default_dice_engine
-from dungeon_master.models import DungeonLord, DungeonRank, DungeonTile, InvaderParty, TileType, MonsterInstance
-from dungeon_master.rules import calculate_attribute, calculate_invader_essence_reward
-from dungeon_master.save_load import save_game, load_game, DB_PATH
+from dungeon_master.models import DungeonLord, DungeonRank, DungeonTile, MonsterInstance, TileType
+from dungeon_master.rules import calculate_invader_essence_reward
+from dungeon_master.save_load import DB_PATH, delete_save, has_save, load_game, save_game
 
 load_dotenv()
 
@@ -29,6 +28,18 @@ dungeon_lord = DungeonLord()
 dungeon_rank = DungeonRank()
 grid_store: Dict[str, DungeonTile] = {}
 monster_store: Dict[str, MonsterInstance] = {}
+
+
+@app.on_event("startup")
+def _on_startup():
+    global dungeon_lord, dungeon_rank, grid_store, monster_store
+    if has_save(DB_PATH):
+        dungeon_lord, dungeon_rank, grid_store, monster_store = load_game(DB_PATH)
+
+
+@app.on_event("shutdown")
+def _on_shutdown():
+    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store, DB_PATH)
 
 
 class BuildTileRequest(BaseModel):
@@ -101,27 +112,46 @@ def defeat_invader(req: InvaderDefeatRequest):
 
 class ModeSwitchRequest(BaseModel):
     new_mode: str
-
 @app.post("/game/mode_switch")
 def mode_switch(req: ModeSwitchRequest):
-    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store)
+    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store, DB_PATH)
     return {"status": "success", "message": f"Switched to {req.new_mode} and autosaved"}
+
 
 @app.post("/game/quit")
 def quit_game():
-    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store)
+    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store, DB_PATH)
     return {"status": "success", "message": "Autosaved and quit"}
+
 
 @app.post("/game/save")
 def save_game_endpoint():
-    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store)
+    save_game(dungeon_lord, dungeon_rank, grid_store, monster_store, DB_PATH)
     return {"status": "success"}
+
 
 @app.post("/game/load")
 def load_game_endpoint():
     global dungeon_lord, dungeon_rank, grid_store, monster_store
-    dungeon_lord, dungeon_rank, grid_store, monster_store = load_game()
+    dungeon_lord, dungeon_rank, grid_store, monster_store = load_game(DB_PATH)
     return {"status": "success"}
+
+
+@app.get("/game/save_status")
+def save_status():
+    return {"has_save": has_save(DB_PATH)}
+
+
+@app.post("/game/new")
+def new_game():
+    global dungeon_lord, dungeon_rank, grid_store, monster_store
+    delete_save(DB_PATH)
+    dungeon_lord = DungeonLord()
+    dungeon_rank = DungeonRank()
+    grid_store = {}
+    monster_store = {}
+    return {"status": "success"}
+
 
 if __name__ == "__main__":
     import uvicorn
