@@ -1,5 +1,0 @@
-- [x] Add `position` (x, y, z), `facing` (str) to `DungeonLord` in `models.py`.
-- [x] Add `MonsterInstance` model in `models.py` and `wave_count` to `DungeonRank`.
-- [x] Create `save_load.py` with SQLite integration for all state requirements.
-- [x] Add mode switch - [ ] Add mode switch & quit autosave logic in `main.py`. quit autosave logic in `main.py`.
-- [ ] Write tests and ensure all tests pass.
