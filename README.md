@@ -50,7 +50,7 @@ godot --path . --editor
 ### Run Tests (Python Tooling)
 ```bash
 source .venv/bin/activate
-pytest tests/ -v
+PYTHONPATH=. pytest tests/ -v
 ```
 
 ### Graphify (Knowledge Graph)
