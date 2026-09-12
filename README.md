@@ -26,41 +26,72 @@ dungeon_master/
 ├── BRD.md              # Business Requirements (from Dungeon_Lord_BRD.docx)
 ├── SPEC.md             # Technical specification
 ├── AGENTS.md           # Agent instructions + coordinated workflows
-├── project.godot       # Godot 4 project (C#)
+├── project.godot       # Godot 4 project (C#) — repo root is the Godot project
 ├── DungeonLord.csproj  # .NET 8 project
+├── export_presets.cfg  # Export presets: Linux desktop + Web (WASM)
+├── Makefile            # One-command build: `make export-all`
+├── Scenes/             # Godot scenes (Main, etc.)
 ├── Scripts/            # C# scripts (Builder, Crawl, Grid, Essence, Leveling)
-├── dungeon_lord/       # Godot scenes/assets structure
-│   ├── scenes/         # Builder, Crawl, UI scenes
-│   ├── scripts/        # Grid, entities, progression, economy, AI, config
-│   └── assets/
+├── dungeon_master/     # Python tooling package
 ├── tools/              # Python tooling (config validation, etc.)
 ├── tests/              # Unit tests (progression, grid, dice, combat, rules)
 └── .venv/              # Python virtual environment
 ```
 
+## Play Online (Web Build)
+
+**▶️ Play Dungeon Lord in your browser:** <https://sagar0163.github.io/dungeon-master/>
+
+A static Web (WASM) build is produced by CI on every push to `main` and
+deployed to GitHub Pages (see `.github/workflows/web-build.yml`). It runs the
+full C# game with tile-based grid movement — place rooms in **Builder Mode**
+(keys `1`–`5` to choose a tool, **Enter** to place, **Tab** to switch modes),
+then crawl your dungeon with **WASD / Arrow keys** (90° turns, discrete tiles).
+
+The same build can be served locally after exporting:
+
+```bash
+make serve        # http://localhost:8080
+```
+
 ## Quick Start
 
 ### Prerequisites
-- **Godot 4.2+** (C# edition) — https://godotengine.org/download
+- **Godot 4.2+** (C# edition) — https://godotengine.org/download (only needed to open the editor)
 - **.NET 8 SDK** — https://dotnet.microsoft.com/download
+- **make**, **curl**, **unzip** (for the one-command build)
 - **Python 3.10+** (for tooling/tests)
+
+### One-Command Build (Linux + Web)
+`export_presets.cfg` is committed with **Linux desktop** and **Web (WASM)**
+presets. The Makefile is self-hosting: it downloads Godot, the .NET SDK and the
+export templates into `.tools/` on first use — no manual editor step needed.
+
+```bash
+make setup          # first time only: bootstraps Godot + .NET + templates
+make export-all     # exports builds/dungeon_lord.x86_64 + builds/web/
+
+# Or individual platforms:
+make export-linux
+make export-web
+```
 
 ### Run the Game
 ```bash
-cd dungeon_master
+# Run the exported Linux desktop build
+make run            # == ./builds/dungeon_lord.x86_64
 
-# Open in Godot editor
+# Serve the Web build locally
+make export-web
+make serve          # http://localhost:8080
+
+# Open in Godot editor (development)
 godot --path . --editor
-
-# Or build and run export (after building in editor)
-./builds/dungeon_lord.x86_64
 ```
 
 ### Run Tests (Python Tooling)
 ```bash
-cd dungeon_master
-source .venv/bin/activate
-pytest tests/ -v
+make test           # or: source .venv/bin/activate && pytest tests/ -v
 ```
 
 ### Graphify (Knowledge Graph)
@@ -107,16 +138,16 @@ milestone_bonus:
 - ✅ BRD/SPEC/AGENTS aligned
 - ✅ Godot 4 C# project structure
 - ✅ Core C# scripts (Grid, Builder, Crawl, Essence, Leveling)
+- ✅ Export presets: Linux + Web; `make export-all` one-command build
+- ✅ Web build deployed to GitHub Pages (playable in browser)
 - ✅ Python tooling + 41 passing tests (progression, grid, dice, combat, rules)
 - ✅ Graphify knowledge graph
 - ✅ All skills installed (gstack, speckit, ponytail)
 - ✅ GitHub synced: https://github.com/sagar0163/dungeon-master
 
 ## Next Steps
-1. Install Godot 4.2+ C# edition
-2. Open `project.godot` in Godot editor
-3. Build first scene: Builder Mode grid editor
-4. Implement tile placement + Essence spending
-5. Add Crawl Mode camera + grid movement
-6. Hook up invader pathfinding (A* on grid)
+1. Verify the exported Web build in a browser (see **Play Online**)
+2. Verify the exported Linux build (`make run`)
+3. Continue gameplay content: more room types, traps, monster behaviors
+4. Wire real SQLite persistence
 <!-- keep -->
