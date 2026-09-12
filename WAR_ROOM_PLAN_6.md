@@ -18,10 +18,10 @@ Branch: `war-room-issue-6` (base `main`). Repo root is a Godot 4 (C#) project wi
 - [x] 1. `data/dungeon_generation.toml` — generator + room + corridor params (no hardcoded numbers in code)
 - [x] 2. Python `dungeon_master/generator.py` — SeededRandom, config, DungeonGenerator
 - [x] 3. Python tests `tests/test_generator.py` — seed determinism, diff-seed diff, per-floor connectivity, TOML config values, cross-layer signature check (runs C# binary if built)
-- [ ] 4. C# `Scripts/Config/DungeonGenerationConfig.cs` (config + minimal TOML reader)
-- [ ] 5. C# `Scripts/DungeonGenerator.cs` — mirrors Python algorithm, writes to `DungeonGrid`
-- [ ] 6. C# standalone test `tests_cs/` (console, no packages) mirroring Python tests + `--signature <seed>` mode; exclude dir from Godot build
-- [ ] 7. Build & run C# test, run full Python suite, fix failures
+- [x] 4. C# `Scripts/Config/DungeonGenerationConfig.cs` (config + minimal TOML reader)
+- [x] 5. C# `Scripts/DungeonGenerator.cs` — mirrors Python algorithm, writes to `DungeonGrid`
+- [x] 6. C# standalone test `tests_cs/` (console, no packages) mirroring Python tests + `--signature <seed>` mode; exclude dir from Godot build
+- [x] 7. Build & run C# test, run full Python suite, fix failures
 - [ ] 8. Wire "Generate" into BuilderHUD (`GenerateDungeonButton`) + GameManager regen
 - [ ] 9. Final pass: graphify update, clean up plan file, final commit + push
 

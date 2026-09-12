@@ -4,4 +4,9 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>DungeonLord</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Headless C# test harness lives outside the game assembly. -->
+    <Compile Remove="tests_cs/**" />
+  </ItemGroup>
 </Project>

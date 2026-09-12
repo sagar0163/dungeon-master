@@ -6,6 +6,7 @@ same TOML config) so both layers must agree on seed determinism.
 """
 
 import os
+import shutil
 import subprocess
 
 import pytest
@@ -14,7 +15,17 @@ from dungeon_master.generator import DungeonGenerator, GenerationConfig, floor_r
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(REPO_ROOT, "data", "dungeon_generation.toml")
-CS_BINARY = os.path.join(REPO_ROOT, "tests_cs", "bin", "Debug", "net8.0", "DungeonLord.Tests")
+CS_DLL = os.path.join(REPO_ROOT, "tests_cs", "bin", "Debug", "net8.0", "DungeonLord.Tests.dll")
+
+
+def _find_dotnet() -> str:
+    from_env = os.environ.get("DOTNET_ROOT")
+    if from_env and os.path.exists(os.path.join(from_env, "dotnet")):
+        return os.path.join(from_env, "dotnet")
+    return shutil.which("dotnet")
+
+
+DOTNET = _find_dotnet()
 
 
 @pytest.fixture(scope="module")
@@ -113,15 +124,18 @@ class TestCrossLayerAgreement:
     otherwise so the Python suite stays runnable without a .NET build.
     """
 
-    @pytest.mark.skipif(not os.path.exists(CS_BINARY), reason="C# test harness not built")
+    @pytest.mark.skipif(not DOTNET or not os.path.exists(CS_DLL), reason="C# test harness not built")
     @pytest.mark.parametrize("seed", [1, 1337, 2024, 99991])
     def test_matches_csharp_signature(self, generator, seed):
+        env = dict(os.environ)
+        env.setdefault("DOTNET_ROOT", os.path.dirname(DOTNET))
         result = subprocess.run(
-            [CS_BINARY, "--signature", str(seed)],
+            [DOTNET, CS_DLL, "--signature", str(seed)],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
-            timeout=30,
+            timeout=60,
+            env=env,
         )
         assert result.returncode == 0, result.stderr
         cs_sig = result.stdout.strip().split("SIG:", 1)[1]
