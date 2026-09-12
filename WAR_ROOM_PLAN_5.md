@@ -1,5 +1,0 @@
-- [x] Create GitHub Actions workflow for CI
-- [x] Add .NET 8 build step to CI
-- [x] Add pytest step to CI
-- [x] Add Godot headless step to CI
-- [ ] Update README.md with status badge

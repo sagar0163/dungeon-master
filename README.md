@@ -1,4 +1,5 @@
 # Dungeon Lord
+[![CI](https://github.com/sagar0163/dungeon-master/actions/workflows/ci.yml/badge.svg)](https://github.com/sagar0163/dungeon-master/actions/workflows/ci.yml)
 
 **Hybrid dungeon-builder + first-person grid crawler** — Dungeon Keeper × Legend of Grimrock.
 
