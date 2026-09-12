@@ -22,6 +22,9 @@
     <Compile Include="../Scripts/DungeonGrid.cs" Link="Core/DungeonGrid.cs" />
     <Compile Include="../Scripts/EssenceManager.cs" Link="Core/EssenceManager.cs" />
     <Compile Include="../Scripts/Pathfinding.cs" Link="Core/Pathfinding.cs" />
+    <Compile Include="../Scripts/DiceEngine.cs" Link="Core/DiceEngine.cs" />
+    <Compile Include="../Scripts/CombatRules.cs" Link="Core/CombatRules.cs" />
+    <Compile Include="../Scripts/InvaderWaveSimulation.cs" Link="Core/InvaderWaveSimulation.cs" />
   </ItemGroup>
 
 </Project>
