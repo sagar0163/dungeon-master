@@ -350,7 +350,7 @@ namespace DungeonLord.Scripts
             BuilderController.ChangeFloor(0);
 
             Vector3I start = _lordState != null ? _lordState.Position : Vector3I.Zero;
-            if (newGrid.GetTile(start.X, start.Y, start.Z)?.Type == DungeonGrid.TileType.Empty)
+            if (newGrid.GetTile(start.X, start.Y, start.Z)?.Type == TileType.Empty)
             {
                 start = FindFirstWalkableTile(newGrid);
             }
@@ -382,7 +382,7 @@ namespace DungeonLord.Scripts
                     for (int x = 0; x < grid.Width; x++)
                     {
                         var type = grid.GetTile(x, y, z)?.Type;
-                        if (type == DungeonGrid.TileType.Room || type == DungeonGrid.TileType.Corridor)
+                        if (type == TileType.Room || type == TileType.Corridor)
                         {
                             return new Vector3I(x, y, z);
                         }
