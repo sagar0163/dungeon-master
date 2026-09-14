@@ -38,4 +38,5 @@ build/
 *.log
 *.sqlite
 *.db
-graphify-out/cache/.godot/
+graphify-out/cache/
+.godot/
