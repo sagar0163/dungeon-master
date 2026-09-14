@@ -68,8 +68,8 @@ namespace DungeonLord.Scripts.UI
             FacingLabel ??= GetNodeOrNull<Label>("%FacingLabel");
 
             // Connect buttons
-            PossessionButton?.Pressed += OnPossessionButtonPressed;
-            SwitchModeButton?.Pressed += () => _crawlController?.OnModeSwitchRequested?.Invoke();
+            if (PossessionButton != null) PossessionButton.Pressed += OnPossessionButtonPressed;
+            if (SwitchModeButton != null) SwitchModeButton.Pressed += () => _crawlController?.RequestModeSwitch();
 
             // Hide possession targets panel initially
             if (PossessionTargetsScroll != null)
@@ -128,12 +128,12 @@ namespace DungeonLord.Scripts.UI
             UpdatePossessionTimerDisplay();
         }
 
-        private void OnPartySpawned(InvaderAI.InvaderParty party)
+        private void OnPartySpawned(InvaderParty party)
         {
             UpdateWaveDisplay();
         }
 
-        private void OnPartyDestroyed(InvaderAI.InvaderParty party)
+        private void OnPartyDestroyed(InvaderParty party)
         {
             // Could add essence gain notification here
         }
@@ -178,7 +178,7 @@ namespace DungeonLord.Scripts.UI
                     var btn = new Button
                     {
                         Text = $"{monsterId} at ({position.X}, {position.Y}, F{position.Z})",
-                        HorizontalAlignment = HorizontalAlignment.Left
+                        Alignment = HorizontalAlignment.Left
                     };
                     btn.Pressed += () => _possessionManager.TryPossess(position);
                     PossessionTargetsPanel.AddChild(btn);
@@ -256,7 +256,7 @@ namespace DungeonLord.Scripts.UI
             }
         }
 
-        private void UpdateReputationDisplay()
+        public void UpdateReputationDisplay()
         {
             if (ReputationLabel != null && _invaderAI != null)
             {
@@ -307,12 +307,12 @@ namespace DungeonLord.Scripts.UI
                         // Color based on tile type
                         panel.AddThemeColorOverride("panel_color", tileData.Type switch
                         {
-                            DungeonGrid.TileType.Empty => Colors.Transparent,
-                            DungeonGrid.TileType.Corridor => new Color(0.6f, 0.5f, 0.4f),
-                            DungeonGrid.TileType.Room => new Color(0.4f, 0.6f, 0.4f),
-                            DungeonGrid.TileType.Trap => new Color(0.8f, 0.2f, 0.2f),
-                            DungeonGrid.TileType.SpawnPoint => new Color(0.2f, 0.8f, 0.2f),
-                            DungeonGrid.TileType.LordChamber => new Color(0.8f, 0.8f, 0.2f),
+                            TileType.Empty => Colors.Transparent,
+                            TileType.Corridor => new Color(0.6f, 0.5f, 0.4f),
+                            TileType.Room => new Color(0.4f, 0.6f, 0.4f),
+                            TileType.Trap => new Color(0.8f, 0.2f, 0.2f),
+                            TileType.SpawnPoint => new Color(0.2f, 0.8f, 0.2f),
+                            TileType.LordChamber => new Color(0.8f, 0.8f, 0.2f),
                             _ => Colors.Gray
                         });
                     }

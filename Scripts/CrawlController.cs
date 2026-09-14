@@ -37,6 +37,7 @@ namespace DungeonLord.Scripts
 
         public event Action<Vector3I, Direction> OnPositionChanged;
         public event Action OnModeSwitchRequested;
+        public void RequestModeSwitch() => OnModeSwitchRequested?.Invoke();
 
         public enum Direction
         {
@@ -225,7 +226,7 @@ namespace DungeonLord.Scripts
         {
             if (_dungeonGrid == null) return false;
             var tile = _dungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
-            return tile != null && tile.Type != DungeonGrid.TileType.Empty;
+            return tile != null && tile.Type != TileType.Empty;
         }
 
         private Vector3 GridToWorld(Vector3I gridPos)

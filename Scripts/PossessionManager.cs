@@ -18,8 +18,8 @@ namespace DungeonLord.Scripts
         [Export] public bool RequireLineOfSight { get; set; } = true;
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public CrawlController CrawlController { get; private set; }
+        public DungeonGrid DungeonGrid { get; set; }
+        public CrawlController CrawlController { get; set; }
         
         // State
         private bool _isPossessing = false;
@@ -173,7 +173,7 @@ namespace DungeonLord.Scripts
             while (true)
             {
                 var tile = DungeonGrid.GetTile(x0, y0, from.Z);
-                if (tile != null && tile.Type == DungeonGrid.TileType.Empty)
+                if (tile != null && tile.Type == TileType.Empty)
                     return false; // Blocked by empty space (wall)
                 
                 if (x0 == x1 && y0 == y1) break;
