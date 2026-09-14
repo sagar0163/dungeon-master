@@ -1,64 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GodotScene>
+[gd_scene load_steps=2 format=3]
 
-	<root>
+[ext_resource type="Script" path="res://Scripts/CrawlController.cs" id="1_crawl"]
 
-		<node3d name="CrawlMode">
+[node name="CrawlMode" type="Node3D"]
 
-			<camera3d name="Camera3D">
+[node name="CrawlController" type="Node3D" parent="."]
+script = ExtResource("1_crawl")
+Camera = NodePath("Camera3D")
+MoveDuration = 0.3
+TurnDuration = 0.2
+CameraHeight = 1.6
+TileSize = 2.0
 
-				<property name="position" value="0, 1.6, 0" />
-
-				<property name="current_transform" value="1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0" />
-
-			</camera3d>
-
-			<!-- Player body for first-person movement -->
-			<characterbody3d name="PlayerBody">
-
-				<property name="position" value="0, 0, 0" />
-
-				<property name="rotation" value="0, 0, 0" />
-
-			</characterbody3d>
-
-			<!-- Floor grid visual for crawl mode -->
-			<grid name="FloorGrid">
-
-				<!-- Tile instances for the 8x8 grid -->
-				<instance name="Tile" type="MeshInstance3D" count="64">
-
-					<property name="position" value="0, 0.1, 0" />
-
-					<property name="mesh" value="res://assets/GridTile.tscn" />
-
-					<property name="material_override" value="res://assets/StandardMaterial3D_Grid.xml" />
-
-				</instance>
-
-			</grid>
-
-			<!-- CrawlController script with exported properties -->
-			<script name="CrawlController">
-
-				<property name="Camera" type="Camera3D" export="true" />
-
-				<property name="Body" type="CharacterBody3D" export="true" />
-
-				<property name="DungeonGrid" type="DungeonGrid" export="true" />
-
-				<property name="MoveDuration" type="float" export="true" value="0.3" />
-
-				<property name="TurnDuration" type="float" export="true" value="0.2" />
-
-				<property name="CameraHeight" type="float" export="true" value="1.6" />
-
-				<property name="TileSize" type="float" export="true" value="2.0" />
-
-			</script>
-
-		</node3d>
-
-	</root>
-
-</GodotScene>
+[node name="Camera3D" type="Camera3D" parent="CrawlController"]
+position = Vector3(0, 1.6, 0)

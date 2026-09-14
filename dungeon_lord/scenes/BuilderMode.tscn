@@ -1,85 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GodotScene>
+[gd_scene load_steps=5 format=3]
 
-	<root>
+[ext_resource type="Script" path="res://Scripts/BuilderController.cs" id="1_builder"]
 
-		<node3d name="BuilderMode">
+[sub_resource type="BoxMesh" id="Box_sel"]
+size = Vector3(1.9, 0.06, 1.9)
 
-			<camera3d name="Camera3D">
+[sub_resource type="BoxMesh" id="Box_prev"]
+size = Vector3(1.9, 0.4, 1.9)
 
-				<property name="position" value="0, 30, 0" />
+[sub_resource type="StandardMaterial3D" id="Mat_prev"]
+albedo_color = Color(0.2, 0.8, 0.2, 0.5)
+transparency = 1
 
-				<property name="rotation" value="-1.5708, 0, 0" />
+[node name="BuilderMode" type="Node3D"]
 
-			</camera3d>
+[node name="BuilderCamera" type="Camera3D" parent="."]
+current = true
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 8, 30, 8)
 
-			<!-- 8x8 grid floor visual -->
-			<grid name="DungeonGrid" size="8, 8, 1">
+[node name="BuilderController" type="Node3D" parent="."]
+script = ExtResource("1_builder")
+Camera = NodePath("../BuilderCamera")
+SelectionIndicator = NodePath("../SelectionIndicator")
+PlacementPreview = NodePath("../PlacementPreview")
+GridWidth = 8
+GridHeight = 8
 
-				<!-- Tile instances for the 8x8 grid -->
-				<instance name="Tile" type="MeshInstance3D" count="64">
+[node name="SelectionIndicator" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("Box_sel")
 
-					<property name="position" value="0, 0.1, 0" />
-
-					<property name="mesh" value="res://assets/GridTile.tscn" />
-
-					<property name="material_override" value="res://assets/StandardMaterial3D_Grid.xml" />
-
-				</instance>
-
-			</grid>
-
-			<!-- Selection indicator shown when hovering over a tile -->
-			<meshinstance3d name="SelectionIndicator">
-
-				<property name="visible" value="false" />
-
-				<property name="position" value="0, 0.1, 0" />
-
-				<property name="mesh" value="res://assets/SelectionCursor.tscn" />
-
-				<property name="material_override" value="res://assets/StandardMaterial3D_Selection.xml" />
-
-			</meshinstance3d>
-
-			<!-- Placement preview shown when can place -->
-			<meshinstance3d name="PlacementPreview">
-
-				<property name="visible" value="false" />
-
-				<property name="position" value="0, 0.2, 0" />
-
-				<property name="mesh" value="res://assets/PlacementPreview.tscn" />
-
-				<property name="material_override" value="res://assets/StandardMaterial3D_Preview.xml" />
-
-			</meshinstance3d>
-
-			<!-- BuilderController script with exported properties -->
-			<script name="BuilderController">
-
-				<property name="Camera" type="Camera3D" export="true" />
-
-				<property name="SelectionIndicator" type="MeshInstance3D" export="true" />
-
-				<property name="PlacementPreview" type="MeshInstance3D" export="true" />
-
-				<property name="DungeonGrid" type="DungeonGrid" export="true" />
-
-				<property name="EssenceManager" type="EssenceManager" export="true" />
-
-				<property name="TileSize" type="float" export="true" value="2.0" />
-
-				<property name="GridWidth" type="int" export="true" value="32" />
-
-				<property name="GridHeight" type="int" export="true" value="32" />
-
-				<property name="MaxFloors" type="int" export="true" value="3" />
-
-			</script>
-
-		</node3d>
-
-	</root>
-
-</GodotScene>
+[node name="PlacementPreview" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("Box_prev")
+material_override = SubResource("Mat_prev")

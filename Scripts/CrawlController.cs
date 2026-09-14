@@ -257,12 +257,14 @@ namespace DungeonLord.Scripts
             SyncWorldPosition();
             SyncRotation();
             ProcessMode = ProcessModeEnum.Inherit;
+            if (Camera != null) Camera.Current = true;
         }
 
         // Called when exiting crawl mode to builder mode
         public void ExitCrawlMode()
         {
             ProcessMode = ProcessModeEnum.Disabled;
+            if (Camera != null) Camera.Current = false;
         }
 
         public Vector3 GetWorldPosition() => GlobalPosition;
