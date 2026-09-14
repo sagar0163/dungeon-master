@@ -37,6 +37,7 @@ namespace DungeonLord.Scripts
 
         public event Action<Vector3I, Direction> OnPositionChanged;
         public event Action OnModeSwitchRequested;
+        public void RequestModeSwitch() => OnModeSwitchRequested?.Invoke();
 
         public enum Direction
         {
@@ -106,12 +107,6 @@ namespace DungeonLord.Scripts
 
         private void HandleInput()
         {
-            if (Input.IsActionJustPressed(ACTION_SWITCH_MODE))
-            {
-                OnModeSwitchRequested?.Invoke();
-                return;
-            }
-
             if (Input.IsActionJustPressed(ACTION_TURN_LEFT))
             {
                 Turn(-1);
@@ -225,7 +220,7 @@ namespace DungeonLord.Scripts
         {
             if (_dungeonGrid == null) return false;
             var tile = _dungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
-            return tile != null && tile.Type != DungeonGrid.TileType.Empty;
+            return tile != null && tile.Type != TileType.Empty;
         }
 
         private Vector3 GridToWorld(Vector3I gridPos)
@@ -256,12 +251,14 @@ namespace DungeonLord.Scripts
             SyncWorldPosition();
             SyncRotation();
             ProcessMode = ProcessModeEnum.Inherit;
+            if (Camera != null) Camera.Current = true;
         }
 
         // Called when exiting crawl mode to builder mode
         public void ExitCrawlMode()
         {
             ProcessMode = ProcessModeEnum.Disabled;
+            if (Camera != null) Camera.Current = false;
         }
 
         public Vector3 GetWorldPosition() => GlobalPosition;

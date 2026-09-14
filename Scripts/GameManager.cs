@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Godot;
+using DungeonLord.Scripts.UI;
 
 namespace DungeonLord.Scripts
 {
@@ -11,17 +12,16 @@ namespace DungeonLord.Scripts
     [GlobalClass]
     public partial class GameManager : Node
     {
-        // Core systems
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
-        [Export] public LevelingEngine LevelingEngine { get; private set; }
+        // Core systems (grid/essence/producers are plain C# classes, not Godot exports)
+        public DungeonGrid DungeonGrid { get; private set; }
+        public EssenceManager EssenceManager { get; private set; }
         [Export] public BuilderController BuilderController { get; private set; }
         [Export] public CrawlController CrawlController { get; private set; }
         [Export] public InvaderAI InvaderAI { get; private set; }
         [Export] public PossessionManager PossessionManager { get; private set; }
         [Export] public DungeonResetCycle DungeonResetCycle { get; private set; }
-        [Export] public MonsterProductionManager MonsterProductionManager { get; private set; }
-        [Export] public MarketManager MarketManager { get; private set; }
+        public MonsterProductionManager MonsterProductionManager { get; private set; }
+        public MarketManager MarketManager { get; private set; }
 
         // UI
         [Export] public BuilderHUD BuilderHUD { get; private set; }
@@ -76,7 +76,6 @@ namespace DungeonLord.Scripts
             // These would normally be assigned in the editor, but we'll find/create them
             DungeonGrid ??= new DungeonGrid(32, 32, 3);
             EssenceManager ??= new EssenceManager(200);
-            LevelingEngine ??= new LevelingEngine();
         }
 
         private void CreateMissingComponents()
@@ -121,20 +120,16 @@ namespace DungeonLord.Scripts
                 DungeonResetCycle.Name = "DungeonResetCycle";
             }
 
-            // Create MonsterProductionManager if missing
+            // Create MonsterProductionManager if missing (plain C# class, not a Node)
             if (MonsterProductionManager == null)
             {
                 MonsterProductionManager = new MonsterProductionManager(EssenceManager, DungeonGrid);
-                AddChild(MonsterProductionManager);
-                MonsterProductionManager.Name = "MonsterProductionManager";
             }
 
-            // Create MarketManager if missing
+            // Create MarketManager if missing (plain C# class, not a Node)
             if (MarketManager == null)
             {
                 MarketManager = new MarketManager(EssenceManager, InvaderAI);
-                AddChild(MarketManager);
-                MarketManager.Name = "MarketManager";
             }
 
             // Create UI if missing
@@ -363,7 +358,7 @@ namespace DungeonLord.Scripts
         /// <summary>
         /// Handle invader party spawned
         /// </summary>
-        private void OnInvaderPartySpawned(InvaderAI.InvaderParty party)
+        private void OnInvaderPartySpawned(InvaderParty party)
         {
             GD.Print($"Invader party {party.Id} spawned with {party.Members.Count} members");
             _waveInProgress = true;
@@ -373,7 +368,7 @@ namespace DungeonLord.Scripts
         /// <summary>
         /// Handle invader party destroyed
         /// </summary>
-        private void OnInvaderPartyDestroyed(InvaderAI.InvaderParty party)
+        private void OnInvaderPartyDestroyed(InvaderParty party)
         {
             GD.Print($"Invader party {party.Id} destroyed");
 
@@ -395,7 +390,7 @@ namespace DungeonLord.Scripts
         /// <summary>
         /// Handle invader reaching target (dungeon core)
         /// </summary>
-        private void OnInvaderReachedTarget(InvaderAI.InvaderParty party, Vector3I target)
+        private void OnInvaderReachedTarget(InvaderParty party, Vector3I target)
         {
             GD.Print($"Invader party {party.Id} reached target at {target}!");
 
@@ -417,7 +412,7 @@ namespace DungeonLord.Scripts
         /// <summary>
         /// Calculate essence reward from defeating a party
         /// </summary>
-        private long CalculateEssenceReward(InvaderAI.InvaderParty party)
+        private long CalculateEssenceReward(InvaderParty party)
         {
             long baseReward = 50;
             foreach (var member in party.Members)
@@ -430,7 +425,7 @@ namespace DungeonLord.Scripts
         /// <summary>
         /// Calculate XP reward from defeating a party
         /// </summary>
-        private long CalculateXpReward(InvaderAI.InvaderParty party)
+        private long CalculateXpReward(InvaderParty party)
         {
             long baseReward = 100;
             foreach (var member in party.Members)

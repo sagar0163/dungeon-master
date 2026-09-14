@@ -56,7 +56,7 @@ namespace DungeonLord.Scripts.UI
         };
 
         // State
-        private ItemDatabase.ItemData _selectedItem;
+        private ItemData _selectedItem;
         private string _selectedSlot;
         private bool _isLordTab = true;
         private string _currentFilter = "All";
@@ -111,21 +111,21 @@ namespace DungeonLord.Scripts.UI
             }
 
             // Connect filter buttons
-            FilterAllBtn?.Pressed += () => SetFilter("All");
-            FilterWeaponsBtn?.Pressed += () => SetFilter("Weapon");
-            FilterArmorBtn?.Pressed += () => SetFilter("Armor");
-            FilterAccessoriesBtn?.Pressed += () => SetFilter("Accessory");
-            FilterConsumablesBtn?.Pressed += () => SetFilter("Consumable");
+            if (FilterAllBtn != null) FilterAllBtn.Pressed += () => SetFilter("All");
+            if (FilterWeaponsBtn != null) FilterWeaponsBtn.Pressed += () => SetFilter("Weapon");
+            if (FilterArmorBtn != null) FilterArmorBtn.Pressed += () => SetFilter("Armor");
+            if (FilterAccessoriesBtn != null) FilterAccessoriesBtn.Pressed += () => SetFilter("Accessory");
+            if (FilterConsumablesBtn != null) FilterConsumablesBtn.Pressed += () => SetFilter("Consumable");
 
             // Connect action buttons
-            EquipButton?.Pressed += OnEquipPressed;
-            UnequipButton?.Pressed += OnUnequipPressed;
-            UseButton?.Pressed += OnUsePressed;
-            DropButton?.Pressed += OnDropPressed;
-            CloseButton?.Pressed += () => Visible = false;
+            if (EquipButton != null) EquipButton.Pressed += OnEquipPressed;
+            if (UnequipButton != null) UnequipButton.Pressed += OnUnequipPressed;
+            if (UseButton != null) UseButton.Pressed += OnUsePressed;
+            if (DropButton != null) DropButton.Pressed += OnDropPressed;
+            if (CloseButton != null) CloseButton.Pressed += () => Visible = false;
 
             // Connect tab change
-            TabContainer?.TabChanged += OnTabChanged;
+            if (TabContainer != null) TabContainer.TabChanged += OnTabChanged;
 
             // Load items database
             ItemDatabase.LoadFromJson();
@@ -157,9 +157,7 @@ namespace DungeonLord.Scripts.UI
                 {
                     Text = "[Empty]",
                     TooltipText = $"Equip item in {slot} slot",
-                    CustomMinimumSize = new Vector2(120, 60),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
+                    CustomMinimumSize = new Vector2(120, 60)
                 };
                 slotButton.Pressed += () => OnEquipmentSlotPressed(slot, isLord);
 
@@ -201,7 +199,7 @@ namespace DungeonLord.Scripts.UI
             SetActionButtonsEnabled(false);
         }
 
-        private void SelectItem(ItemDatabase.ItemData item)
+        private void SelectItem(ItemData item)
         {
             _selectedItem = item;
             _selectedSlot = null;
@@ -305,7 +303,7 @@ namespace DungeonLord.Scripts.UI
                 {
                     Text = $"{item.Name} (T{item.Tier})",
                     TooltipText = $"{item.Category} | {item.Rarity} | ATK:{item.AttackBonus} DEF:{item.DefenseBonus} HP:{item.HpBonus}",
-                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Alignment = HorizontalAlignment.Left,
                     CustomMinimumSize = new Vector2(0, 36)
                 };
                 
@@ -333,7 +331,7 @@ namespace DungeonLord.Scripts.UI
             }
         }
 
-        private List<ItemDatabase.ItemData> GetFilteredItems()
+        private List<ItemData> GetFilteredItems()
         {
             var allItems = ItemDatabase.GetAllItems();
             
@@ -475,10 +473,10 @@ namespace DungeonLord.Scripts.UI
 
         private void SetActionButtonsEnabled(bool enabled, bool canUnequip = false, bool canUse = false)
         {
-            EquipButton?.SetDisabled(!enabled);
-            UnequipButton?.SetDisabled(!canUnequip);
-            UseButton?.SetDisabled(!canUse);
-            DropButton?.SetDisabled(!enabled);
+            if (EquipButton != null) EquipButton.Disabled = !enabled;
+            if (UnequipButton != null) UnequipButton.Disabled = !canUnequip;
+            if (UseButton != null) UseButton.Disabled = !canUse;
+            if (DropButton != null) DropButton.Disabled = !enabled;
         }
 
         private void UpdateCurrencyDisplay()
@@ -529,7 +527,7 @@ namespace DungeonLord.Scripts.UI
         public Dictionary<string, string> GetMonsterEquipment() => new(_monsterEquipment);
         public List<string> GetInventory() => new(_inventory);
 
-        public ItemDatabase.ItemData GetSelectedItem() => _selectedItem;
+        public ItemData GetSelectedItem() => _selectedItem;
 
         public void OpenInventory(bool forLord = true)
         {

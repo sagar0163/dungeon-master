@@ -42,6 +42,9 @@ dungeon-master/
 - **Python 3.10+** (for tooling/tests)
 
 ### Run the Game
+
+![Builder to Crawl Demo](docs/demo.gif)
+
 ```bash
 ./bootstrap.sh
 godot --path . --editor

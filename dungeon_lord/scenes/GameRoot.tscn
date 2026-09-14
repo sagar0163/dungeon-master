@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/GameRoot.cs" id="1_root"]
+[ext_resource type="Script" path="res://Scripts/GridVisual.cs" id="2_grid"]
+[ext_resource type="PackedScene" path="res://dungeon_lord/scenes/BuilderMode.tscn" id="3_builder"]
+[ext_resource type="PackedScene" path="res://dungeon_lord/scenes/CrawlMode.tscn" id="4_crawl"]
+
+[node name="GameRoot" type="Node3D"]
+script = ExtResource("1_root")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.866, 0.5, 0, -0.3536, 0.6124, 0.7071, 0.3536, -0.6124, 0.7071, 8, 20, 8)
+
+[node name="GridVisual" type="Node3D" parent="World"]
+script = ExtResource("2_grid")
+
+[node name="BuilderMode" parent="." instance=ExtResource("3_builder")]
+
+[node name="CrawlMode" parent="." instance=ExtResource("4_crawl")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ModeLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 600.0
+offset_bottom = 40.0
+text = "Mode: Builder (Tab -> Crawl)"
+
+[node name="EssenceLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 36.0
+offset_right = 300.0
+offset_bottom = 60.0
+text = "Essence: 200"
+
+[node name="HintLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 1200.0
+offset_bottom = 92.0
+text = "Builder: [1] select  [2] room  [3] trap, left-click to place. Tab switches to Crawl. W/S move, A/D turn."

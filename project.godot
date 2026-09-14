@@ -3,8 +3,8 @@ config_version=5
 [application]
 
 config/name="Dungeon Lord"
+run/main_scene="res://dungeon_lord/scenes/GameRoot.tscn"
 config/features=PackedStringArray("4.2", "C#")
-config/icon="res://icon.svg"
 
 [dotnet]
 

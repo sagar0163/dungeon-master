@@ -58,6 +58,8 @@ namespace DungeonLord.Scripts
         public event Action<string, Vector3I> OnTrapPlaced;
         public event Action<Vector3I> OnSpawnPointPlaced;
         public event Action OnModeSwitchRequested;
+        private void RaiseModeSwitchRequested() => OnModeSwitchRequested?.Invoke();
+        public void RequestModeSwitch() => RaiseModeSwitchRequested();
         public event Action<int> OnFloorChanged;
 
         public enum BuildTool
@@ -164,11 +166,11 @@ namespace DungeonLord.Scripts
 
                 InputMap.AddAction(ACTION_CAMERA_ZOOM_IN);
                 InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_IN, new InputEventKey { Keycode = Key.Equal });
-                InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_IN, new InputEventKey { Keycode = Key.PageUp });
+                InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_IN, new InputEventKey { Keycode = Key.Pageup });
 
                 InputMap.AddAction(ACTION_CAMERA_ZOOM_OUT);
                 InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_OUT, new InputEventKey { Keycode = Key.Minus });
-                InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_OUT, new InputEventKey { Keycode = Key.PageDown });
+                InputMap.ActionAddEvent(ACTION_CAMERA_ZOOM_OUT, new InputEventKey { Keycode = Key.Pagedown });
 
                 InputMap.AddAction(ACTION_FLOOR_UP);
                 InputMap.ActionAddEvent(ACTION_FLOOR_UP, new InputEventKey { Keycode = Key.E });
@@ -251,11 +253,6 @@ namespace DungeonLord.Scripts
                 SetTool(BuildTool.SpawnPoint);
             else if (Input.IsActionJustPressed(ACTION_TOOL_DELETE))
                 SetTool(BuildTool.Delete);
-
-            if (Input.IsActionJustPressed(ACTION_SWITCH_MODE))
-            {
-                OnModeSwitchRequested?.Invoke();
-            }
 
             if (Input.IsActionJustPressed(ACTION_CANCEL))
             {
@@ -386,15 +383,15 @@ namespace DungeonLord.Scripts
 
             return tool switch
             {
-                BuildTool.Room => tile.Type == DungeonGrid.TileType.Empty || tile.Type == DungeonGrid.TileType.Corridor,
-                BuildTool.Trap => tile.Type == DungeonGrid.TileType.Corridor || tile.Type == DungeonGrid.TileType.Room,
-                BuildTool.SpawnPoint => tile.Type == DungeonGrid.TileType.Room,
-                BuildTool.Delete => tile.Type != DungeonGrid.TileType.Empty,
+                BuildTool.Room => tile.Type == TileType.Empty || tile.Type == TileType.Corridor,
+                BuildTool.Trap => tile.Type == TileType.Corridor || tile.Type == TileType.Room,
+                BuildTool.SpawnPoint => tile.Type == TileType.Room,
+                BuildTool.Delete => tile.Type != TileType.Empty,
                 _ => false
             };
         }
 
-        private void PlaceRoom(Vector3I pos)
+        public void PlaceRoom(Vector3I pos)
         {
             if (_dungeonGrid == null || _essenceManager == null) return;
             if (!CanPlaceAt(pos, BuildTool.Room)) return;
@@ -407,7 +404,7 @@ namespace DungeonLord.Scripts
                 return;
             }
 
-            _dungeonGrid.SetTileType(pos.X, pos.Y, DungeonGrid.TileType.Room, pos.Z);
+            _dungeonGrid.SetTileType(pos.X, pos.Y, TileType.Room, pos.Z);
             var tile = _dungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
             if (tile != null)
             {
@@ -418,7 +415,7 @@ namespace DungeonLord.Scripts
             GD.Print($"Placed room '{_selectedRoomType}' at {pos} (Cost: {roomCost} Essence)");
         }
 
-        private void PlaceTrap(Vector3I pos)
+        public void PlaceTrap(Vector3I pos)
         {
             if (_dungeonGrid == null || _essenceManager == null) return;
             if (!CanPlaceAt(pos, BuildTool.Trap)) return;
@@ -435,7 +432,7 @@ namespace DungeonLord.Scripts
                 return;
             }
 
-            _dungeonGrid.SetTileType(pos.X, pos.Y, DungeonGrid.TileType.Trap, pos.Z);
+            _dungeonGrid.SetTileType(pos.X, pos.Y, TileType.Trap, pos.Z);
             var tile = _dungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
             if (tile != null)
             {
@@ -458,7 +455,7 @@ namespace DungeonLord.Scripts
                 return;
             }
 
-            _dungeonGrid.SetTileType(pos.X, pos.Y, DungeonGrid.TileType.SpawnPoint, pos.Z);
+            _dungeonGrid.SetTileType(pos.X, pos.Y, TileType.SpawnPoint, pos.Z);
             OnSpawnPointPlaced?.Invoke(pos);
             GD.Print($"Placed spawn point at {pos} (Cost: {spawnCost} Essence)");
         }
@@ -467,15 +464,15 @@ namespace DungeonLord.Scripts
         {
             if (_dungeonGrid == null) return;
             var tile = _dungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
-            if (tile == null || tile.Type == DungeonGrid.TileType.Empty) return;
+            if (tile == null || tile.Type == TileType.Empty) return;
 
             // Refund some essence based on tile type (simplified)
             long refund = tile.Type switch
             {
-                DungeonGrid.TileType.Room => 50,
-                DungeonGrid.TileType.Trap => 25,
-                DungeonGrid.TileType.SpawnPoint => 100,
-                DungeonGrid.TileType.Corridor => 10,
+                TileType.Room => 50,
+                TileType.Trap => 25,
+                TileType.SpawnPoint => 100,
+                TileType.Corridor => 10,
                 _ => 0
             };
 
@@ -484,7 +481,7 @@ namespace DungeonLord.Scripts
                 _essenceManager.AddEssence(refund);
             }
 
-            tile.Type = DungeonGrid.TileType.Empty;
+            tile.Type = TileType.Empty;
             tile.RoomId = null;
             tile.TrapId = null;
             tile.GarrisonedMonsters.Clear();

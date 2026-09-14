@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 namespace DungeonLord.Scripts
@@ -86,7 +87,7 @@ namespace DungeonLord.Scripts
 
         public static CrafterData Get(CrafterType type) => Data.TryGetValue(type, out var d) ? d : null;
         public static CrafterData GetByRoom(RoomType room) => Data.Values.FirstOrDefault(d => d.RequiredRoom == room);
-        public static bool CanCraft(CrafterType type, string itemCategory) => Data.TryGetValue(type, out var d) && d.PrimaryCategories.Contains(itemCategory);
+        public static bool CanCraft(CrafterType type, string itemCategory) => Data.TryGetValue(type, out var d) && d.PrimaryCategories.Any(c => c == itemCategory);
     }
 
     public class CrafterData

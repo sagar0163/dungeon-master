@@ -21,9 +21,9 @@ namespace DungeonLord.Scripts
         [Export] public float GarrisonRespawnDelay { get; set; } = 30.0f; // seconds after reset
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
-        [Export] public InvaderAI InvaderAI { get; private set; }
+        public DungeonGrid DungeonGrid { get; set; }
+        public EssenceManager EssenceManager { get; set; }
+        public InvaderAI InvaderAI { get; set; }
         
         // State
         private float _resetTimer = 0f;
@@ -87,7 +87,7 @@ namespace DungeonLord.Scripts
                         var pos = new Vector3I(x, y, z);
                         
                         // Capture trap state
-                        if (tile.Type == DungeonGrid.TileType.Trap && !string.IsNullOrEmpty(tile.TrapId))
+                        if (tile.Type == TileType.Trap && !string.IsNullOrEmpty(tile.TrapId))
                         {
                             _trapStates[$"{x},{y},{z}"] = new TrapState
                             {
@@ -111,7 +111,7 @@ namespace DungeonLord.Scripts
                         }
                         
                         // Capture loot state (simplified - could be expanded)
-                        if (tile.Type == DungeonGrid.TileType.Room && 
+                        if (tile.Type == TileType.Room && 
                             (tile.RoomId == "treasure" || tile.RoomId == "boss"))
                         {
                             _lootStates[pos] = new LootState
@@ -191,7 +191,7 @@ namespace DungeonLord.Scripts
                 var state = kvp.Value;
                 var tile = DungeonGrid.GetTile(state.Position.X, state.Position.Y, state.Position.Z);
                 
-                if (tile != null && tile.Type == DungeonGrid.TileType.Trap)
+                if (tile != null && tile.Type == TileType.Trap)
                 {
                     state.IsArmed = true;
                     state.CooldownRemaining = 0f;
