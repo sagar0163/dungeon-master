@@ -30,7 +30,9 @@ GODOT_BIN  := $(GODOT_DIR)/Godot_v$(GODOT_TAG)_mono_linux_x86_64/Godot_v$(GODOT_
 DOTNET_BIN := $(DOTNET_DIR)/dotnet
 
 GODOT_URL  := https://github.com/godotengine/godot/releases/download/$(GODOT_TAG)/Godot_v$(GODOT_TAG)_mono_linux_x86_64.zip
-TEMPL_URL  := https://github.com/godotengine/godot/releases/download/$(GODOT_TAG)/Godot_v$(GODOT_TAG)_export_templates.tpz
+# C#/.NET projects require the MONO export templates (they ship the `_mono`
+# variants of each platform template); the standard tpz does not.
+TEMPL_URL  := https://github.com/godotengine/godot/releases/download/$(GODOT_TAG)/Godot_v$(GODOT_TAG)_mono_export_templates.tpz
 DOTNET_URL := https://dot.net/v1/dotnet-install.sh
 
 # ----------------------------------------------------------------------------
