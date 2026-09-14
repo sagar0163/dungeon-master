@@ -1,6 +1,0 @@
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.csproj.AssemblyReference.cache
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.GeneratedMSBuildEditorConfig.editorconfig
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.AssemblyInfoInputs.cache
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.AssemblyInfo.cs
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.csproj.CoreCompileInputs.cache
-/home/sagar-jadhav/Documents/my project/war room/workspace/dungeon-master/.godot/mono/temp/obj/Debug/DungeonLord.sourcelink.json
