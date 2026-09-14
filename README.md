@@ -22,18 +22,14 @@ Play as an **embodied Dungeon Lord** who:
 
 ## Project Structure
 ```
-dungeon_master/
+dungeon-master/
 ├── BRD.md              # Business Requirements (from Dungeon_Lord_BRD.docx)
 ├── SPEC.md             # Technical specification
 ├── AGENTS.md           # Agent instructions + coordinated workflows
 ├── project.godot       # Godot 4 project (C#)
 ├── DungeonLord.csproj  # .NET 8 project
 ├── Scripts/            # C# scripts (Builder, Crawl, Grid, Essence, Leveling)
-├── dungeon_lord/       # Godot scenes/assets structure
-│   ├── scenes/         # Builder, Crawl, UI scenes
-│   ├── scripts/        # Grid, entities, progression, economy, AI, config
-│   └── assets/
-├── tools/              # Python tooling (config validation, etc.)
+├── dungeon_master/     # Python tooling (config validation, etc.)
 ├── tests/              # Unit tests (progression, grid, dice, combat, rules)
 └── .venv/              # Python virtual environment
 ```
@@ -50,20 +46,14 @@ dungeon_master/
 ![Builder to Crawl Demo](docs/demo.gif)
 
 ```bash
-cd dungeon_master
-
-# Open in Godot editor
+./bootstrap.sh
 godot --path . --editor
-
-# Or build and run export (after building in editor)
-./builds/dungeon_lord.x86_64
 ```
 
 ### Run Tests (Python Tooling)
 ```bash
-cd dungeon_master
 source .venv/bin/activate
-pytest tests/ -v
+PYTHONPATH=. pytest tests/ -v
 ```
 
 ### Graphify (Knowledge Graph)

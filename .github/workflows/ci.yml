@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python-tests:
+    name: Python tooling (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest jsonschema tomli tomli-w
+      - name: Run Python tests
+        run: python -m pytest tests/ -v
+
+  dotnet-tests:
+    name: C# core (dotnet test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Restore
+        run: dotnet restore DungeonLord.Tests/DungeonLord.Tests.csproj
+      - name: Run C# tests
+        run: dotnet test DungeonLord.Tests/DungeonLord.Tests.csproj --no-restore --nologo

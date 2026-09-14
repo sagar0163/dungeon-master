@@ -1,42 +1,25 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Godot 4 specific ignores
+.godot/
+.godot-mono/
+export_presets.cfg
+*.import
 
-# Virtual environments
-.venv/
-venv/
-ENV/
+# Mono/C#
+.mono/
+obj/
+bin/
 
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+# OS generated files
 .DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-
-# Distribution
-dist/
-build/
-*.egg-info/
-
-# Local development
-*.log
+# SQLite databases
 *.sqlite
 *.db
 graphify-out/cache/
-.godot/
+
+# C# build artifacts
+tests_cs/bin/
+tests_cs/obj/
