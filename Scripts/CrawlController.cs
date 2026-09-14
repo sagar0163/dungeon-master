@@ -107,12 +107,6 @@ namespace DungeonLord.Scripts
 
         private void HandleInput()
         {
-            if (Input.IsActionJustPressed(ACTION_SWITCH_MODE))
-            {
-                OnModeSwitchRequested?.Invoke();
-                return;
-            }
-
             if (Input.IsActionJustPressed(ACTION_TURN_LEFT))
             {
                 Turn(-1);

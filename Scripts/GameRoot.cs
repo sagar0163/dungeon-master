@@ -66,6 +66,16 @@ var hud = GetNode<CanvasLayer>("HUD");
 			OnEssenceChanged(_essence.CurrentEssence);
 		}
 
+		public override void _Process(double delta)
+		{
+			// Tab toggles modes. Handled here (single point) so the active and
+			// inactive controllers cannot both react to the same key press.
+			if (Input.IsActionJustPressed("builder_switch_mode") || Input.IsActionJustPressed("crawl_switch_mode"))
+			{
+				ToggleMode();
+			}
+		}
+
 		public void ToggleMode()
 		{
 			if (_isCrawlMode) EnterBuilderMode();

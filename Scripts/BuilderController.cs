@@ -254,11 +254,6 @@ namespace DungeonLord.Scripts
             else if (Input.IsActionJustPressed(ACTION_TOOL_DELETE))
                 SetTool(BuildTool.Delete);
 
-            if (Input.IsActionJustPressed(ACTION_SWITCH_MODE))
-            {
-                OnModeSwitchRequested?.Invoke();
-            }
-
             if (Input.IsActionJustPressed(ACTION_CANCEL))
             {
                 _selectedTile = new Vector3I(-1, -1, -1);
@@ -396,7 +391,7 @@ namespace DungeonLord.Scripts
             };
         }
 
-        private void PlaceRoom(Vector3I pos)
+        public void PlaceRoom(Vector3I pos)
         {
             if (_dungeonGrid == null || _essenceManager == null) return;
             if (!CanPlaceAt(pos, BuildTool.Room)) return;
@@ -420,7 +415,7 @@ namespace DungeonLord.Scripts
             GD.Print($"Placed room '{_selectedRoomType}' at {pos} (Cost: {roomCost} Essence)");
         }
 
-        private void PlaceTrap(Vector3I pos)
+        public void PlaceTrap(Vector3I pos)
         {
             if (_dungeonGrid == null || _essenceManager == null) return;
             if (!CanPlaceAt(pos, BuildTool.Trap)) return;
