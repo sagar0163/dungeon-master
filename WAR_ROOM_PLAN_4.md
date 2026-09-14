@@ -21,16 +21,16 @@ So both checked items 1-6 and the "dotnet build works" item were NOT actually tr
 - [x] dotnet build (also fixed Godot3->4 API drift: Key.PageUp, Button.Alignment, events on `?.`, SetDisabled, ThemeFontSize)
 
 ### B. Runnable vertical-slice scene
-- [ ] Remove bad `config/icon` from project.godot; point main scene at GameRoot
-- [ ] Rewrite GameRoot.tscn, BuilderMode.tscn, CrawlMode.tscn as valid Godot 4 tscn (real node names, C# ext_resource refs)
-- [ ] Add GameRoot.cs: owns shared DungeonGrid(8x8x1) + EssenceManager, wires controllers, Tab mode switch <100ms
-- [ ] GridVisual.cs: render grid tiles (room/trap colored) from the single DungeonGrid in both modes
-- [ ] Lord spawns at most recently built room on Crawl start; tile-by-tile movement + 90deg turn works
-- [ ] Builder: place one room + one trap spending Essence (default trap type preset)
-- [ ] Verify tile placed top-down is physically present first-person (single data model)
+- [x] Remove bad `config/icon` from project.godot; point main scene at GameRoot
+- [x] Rewrite GameRoot.tscn, BuilderMode.tscn, CrawlMode.tscn as valid Godot 4 tscn (real node names, C# ext_resource refs)
+- [x] Add GameRoot.cs: owns shared DungeonGrid(8x8x1) + EssenceManager, wires controllers, Tab mode switch <100ms
+- [x] GridVisual.cs: render grid tiles (room/trap colored) from the single DungeonGrid in both modes
+- [x] Lord spawns at most recently built room on Crawl start; tile-by-tile movement + 90deg turn works
+- [x] Builder: place one room + one trap spending Essence (default trap type preset)
+- [x] Verify tile placed top-down is physically present first-person (single data model)
 
 ### C. Docs & verification
-- [ ] Add GIF of build->switch->walk loop to README quick start
-- [ ] Run existing Python tests - all pass
-- [ ] Final: remove plan file, commit, push
+- [x] Add GIF of build->switch->walk loop to README quick start
+- [x] Run existing Python tests - all pass
+- [x] Final: remove plan file, commit, push
 
