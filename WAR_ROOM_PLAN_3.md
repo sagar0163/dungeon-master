@@ -16,7 +16,8 @@ Checklist:
 - [x] Run `pytest tests/ -v` (Python tooling sanity)
 - [x] Fix Makefile to download MONO export templates (standard templates lack `_mono` variants → C# export fails), add exclude_filter so `.tools/.venv/python tooling` don't bloat the pck
 - [x] Remove leftover C# build artifacts (DungeonLord.Tests/, tests_cs/ bin+obj-only) + gitignore bin/obj
-- [ ] Attempt real export: download dotnet/godot/templates, run `make export-all`, fix any C# compile errors
+- [x] Fix C# compile errors (game assembly had never compiled: GD0102 exports on non-Godot types, CS0426 nested-type refs, API mismatches, leftover tests_cs/ obj artifacts globbed into build)
+- [x] Attempt real export: run `make export-all` (setup downloads godot/dotnet/templates completed)
 - [ ] Verify `builds/dungeon_lord.x86_64` runs (headless smoke test)
 - [ ] Verify Web build artifacts + served page load (static check via curl)
 - [ ] Final cleanup: remove this plan file, final commit referencing #3, push branch

@@ -17,8 +17,8 @@ namespace DungeonLord.Scripts
         [Export] public float BaseSpawnInterval { get; set; } = 60.0f; // seconds
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
+        public DungeonGrid DungeonGrid { get; set; }
+        public EssenceManager EssenceManager { get; set; }
         
         // State
         private readonly List<InvaderParty> _activeParties = new();
@@ -124,7 +124,7 @@ namespace DungeonLord.Scripts
                 for (int y = 0; y < DungeonGrid.Height; y++)
                 {
                     var tile = DungeonGrid.GetTile(x, y, 0);
-                    if (tile?.Type == DungeonGrid.TileType.SpawnPoint)
+                    if (tile?.Type == TileType.SpawnPoint)
                         return new Vector3I(x, y, 0);
                 }
             }
@@ -140,7 +140,7 @@ namespace DungeonLord.Scripts
                     for (int y = 0; y < DungeonGrid.Height; y++)
                     {
                         var tile = DungeonGrid.GetTile(x, y, z);
-                        if (tile?.Type == DungeonGrid.TileType.LordChamber)
+                        if (tile?.Type == TileType.LordChamber)
                             return new Vector3I(x, y, z);
                     }
                 }
@@ -240,7 +240,7 @@ namespace DungeonLord.Scripts
             
             // Floor transitions (stairs/ladders)
             var tileHere = DungeonGrid.GetTile(pos.X, pos.Y, pos.Z);
-            if (tileHere?.Type == DungeonGrid.TileType.Corridor || tileHere?.Type == DungeonGrid.TileType.Room)
+            if (tileHere?.Type == TileType.Corridor || tileHere?.Type == TileType.Room)
             {
                 // Check floor above
                 if (pos.Z + 1 < DungeonGrid.Floors)
@@ -259,12 +259,12 @@ namespace DungeonLord.Scripts
             }
         }
         
-        private bool IsWalkable(DungeonGrid.TileType type)
+        private bool IsWalkable(TileType type)
         {
-            return type == DungeonGrid.TileType.Corridor 
-                || type == DungeonGrid.TileType.Room 
-                || type == DungeonGrid.TileType.SpawnPoint
-                || type == DungeonGrid.TileType.LordChamber;
+            return type == TileType.Corridor 
+                || type == TileType.Room 
+                || type == TileType.SpawnPoint
+                || type == TileType.LordChamber;
         }
         
         private List<Vector3I> ReconstructPath(Dictionary<Vector3I, Vector3I> cameFrom, Vector3I current)
@@ -316,7 +316,7 @@ namespace DungeonLord.Scripts
             var tile = grid.GetTile(targetTile.X, targetTile.Y, targetTile.Z);
             
             // Check for trap
-            if (tile?.Type == DungeonGrid.TileType.Trap)
+            if (tile?.Type == TileType.Trap)
             {
                 TriggerTrap(tile);
             }

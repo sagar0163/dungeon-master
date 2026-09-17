@@ -76,17 +76,16 @@ namespace DungeonLord.Scripts.UI
                 {
                     Text = DefaultKeybinds[i],
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CustomMinimumSize = new Vector2(0, 18),
-                    ThemeFontSizeOverride = 12
+                    CustomMinimumSize = new Vector2(0, 18)
                 };
+                keybindLabel.AddThemeFontSizeOverride("font_size", 12);
                 keybindLabel.AddThemeColorOverride("font_color", new Color(0.7f, 0.7f, 0.7f));
 
                 // Ability button (main slot)
                 var abilityButton = new Button
                 {
                     CustomMinimumSize = new Vector2(56, 56),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
+                    Alignment = HorizontalAlignment.Center,
                     FocusMode = Control.FocusModeEnum.None
                 };
                 abilityButton.Pressed += () => OnHotbarSlotPressed(i);
@@ -119,9 +118,9 @@ namespace DungeonLord.Scripts.UI
                 {
                     Text = "",
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CustomMinimumSize = new Vector2(0, 16),
-                    ThemeFontSizeOverride = 10
+                    CustomMinimumSize = new Vector2(0, 16)
                 };
+                essenceCostLabel.AddThemeFontSizeOverride("font_size", 10);
                 essenceCostLabel.AddThemeColorOverride("font_color", new Color(0.3f, 0.8f, 1f));
 
                 // Stack: keybind -> button (with cooldown overlay) -> essence cost
