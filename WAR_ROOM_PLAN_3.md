@@ -15,8 +15,10 @@ Checklist:
 - [x] Add GitHub Actions workflow for web build deploy (GH Pages artifact) so the link is live
 - [x] Run `pytest tests/ -v` (Python tooling sanity)
 - [x] Fix Makefile to download MONO export templates (standard templates lack `_mono` variants → C# export fails), add exclude_filter so `.tools/.venv/python tooling` don't bloat the pck
+- [x] Remove leftover C# build artifacts (DungeonLord.Tests/, tests_cs/ bin+obj-only) + gitignore bin/obj
 - [ ] Attempt real export: download dotnet/godot/templates, run `make export-all`, fix any C# compile errors
-- [ ] Verify `builds/dungeon_lord.x86_64` runs (headless smoke test) — if Godot unavailable, verify preset/script correctness statically
+- [ ] Verify `builds/dungeon_lord.x86_64` runs (headless smoke test)
+- [ ] Verify Web build artifacts + served page load (static check via curl)
 - [ ] Final cleanup: remove this plan file, final commit referencing #3, push branch
 
 Progress notes:
