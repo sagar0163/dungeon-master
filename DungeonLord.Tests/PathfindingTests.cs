@@ -111,8 +111,8 @@ namespace DungeonLord.Tests
             Assert.That(Pathfinding.IsWalkable(TileType.Room), Is.True);
             Assert.That(Pathfinding.IsWalkable(TileType.SpawnPoint), Is.True);
             Assert.That(Pathfinding.IsWalkable(TileType.LordChamber), Is.True);
+            Assert.That(Pathfinding.IsWalkable(TileType.Trap), Is.True);
             Assert.That(Pathfinding.IsWalkable(TileType.Empty), Is.False);
-            Assert.That(Pathfinding.IsWalkable(TileType.Trap), Is.False);
         }
 
         [Test]

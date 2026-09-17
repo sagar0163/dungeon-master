@@ -117,7 +117,8 @@ namespace DungeonLord.Scripts
             return type == TileType.Corridor
                 || type == TileType.Room
                 || type == TileType.SpawnPoint
-                || type == TileType.LordChamber;
+                || type == TileType.LordChamber
+                || type == TileType.Trap;
         }
 
         private static List<Cell> ReconstructPath(Dictionary<Cell, Cell> cameFrom, Cell current)
