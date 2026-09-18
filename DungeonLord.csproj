@@ -4,4 +4,10 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>DungeonLord</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Keep the self-contained C# test project out of the game assembly. -->
+    <Compile Remove="DungeonLord.Tests/**" />
+    <None Remove="DungeonLord.Tests/**" />
+  </ItemGroup>
 </Project>

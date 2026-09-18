@@ -1,7 +1,7 @@
 """Core Pydantic data models for Dungeon Lord hybrid management & grid-crawler game."""
 
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from uuid import uuid4
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -33,6 +33,10 @@ class DungeonLord(BaseModel):
     hp_current: float = 100.0
     attack_base: float = 15.0
     defense_base: float = 10.0
+    x: int = 0
+    y: int = 0
+    z: int = 0
+    facing: str = "north"
 
     @property
     def hp_max(self) -> float:
@@ -50,11 +54,22 @@ class DungeonRank(BaseModel):
     essence: int = 200
     essence_capacity_base: float = 1000.0
     settlement_reputation: int = 10  # Low hostility
+    wave_count: int = 0
 
     @property
     def essence_capacity(self) -> float:
         from dungeon_master.rules import calculate_attribute
         return calculate_attribute(self.essence_capacity_base, self.rank)
+
+
+class MonsterInstance(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid4()))
+    name: str = "Goblin"
+    level: int = 1
+    hp: float = 20.0
+    x: int = 0
+    y: int = 0
+    z: int = 0
 
 
 class InvaderParty(BaseModel):

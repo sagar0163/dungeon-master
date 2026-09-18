@@ -37,6 +37,9 @@ jobs:
       - name: .NET Build
         run: dotnet build DungeonLord.csproj
 
+      - name: .NET Tests
+        run: dotnet test DungeonLord.Tests/DungeonLord.Tests.csproj --nologo
+
       - name: Install Godot
         run: |
           wget -q https://github.com/godotengine/godot-builds/releases/download/4.2.2-stable/Godot_v4.2.2-stable_mono_linux_x86_64.zip
