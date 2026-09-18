@@ -23,6 +23,7 @@ GODOT_DIR  := $(TOOLS_DIR)/godot
 DOTNET_DIR := $(TOOLS_DIR)/dotnet
 BUILD_DIR  := builds
 TEMPL_DIR  := $(HOME)/.local/share/godot/export_templates/$(GODOT_VER).stable
+TEMPL_STAMP := $(TEMPL_DIR)/version_mono.txt
 
 GODOT_ZIP  := $(TOOLS_DIR)/Godot_v$(GODOT_TAG)_mono_linux_x86_64.zip
 TEMPL_TPZ  := $(TOOLS_DIR)/Godot_v$(GODOT_TAG)_export_templates.tpz
@@ -101,13 +102,13 @@ $(DOTNET_BIN):
 	chmod +x $(TOOLS_DIR)/dotnet-install.sh
 	$(TOOLS_DIR)/dotnet-install.sh --channel 8.0 --install-dir $(DOTNET_DIR)
 
-templates: $(TEMPL_DIR)/version.txt
+templates: $(TEMPL_STAMP)
 
-$(TEMPL_DIR)/version.txt:
+$(TEMPL_STAMP):
 	@echo "==> Downloading export templates for $(GODOT_TAG)"
 	@mkdir -p $(TEMPL_DIR) $(TOOLS_DIR)
 	curl -L -o $(TEMPL_TPZ) $(TEMPL_URL)
 	@tar -xf $(TEMPL_TPZ) -C $(TOOLS_DIR)
 	@cp -r $(TOOLS_DIR)/templates/* $(TEMPL_DIR)/
 	@rm -rf $(TOOLS_DIR)/templates $(TEMPL_TPZ)
-	@echo "$(GODOT_VER).stable" > $(TEMPL_DIR)/version.txt
+	@echo "$(GODOT_VER).stable" > $(TEMPL_STAMP)
