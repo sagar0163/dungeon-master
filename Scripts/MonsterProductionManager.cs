@@ -283,7 +283,7 @@ namespace DungeonLord.Scripts
         public bool StartProduction(string recipeId, Vector3I roomPosition)
         {
             var tile = _dungeonGrid.GetTile(roomPosition.X, roomPosition.Y, roomPosition.Z);
-            if (tile == null || tile.Type != DungeonGrid.TileType.Room)
+            if (tile == null || tile.Type != TileType.Room)
                 return false;
 
             var roomType = GetProductionRoomType(tile.RoomId);
@@ -365,7 +365,7 @@ namespace DungeonLord.Scripts
         public bool CanProduceInRoom(Vector3I roomPosition)
         {
             var tile = _dungeonGrid.GetTile(roomPosition.X, roomPosition.Y, roomPosition.Z);
-            if (tile == null || tile.Type != DungeonGrid.TileType.Room)
+            if (tile == null || tile.Type != TileType.Room)
                 return false;
 
             var roomType = GetProductionRoomType(tile.RoomId);
@@ -380,7 +380,7 @@ namespace DungeonLord.Scripts
         public List<ProductionRecipe> GetAvailableRecipes(Vector3I roomPosition)
         {
             var tile = _dungeonGrid.GetTile(roomPosition.X, roomPosition.Y, roomPosition.Z);
-            if (tile == null || tile.Type != DungeonGrid.TileType.Room)
+            if (tile == null || tile.Type != TileType.Room)
                 return new();
 
             var roomType = GetProductionRoomType(tile.RoomId);

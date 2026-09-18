@@ -17,8 +17,8 @@ namespace DungeonLord.Scripts
         [Export] public float BaseSpawnInterval { get; set; } = 60.0f; // seconds
         
         // References
-        [Export] public DungeonGrid DungeonGrid { get; private set; }
-        [Export] public EssenceManager EssenceManager { get; private set; }
+        public DungeonGrid DungeonGrid { get; set; }
+        public EssenceManager EssenceManager { get; set; }
         
         // State
         private readonly List<InvaderParty> _activeParties = new();
@@ -27,7 +27,7 @@ namespace DungeonLord.Scripts
         private RandomNumberGenerator _rng = new();
         
         // Settlement reputation (0.0 to 10.0+)
-        public float SettlementReputation { get; private set; } = 1.0f;
+        public float SettlementReputation { get; set; } = 1.0f;
         
         public event Action<InvaderParty> OnPartySpawned;
         public event Action<InvaderParty> OnPartyDestroyed;

@@ -74,14 +74,14 @@ namespace DungeonLord.Scripts.UI
             }
 
             // Connect floor buttons
-            FloorUpButton?.Pressed += () => _builderController?.ChangeFloor(_builderController.CurrentFloor + 1);
-            FloorDownButton?.Pressed += () => _builderController?.ChangeFloor(_builderController.CurrentFloor - 1);
+            if (FloorUpButton != null) FloorUpButton.Pressed += () => _builderController?.ChangeFloor(_builderController.CurrentFloor + 1);
+            if (FloorDownButton != null) FloorDownButton.Pressed += () => _builderController?.ChangeFloor(_builderController.CurrentFloor - 1);
 
             // Connect mode switch
-            SwitchModeButton?.Pressed += () => _builderController?.OnModeSwitchRequested?.Invoke();
+            if (SwitchModeButton != null) SwitchModeButton.Pressed += () => _builderController?.RequestModeSwitch();
 
             // Connect reset button
-            ResetDungeonButton?.Pressed += () => _resetCycle?.TriggerManualReset();
+            if (ResetDungeonButton != null) ResetDungeonButton.Pressed += () => _resetCycle?.TriggerManualReset();
 
             GD.Print("BuilderHUD initialized");
         }
