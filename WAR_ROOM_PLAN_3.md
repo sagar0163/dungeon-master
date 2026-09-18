@@ -18,6 +18,9 @@ Checklist:
 - [x] Remove leftover C# build artifacts (DungeonLord.Tests/, tests_cs/ bin+obj-only) + gitignore bin/obj
 - [x] Fix C# compile errors (game assembly had never compiled: GD0102 exports on non-Godot types, CS0426 nested-type refs, API mismatches, leftover tests_cs/ obj artifacts globbed into build)
 - [x] Attempt real export: run `make export-all` (setup downloads godot/dotnet/templates completed)
+- [x] Fix malformed `.gitignore` trailing line (`graphify-out/cache//templates.tpz` -> `graphify-out/cache/`)
+- [ ] Re-run `make setup` detached (prior `.tools/` was gone at start of this session) — godot+dotnet+templates
+- [ ] Run `make export-all` for real and inspect `builds/`
 - [ ] Verify `builds/dungeon_lord.x86_64` runs (headless smoke test)
 - [ ] Verify Web build artifacts + served page load (static check via curl)
 - [ ] Final cleanup: remove this plan file, final commit referencing #3, push branch

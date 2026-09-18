@@ -47,4 +47,4 @@ builds/
 *.log
 *.sqlite
 *.db
-graphify-out/cache//templates.tpz
+graphify-out/cache/
