@@ -1,0 +1,6 @@
+-r requirements.txt
+httpx2>=2.0.0
+pytest>=7.0.0
+jsonschema>=4.20.0
+tomli>=2.0.0
+tomli-w>=1.0.0
