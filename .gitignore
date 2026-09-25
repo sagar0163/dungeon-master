@@ -20,6 +20,11 @@ Thumbs.db
 *.db
 graphify-out/cache/
 
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
 # C# build artifacts
 tests_cs/bin/
 tests_cs/obj/
